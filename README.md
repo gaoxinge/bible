@@ -25,6 +25,21 @@
 - [make makefile cmake qmake都是什么，有什么区别？](https://www.zhihu.com/question/27455963)
 - [GCC和cmake的关系？](https://www.zhihu.com/question/36609459)
 
+## python
+
+- [pysheeet](https://www.pythonsheets.com/)
+- [Patterns, Recipes and Idioms](http://python-3-patterns-idioms-test.readthedocs.io/en/latest/index.html)
+
+## sicp
+
+- [Welcome to the SICP Web Site](https://mitpress.mit.edu/sicp/)
+- [CS61A Home Page](http://www-inst.eecs.berkeley.edu/~cs61a/archives.html)
+- [Composing Programs](http://composingprograms.com/)
+- [Index of /~cs61a/book/chapters](http://inst.eecs.berkeley.edu/~cs61a/book/chapters/)
+- [SICP in Python](https://www.gitbook.com/book/wizardforcel/sicp-in-python/details)
+- [SICP Python 描述 中文版](https://www.gitbook.com/book/wizardforcel/sicp-py/details)
+- [strint/sicpAns: 《计算机程序的构造和解释》编程题解](https://github.com/strint/sicpAns)
+
 ## networking
 
 - [TCP/IP ILLustrated Volume 1: The Protocols](https://book.douban.com/subject/1088054)
