@@ -14,6 +14,8 @@
 - [gunicorn](https://github.com/benoitc/gunicorn)
 - [uwsgi](https://github.com/unbit/uwsgi)
 
+- [nginx](https://github.com/nginx/nginx)
+
 ## docker
 
 - [docker cheat sheet](https://github.com/wsargent/docker-cheat-sheet)
