@@ -1,8 +1,12 @@
 # bible 
 
 ## language
+
 - [c](https://github.com/gaoxinge/bible/tree/master/c)
 - [python](https://github.com/gaoxinge/bible/tree/master/python)
+
+## networking
+
 - [networking](https://github.com/gaoxinge/bible/tree/master/networking)
 
 ## server
