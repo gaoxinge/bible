@@ -1,6 +1,7 @@
 from operator import add, sub, mul, truediv
 
 def make_ternary_constraint(a, b, c, ab, ca, cb):
+    """The constraint that ab(a,b)=c and ca(c,a)=b and cb(c,b) = a."""
     
     def new_value():
         av, bv, cv = [connector['has_val']() for connector in (a, b, c)]
