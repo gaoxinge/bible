@@ -19,15 +19,6 @@
 - [uwsgi](https://github.com/unbit/uwsgi)
 - [nginx](https://github.com/nginx/nginx)
 
-## docker
-
-- [docker cheat sheet](https://github.com/wsargent/docker-cheat-sheet)
-- [DockerCheatSheet](https://github.com/eon01/DockerCheatSheet)
-
-## architecture
-
-- [system design primer](https://github.com/donnemartin/system-design-primer)
-
 ## other
 
 - [netdata](https://github.com/firehol/netdata)
