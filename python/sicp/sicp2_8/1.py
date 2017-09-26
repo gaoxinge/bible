@@ -1,7 +1,6 @@
 def count(f):
     def counted(*args):
         counted.call_count += 1
-        print 1
         return f(*args)
     counted.call_count = 0
     return counted
