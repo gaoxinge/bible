@@ -3,6 +3,7 @@
 ## python
 
 - [pysheeet](https://www.pythonsheets.com/)
+- [Asyncio Documentation](http://asyncio.readthedocs.io/en/latest/)
 - [Python Synopsis](https://github.com/ent1c3d/Python-Synopsis)
 - [Patterns, Recipes and Idioms](http://python-3-patterns-idioms-test.readthedocs.io/en/latest/index.html)
 - [What the f*ck Python](https://github.com/satwikkansal/wtfpython)
