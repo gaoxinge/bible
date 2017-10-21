@@ -3,6 +3,7 @@
 ## language
 
 - [c](https://github.com/gaoxinge/bible/tree/master/c)
+- [java](https://github.com/gaoxinge/bible/tree/master/java)
 - [python](https://github.com/gaoxinge/bible/tree/master/python)
 
 ## networking
