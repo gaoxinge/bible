@@ -1,4 +1,4 @@
-# gradle
+# Gradle
 
 - [Gradle入门系列](http://blog.jobbole.com/71999/)
 - [Gradle学习系列](http://www.cnblogs.com/CloudTeng/p/3417762.html)
