@@ -30,11 +30,13 @@
 - [Docker从入门到实践](https://www.gitbook.com/book/yeasy/docker_practice/details)
 - [Docker教程|菜鸟教程](http://www.runoob.com/docker/docker-tutorial.html)
 
-## 集成
+## database
+
+## integration
 
 ### jenkins
 
-## 部署
+## deploy
 
 ### mesos
 
@@ -59,8 +61,6 @@
 ### consul 
 ### zookeeper
 ### etcd
-
-## 数据库
 
 ## 开发模式
 
