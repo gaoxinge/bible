@@ -20,6 +20,7 @@
 ## management
 
 - [Intellij](http://blog.csdn.net/lw_power/article/category/5917599)
-- [gradle](https://github.com/gaoxinge/bible/tree/master/java/gradle)
-- [maven](https://github.com/gaoxinge/bible/tree/master/java/maven)
-- [ant]()
+- Ivy
+- Ant
+- [Maven](https://github.com/gaoxinge/bible/tree/master/java/maven)
+- [Gradle](https://github.com/gaoxinge/bible/tree/master/java/gradle)
