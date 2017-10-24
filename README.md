@@ -62,9 +62,9 @@
 ### zookeeper
 ### etcd
 
-## 开发模式
+## development
 
-## 架构
+## architecture
 
 - [REST]()
 - [SOA]()
