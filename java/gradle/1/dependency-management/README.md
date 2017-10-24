@@ -1,0 +1,3 @@
+- `gradle test`：测试
+- `gradle assemble`或`gradle build`：打包
+- 在build/libs运行`java -jar dependency-management.jar`
