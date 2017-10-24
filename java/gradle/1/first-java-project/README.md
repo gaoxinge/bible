@@ -1,0 +1,3 @@
+- `gradle tasks`：查看可运行的命令
+- `gradle assemble`或`gradle build`：打包
+- 在build/libs运行`java -jar first-java-project.jar`
