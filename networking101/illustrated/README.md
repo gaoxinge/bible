@@ -6,4 +6,12 @@
 
 ## windows
 
+### ipconfig
+
+### netstat
+
+### ping
+
+### traceout
+
 ## linux

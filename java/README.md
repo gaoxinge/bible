@@ -4,12 +4,9 @@
 
 - Java面向对象程序设计入门
 - [Introduction to Programming in Java](https://book.douban.com/subject/3152176/)
+- [算法](https://book.douban.com/subject/10432347/)
 - [进击的Java新人](https://zhuanlan.zhihu.com/p/24393775)
 - [Java教程|菜鸟教程](http://www.runoob.com/java/java-tutorial.html)
-
-## algorithm
-
-- [算法](https://book.douban.com/subject/10432347/)
 
 ## library
 
