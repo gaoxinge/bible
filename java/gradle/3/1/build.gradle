@@ -1,0 +1,22 @@
+task helloWorld << {
+    println 'Hello World!'
+}
+
+task upper << {
+    String expString = 'YiiBai gradle tutorials'
+    println 'Original: ' + expString
+    println 'Upper case: ' + expString.toUpperCase()
+}
+
+task count << {
+    4.times {
+        print "$it "
+    }
+}
+
+task groovyJDKMethod << {
+    String myName = 'Yiibai'
+    myName.each() {
+        print "$it "
+    }
+}
