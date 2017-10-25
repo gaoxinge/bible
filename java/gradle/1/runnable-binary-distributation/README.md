@@ -1,0 +1,2 @@
+- `gradle distZip`或`gradle distTar`：创建二进制
+- 在distributations中解压缩runnable-binary-distributation.zip
