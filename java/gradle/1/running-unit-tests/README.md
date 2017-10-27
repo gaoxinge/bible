@@ -1,0 +1,1 @@
+- `gradle test`或者`gralde clean test`：测试
