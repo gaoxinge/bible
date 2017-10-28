@@ -113,8 +113,8 @@ nslookup命令用于显示DNS查询信息。例如
 ### netstat
 
 ```
-netstat -in
-netstat -i
+> netstat -in
+> netstat -i
 ```
 
 显示系统上的接口及其MTU。
