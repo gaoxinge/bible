@@ -4,6 +4,12 @@
 
 ## 网卡
 
+### windows的网络适配器
+
+### ipconfig
+
+### 一个网卡可以绑定几个ip
+
 ## windows
 
 ### ipconfig
@@ -60,7 +66,7 @@ ping命令通过发送ICMP回声请求报文来检测与另一台主机的连接
 
 ### tracert
 
-tracert命令通过增加TTL字段，向目标主机ICMP回声请求报文，来确认路径。例如
+tracert命令通过增加TTL字段，向目标主机发送ICMP回声请求报文，来确认路径。例如
 
 ```
 > tracert 127.0.0.1
@@ -91,7 +97,7 @@ route命令用于显示和修改本地路由表。例如
 nslookup命令用于显示DNS查询信息。例如
 
 ```
-> nslookup
+> nslookup 127.0.0.1
 ```
 
 ## linux
