@@ -1,0 +1,1 @@
+- [异步任务神器Celery简明笔记](http://python.jobbole.com/87086/)

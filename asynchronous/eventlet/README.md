@@ -1,0 +1,6 @@
+- [official website](http://eventlet.net/)
+- [github](https://github.com/eventlet)
+- [Python——eventlet.event](http://www.cnblogs.com/Security-Darren/p/4168116.html)
+- [Python——eventlet.greenpool](http://www.cnblogs.com/Security-Darren/p/4168233.html)
+- [eventlet做wsgi服务器的例子](http://gashero.iteye.com/blog/443885)
+- [协程才是未来-性能夸张的协程服务器，基于eventlet(greenlet)的http性能测试](http://gashero.iteye.com/blog/442177)

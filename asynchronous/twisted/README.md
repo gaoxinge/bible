@@ -1,0 +1,2 @@
+- [Twisted与异步编程入门](https://www.gitbook.com/book/likebeta/twisted-intro-cn/details)
+- [Twisted Web in 60 seconds: Index](http://jcalderone.livejournal.com/50562.html)
