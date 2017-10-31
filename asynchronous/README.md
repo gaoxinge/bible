@@ -25,6 +25,7 @@
 - [A Curious Course on Coroutines and Concurrency](http://www.dabeaz.com/coroutines/)
 - [Generators: The Final Frontier](http://www.dabeaz.com/finalgenerator/)
 - [PYTHON COROUTINES](https://blog.thumbtack.net/python-coroutines/)
+- [Implementing "weightless threads" with Python generators](https://www.ibm.com/developerworks/library/l-pythrd/index.html)
 - [A Web Crawler With asyncio Coroutines](http://aosabook.org/en/500L/a-web-crawler-with-asyncio-coroutines.html)
 
 ### library
