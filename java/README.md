@@ -5,10 +5,9 @@
 - [进击的Java新人](https://zhuanlan.zhihu.com/p/24393775)
 - [Java教程|菜鸟教程](http://www.runoob.com/java/java-tutorial.html)
 - [characteristic](https://github.com/gaoxinge/bible/tree/master/java/characteristic)
+- [other](https://github.com/gaoxinge/bible/tree/master/java/other)
 
 ## library
-
-## compile
 
 ## management
 
