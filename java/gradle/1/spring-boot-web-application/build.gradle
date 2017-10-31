@@ -1,0 +1,49 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath(
+            'org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE'
+            'org.unbroken-dome.gradle-plugins:gradle-testsets-plugin:1.0.2'
+        )
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'org.unbroken-dome.test-sets'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile (
+        'org.springframework.boot:spring-boot-starter-actuator'
+        'org.springframework.boot:spring-boot-starter-thymeleaf'
+    )
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+testSets {
+    integrationTest {
+        dirName = 'integration-test'
+    }
+}
+
+project.integrationTest {
+    outputs.upToDateWhen {
+        false
+    }
+}
+
+check.dependsOn integrationTest
+integrationTest.mustRunAfter test
+
+tasks.withType(Test) {
+    reports.html.destination = file("${reporting.baseDir}/${name}")
+}
