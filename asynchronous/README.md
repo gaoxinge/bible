@@ -21,6 +21,7 @@
 - [Python异步网络爬虫（1）](http://python.jobbole.com/86727/)
 - [Python异步网络爬虫（2）](http://python.jobbole.com/86795/)
 - [Coroutine从入门到劝退](https://zhuanlan.zhihu.com/p/25513336)
+- [Python服务器编程](https://zhuanlan.zhihu.com/p/30056870)
 - [Generator Tricks for Systems Programmers](http://www.dabeaz.com/generators/)
 - [Generator Tricks for Systems Programmers - Version 2.0](http://www.dabeaz.com/generators-uk/)
 - [A Curious Course on Coroutines and Concurrency](http://www.dabeaz.com/coroutines/)
