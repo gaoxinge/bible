@@ -20,6 +20,7 @@
 - [python:利用asyncio进行快速抓取](http://blog.jobbole.com/63897/)
 - [Python异步网络爬虫（1）](http://python.jobbole.com/86727/)
 - [Python异步网络爬虫（2）](http://python.jobbole.com/86795/)
+- [Coroutine实现有感](https://www.douban.com/note/11552969/)
 - [Coroutine从入门到劝退](https://zhuanlan.zhihu.com/p/25513336)
 - [Python服务器编程](https://zhuanlan.zhihu.com/p/30056870)
 - [Generator Tricks for Systems Programmers](http://www.dabeaz.com/generators/)
