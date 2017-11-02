@@ -14,6 +14,7 @@ String b = a.toString();
 ```java
 public class Test {
     public static void main(String[] args) {
+        // java5
         int[] a = {1, 2, 3};
         for (int x: a) {
             System.out.println(x);
@@ -46,6 +47,7 @@ import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
+        // java8
         List<String> a = new ArrayList<>();
         a.add("123");
         a.add("234");
@@ -60,6 +62,18 @@ public class Test {
 ```
 
 ## 正则表达式
+
+```java
+import java.util.regex.*;
+
+public class Test {
+    public static void main(String[] args) {
+        Pattern pattern=Pattern.compile("\\S+?@\\S+?.com");
+        Matcher matcher=pattern.matcher("XXX@qq.com");
+        System.out.println(matcher.find());
+    }
+}
+```
 
 ## 时间日期
 
