@@ -63,6 +63,49 @@ public class Test {
 
 ## 时间日期
 
+```java
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.sql.Timestamp;
+
+public class Test {
+    public static void main(String[] args) {
+        /* Date
+         * use SimpleDateFormat to parse
+         */
+        Date da = new Date();
+        SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String s = ft.format(da);
+        System.out.println(s);
+        
+        /* LocalDate
+         * LocalDate.now or LocalDate.parse
+         */
+        LocalDate d = LocalDate.parse("2017-11-02");
+        LocalDate c = LocalDate.parse("2017-11-03");
+        System.out.println(d.plusDays(1));
+        System.out.println(d.isAfter(c));
+        
+        /* LocalDateTime
+         * LocalDateTime.now or LocalDateTime.parse
+         * use DateTimeFormat to parse
+         */
+        LocalDateTime dt = LocalDateTime.parse("2017-11-02T00:00:00.000");
+        s = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(dt);
+        System.out.println(s);
+        
+        // timestamp
+        long ts = Timestamp.valueOf("2017-11-02 00:00:00").getTime();
+        System.out.println(ts);
+        ts = System.currentTimeMillis();
+        System.out.println(ts);
+    }
+}
+```
+
 ## 反射
 
 ## 流
