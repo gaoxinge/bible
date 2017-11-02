@@ -97,7 +97,7 @@ public class Test {
         s = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(dt);
         System.out.println(s);
         
-        // timestamp
+        // Timestamp or System.currentTimeMillis
         long ts = Timestamp.valueOf("2017-11-02 00:00:00").getTime();
         System.out.println(ts);
         ts = System.currentTimeMillis();
