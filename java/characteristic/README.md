@@ -120,6 +120,69 @@ public class Test {
 }
 ```
 
+## 传递
+
+- [Java到底是值传递还是引用传递？](https://www.zhihu.com/question/31203609)
+
+java的数据类型分为：
+
+- 内置类型
+- 引用类型
+  - 数组
+  - 类
+
+其中引用类型分为：
+- 提供改变接口的（相当于python的可变对象）
+- 不提供改变接口的（相当于python的不可变对象）
+
+```java
+public class Test {
+    
+    public static void f(int a) {
+        a = 2;
+    }
+    
+    public static void g(X b) {
+        b = new X(2);
+    }
+    
+    public static void h(X b) {
+        b.setX(2);
+    }
+    
+    public static void main(String[] args) {
+        int a = 1;
+        X b = new X(1);
+        
+        f(a);
+        System.out.println(a);
+        
+        g(b);
+        System.out.println(b.getX());
+        
+        h(b);
+        System.out.println(b.getX());
+    }
+}
+
+class X {
+    
+    Integer x;
+    
+    X(Integer x) {
+        this.x = x;
+    }
+    
+    Integer getX() {
+        return this.x;
+    }
+    
+    void setX(Integer x) {
+        this.x = x;
+    }
+}
+```
+
 ## 反射
 
 ## 流
