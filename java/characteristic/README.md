@@ -183,6 +183,68 @@ class X {
 }
 ```
 
+## 可变参数
+
+```java
+public class Test {
+    
+    public static double max(double... numbers) {
+        double a = 0.0;
+        for (int i = 0; i < numbers.length; ++i)
+            if (a < numbers[i]) a = numbers[i];
+        
+        return a;
+    }
+    
+    public static double min(double... numbers) {
+        double a = 0.0;
+        for (double number: numbers)
+            if (a > number) a = number;
+        return a;
+    }
+    
+    public static void main(String[] args) {
+        // java5
+        System.out.println(max(1.0, 2.0, 3.0));
+        System.out.println(max(new double[]{1.0, 2.0, 3.0}));
+        System.out.println(min(1.0, 2.0, 3.0));
+        System.out.println(min(new double[]{1.0, 2.0, 3.0}));
+    }
+}
+```
+
+## finalize方法
+
+- [java的finalize()函数](http://www.cnblogs.com/iamzhoug37/p/4279151.html)
+
+```java
+public class FinalizationDemo {
+    public static void main(String[] args) {  
+        Cake c1 = new Cake(1);  
+        Cake c2 = new Cake(2);  
+        Cake c3 = new Cake(3);  
+        c2 = null;
+        c3 = new Cake(4);
+        System.gc();
+    }
+}  
+ 
+class Cake {
+    
+    private int id;  
+    
+    public Cake(int id) {  
+        this.id = id;  
+        System.out.println("Cake object " + id + " is created.");  
+    }  
+    
+    @Override
+    public void finalize() {   
+        System.out.println("Cake object " + id + " is disposed.");  
+    }  
+}
+```
+
 ## 反射
 
 ## 流
