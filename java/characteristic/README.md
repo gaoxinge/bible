@@ -263,6 +263,39 @@ public class Test {
 }
 ```
 
+## 继承
+
+- 子类不能继承父类的构造器
+- 如果子类的构造器中没有super关键词，系统会自动调用父类的无参构造器
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        SubClass a = new SubClass(2); // error
+    }
+}
+
+class SuperClass {
+    
+    private int n;
+    
+    // SuperClass() {}
+    
+    SuperClass(int n) {
+        this.n = n;
+    }
+}
+
+class SubClass extends SuperClass {
+
+   private int n;
+   
+   SubClass(int n) {
+       this.n = n;
+   }
+}
+```
+
 ## 反射
 
 ## 流
