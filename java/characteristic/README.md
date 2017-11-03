@@ -244,6 +244,14 @@ class Cake {
 }
 ```
 
+## IO流，文件
+
+java的IO流如下：
+
+![IO流](http://www.runoob.com/wp-content/uploads/2013/12/iostream2.png)
+
+java的文件File类可以操作文件和目录。
+
 ## 反射
 
 ## 流
