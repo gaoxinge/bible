@@ -244,13 +244,24 @@ class Cake {
 }
 ```
 
-## IO流，File类
+## IO流，File类，Scanner类
 
 java的IO流如下：
 
 ![IO流](http://www.runoob.com/wp-content/uploads/2013/12/iostream2.png)
 
-java的File类可以操作文件和目录。
+java的File类可以操作文件和目录，Scanner类可以从控制台输入：
+
+```java
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+        // java5
+        Scanner scan = new Scanner(System.in);
+    }
+}
+```
 
 ## 反射
 
