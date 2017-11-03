@@ -296,6 +296,66 @@ class SubClass extends SuperClass {
 }
 ```
 
+## 多态
+
+- 对象向上转型以后
+  - 使用方法，任然使用子类重载的方法
+  - 可以使用instanceof判断是不是子类的实例
+  - 可以向下转型，保持原信息不变
+  
+```java
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Cat(); 
+        a.eat();
+        Cat c = (Cat) a;
+        c.eat();
+        
+        show(new Cat());
+        show(new Dog());
+        show(new Animal());
+  }
+            
+    public static void show(Animal a) {
+        a.eat();
+        if (a instanceof Cat) {
+            Cat c = (Cat) a;  
+            c.work();
+        } else if (a instanceof Dog) {
+            Dog c = (Dog) a;  
+            c.work();
+        }
+    }
+}
+ 
+class Animal {  
+    public void eat() {
+        System.out.println("eat something");
+    }
+    public void work() {
+        System.out.println("get something");
+    }
+}  
+  
+class Cat extends Animal {    
+    public void eat() { 
+        System.out.println("eat fish");  
+    }  
+    public void work() {
+        System.out.println("get fish");  
+    }  
+}  
+  
+class Dog extends Animal {  
+    public void eat() {  
+        System.out.println("eat meat");  
+    }  
+    public void work() {  
+        System.out.println("get meat");  
+    }  
+}
+```
+
 ## 反射
 
 ## 流
