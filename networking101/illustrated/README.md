@@ -10,6 +10,8 @@
 
 ### 一个网卡可以绑定几个ip
 
+### 如何查看主机的ip
+
 ## windows
 
 ### ipconfig
@@ -107,6 +109,14 @@ nslookup命令用于显示DNS查询信息。例如
 ```
 
 显示系统上接口及其MTU。
+
+### telnet
+
+- [telnet用法测试端口号](http://jingyan.baidu.com/article/a3aad71aa9e6efb1fb009694.html)
+
+### ftp
+
+- [通过cmd命令到ftp上下载文件](http://jingyan.baidu.com/article/6525d4b1300912ac7d2e941b.html)
 
 ## linux
 
