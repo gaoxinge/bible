@@ -356,6 +356,42 @@ class Dog extends Animal {
 }
 ```
 
+## 集合框架
+
+```java
+import java.util.*;
+
+public class Test {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<String>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.addAll(list);
+        System.out.println(list.size());
+        
+        String[] array = new String[list.size()];
+        list.toArray(array);
+        for (String s: array)
+            System.out.print(s + " ");
+        System.out.println();
+        
+        for (String s: list)
+            System.out.print(s + " ");
+        System.out.println();
+        
+        for (int i = 0; i < list.size(); ++i)
+            System.out.print(list.get(i) + " ");
+        System.out.println();
+        
+        Iterator<String> iter = list.iterator();
+        while (iter.hasNext())
+            System.out.print(iter.next() + " ");
+        System.out.println();
+    }
+}
+```
+
 ## 反射
 
 ## 流
