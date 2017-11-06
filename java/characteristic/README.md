@@ -363,11 +363,12 @@ import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<e>();
         list.add("1");
         list.add("2");
         list.add("3");
         list.addAll(list);
+		System.out.println(list);
         System.out.println(list.size());
         
         String[] array = new String[list.size()];
@@ -388,6 +389,31 @@ public class Test {
         while (iter.hasNext())
             System.out.print(iter.next() + " ");
         System.out.println();
+    }
+}
+```
+
+```java
+import java.util.*;
+
+public class Test {
+    public static void main(String[] args) {
+        Map<String, String> map = new HashMap<>();
+        map.put("1", "value1");
+        map.put("2", "value2");
+        map.put("3", "value3");
+        map.putAll(map);
+        System.out.println(map);
+        System.out.println(map.size());
+        
+        for (String key: map.keySet())
+            System.out.println(key);
+        
+        for (String value: map.values())
+            System.out.println(value);
+        
+        for (Map.Entry<String, String> entry: map.entrySet())
+            System.out.println(entry.getKey() + " " + entry.getValue());
     }
 }
 ```
