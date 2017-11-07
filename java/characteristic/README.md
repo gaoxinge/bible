@@ -363,19 +363,28 @@ import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-        List<String> list = new ArrayList<e>();
+        List<String> list = new ArrayList<>();
         list.add("1");
         list.add("2");
         list.add("3");
         list.addAll(list);
-		System.out.println(list);
+        System.out.println(list);
         System.out.println(list.size());
         
+		
+        Object[] array_ = list.toArray();
+        for (Object s: array_)
+            System.out.print(s + " ");
+        System.out.println();
+		
         String[] array = new String[list.size()];
         list.toArray(array);
         for (String s: array)
             System.out.print(s + " ");
         System.out.println();
+		
+        String[] array = new String[]{"1", "2"};
+        List<String> list = Arrays.asList(array);
         
         for (String s: list)
             System.out.print(s + " ");
