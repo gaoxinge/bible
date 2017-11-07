@@ -371,12 +371,11 @@ public class Test {
         System.out.println(list);
         System.out.println(list.size());
         
-		
         Object[] array_ = list.toArray();
         for (Object s: array_)
             System.out.print(s + " ");
         System.out.println();
-		
+        
         String[] array = new String[list.size()];
         list.toArray(array);
         for (String s: array)
