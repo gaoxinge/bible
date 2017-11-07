@@ -426,6 +426,78 @@ public class Test {
 }
 ```
 
+## 泛型
+
+```java
+class A1<T> {}
+class A2<T extends Number> {}
+```
+
+## 类型通配符
+
+```java
+public static void getData1(List<?> data) {}
+public static void getData2(List<? extends Number> data) {}
+public static void getData3(List<? super Integer> data) {}
+```
+
+```java
+import java.util.*;
+
+public class Test {
+    
+    public static List<? extends B> f(int a) {
+        List<B> l1 = new ArrayList<>();
+        List<C> l2 = new ArrayList<>();
+        l1.add(new B(1));
+        l2.add(new C(1, 2));
+        if (a > 0) return l1;
+        else       return l2;
+    }
+    
+    public static void g(List<? extends B> a) {
+        System.out.println(a.size());
+    }
+    
+    public static<T> void h(List<T> a) {
+        System.out.println(a.size());
+    }
+    
+    public static void main(String[] args) {
+        List<? extends B> t1 = f(1);
+        List<? extends B> t2 = f(-1);
+        
+        g(t1);
+        g(t2);
+        h(t1);
+        h(t2);
+        System.out.println(t1.get(0).getX());
+        System.out.println(t2.get(0).getX());
+        
+        List<C> t3 = (List<C>) f(-1); 
+        System.out.println(t3.get(0).getY());
+    }
+}
+
+class B {
+    private Integer x;
+    public B(Integer x) {this.x = x;}
+    public Integer getX() {return this.x;}
+    public void setX(Integer x) {this.x = x;}
+}
+
+class C extends B {
+    private Integer y;
+    public C(Integer x, Integer y) {
+        super(x);
+        this.y = y;
+    }
+    public Integer getY() {return this.y;}
+    public void setY(Integer y) {this.y = y;}
+}
+
+```
+
 ## 反射
 
 ## 流
