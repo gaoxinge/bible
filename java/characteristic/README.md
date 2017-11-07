@@ -495,7 +495,6 @@ class C extends B {
     public Integer getY() {return this.y;}
     public void setY(Integer y) {this.y = y;}
 }
-
 ```
 
 ## 反射
