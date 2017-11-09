@@ -503,6 +503,42 @@ class C extends B {
 - [深入理解Java8 Lambda（语言篇——lambda，方法引用，目标类型和默认方法）](http://zh.lucida.me/blog/java-8-lambdas-insideout-language-features/)
 - [深入理解Java8 Lambda（类库篇——Streams API，Collectors和并行）](http://zh.lucida.me/blog/java-8-lambdas-inside-out-library-features/)
 
+```java
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class Test {
+    public static void main(String[] args) {
+        String[] s = {"asd", "asdfd", "a", "dasd"};
+        
+        for (String x: s)
+            System.out.print(x + " ");
+        System.out.println();
+        
+        // Arrays.sort(s, new LenComparator());
+        // Arrays.sort(s, String.CASE_INSENSITIVE_ORDER);
+        Arrays.sort(s, new Comparator<String>() {
+           public int compare(String v, String w) {
+               if (v.length() < w.length()) return -1;
+               if (v.length() > w.length()) return 1;
+               return 0;
+           } 
+        });
+        
+        for (String x: s)
+            System.out.print(x + " ");
+    }
+}
+
+class LenComparator implements Comparator<String> {
+    public int compare(String v, String w) {
+        if (v.length() < w.length()) return -1;
+        if (v.length() > w.length()) return 1;
+        return 0;
+    }
+}
+```
+
 ## 反射
 
 ## 流
