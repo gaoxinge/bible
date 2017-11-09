@@ -517,12 +517,22 @@ public class Test {
         
         // Arrays.sort(s, new LenComparator());
         // Arrays.sort(s, String.CASE_INSENSITIVE_ORDER);
+        
         Arrays.sort(s, new Comparator<String>() {
            public int compare(String v, String w) {
                if (v.length() < w.length()) return -1;
                if (v.length() > w.length()) return 1;
                return 0;
            } 
+        });
+        for (String x: s)
+            System.out.print(x + " ");
+        System.out.println();
+        
+        Arrays.sort(s, (v, w) -> {
+            if (v.length() < w.length()) return 1;
+            if (v.length() > w.length()) return -1;
+            return 0;
         });
         
         for (String x: s)
