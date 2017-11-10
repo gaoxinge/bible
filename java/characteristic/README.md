@@ -497,6 +497,8 @@ class C extends B {
 }
 ```
 
+## 反射
+
 ## lambda
 
 - [Java8 手把手教你学会写lambda表达式](http://blog.csdn.net/bitcarmanlee/article/details/70195403)
@@ -567,7 +569,5 @@ class LenComparator implements Comparator<String> {
     }
 }
 ```
-
-## 反射
 
 ## 流
