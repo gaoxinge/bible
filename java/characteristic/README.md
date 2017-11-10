@@ -537,6 +537,12 @@ public class Test {
         
         for (String x: s)
             System.out.print(x + " ");
+        System.out.println();
+        
+        Arrays.sort(s, Comparator.comparing(String::length));
+        
+        for (String x: s)
+            System.out.print(x + " ");
     }
 }
 
