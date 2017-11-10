@@ -504,6 +504,19 @@ class C extends B {
 - [深入理解Java8 Lambda（类库篇——Streams API，Collectors和并行）](http://zh.lucida.me/blog/java-8-lambdas-inside-out-library-features/)
 
 ```java
+public class Test {
+    public static void main(String[] args) {
+        MathOperation addition = (a, b) -> a + b;
+        System.out.println(addition.operation(1, 2));
+    }
+}
+
+interface MathOperation {
+    int operation(int a, int b);
+}
+```
+
+```java
 import java.util.Arrays;
 import java.util.Comparator;
 
