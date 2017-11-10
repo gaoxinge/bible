@@ -617,4 +617,5 @@ class Car {
 
 ## 函数式接口
 
-## 流
+- [Java8新特性（1.函数式接口-Functional Interface）](http://blog.csdn.net/yangjiachang1203/article/details/52619795)
+- [Java8学习笔记（1）--从函数式接口说起](http://blog.csdn.net/zxhoo/article/details/38349011)
