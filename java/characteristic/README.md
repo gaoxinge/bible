@@ -570,4 +570,51 @@ class LenComparator implements Comparator<String> {
 }
 ```
 
+## 方法引用
+
+```java
+import java.util.*;
+
+public class Test {
+    public static void main(String[] args) {
+        List<Car> cars = new ArrayList<>();
+        cars.add(new Car("1"));
+        cars.add(new Car("2"));
+        cars.add(new Car("3"));
+        
+        Car policeCar = new Car("police");
+        
+        cars.forEach(Car::collide);
+        cars.forEach(Car::repair);
+        cars.forEach(policeCar::follow);
+    }
+}
+
+class Car {
+    private String name;
+    
+    Car(String name) {
+        this.name = name;
+    }
+    
+    public static void collide(Car car) {
+        System.out.println("collide " + car);
+    }
+    
+    public void repair() {
+        System.out.println("repair " + this);
+    }
+    
+    public void follow(Car car) {
+        System.out.println("follow " + car);
+    }
+    
+    public String toString() {
+        return this.name;
+    }
+}
+```
+
+## 函数式接口
+
 ## 流
