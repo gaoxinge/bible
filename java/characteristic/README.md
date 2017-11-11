@@ -502,6 +502,63 @@ class C extends B {
 - [Java反射详解](https://www.cnblogs.com/rollenholt/archive/2011/09/02/2163758.html)
 - [Java反射使用总结](http://www.cnblogs.com/zhaoyanjun/p/6074887.html)
 
+```java
+import java.lang.reflect.*;
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+        A a = new A();
+        Method m1 = A.class.getDeclaredMethod("sayHello");
+        Method m2 = A.class.getDeclaredMethod("sayWorld", Integer.class);
+        Method m3 = A.class.getDeclaredMethod("saySomething", new Class[]{Integer.class, Integer.class});
+        m1.invoke(a);
+        m2.invoke(a, new Object[]{1});
+        String s = (String) m3.invoke(a, new Object[]{1, 2});
+        System.out.println(s);
+        s = a.f(1, 2);
+        System.out.println(s);
+        
+        B b = new B();
+        b.g();
+    }
+}
+
+class A {
+    public void sayHello() {
+        System.out.println("Hello");
+    }
+    
+    public void sayWorld(Integer a) {
+        System.out.println("World");
+    }
+    
+    public String saySomething(Integer a, Integer b) {
+        return "Something";
+    }
+    
+    public String f(Integer a, Integer b) {
+        try {
+            Method m = this.getClass().getDeclaredMethod("saySomething", new Class[]{Integer.class, Integer.class});
+            return (String) m.invoke(this, new Object[]{a, b});
+        } catch (Exception e) {
+            return "";
+        }
+    }
+    
+}
+
+class B extends A {
+    public void g() {
+        try {
+            Method m = A.class.getDeclaredMethod("sayHello");
+            m.invoke(this);
+        } catch (Exception e) {
+            System.out.println();
+        }
+    }
+}
+```
+
 ## lambda
 
 - [Java8 手把手教你学会写lambda表达式](http://blog.csdn.net/bitcarmanlee/article/details/70195403)
