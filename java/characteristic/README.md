@@ -499,6 +499,9 @@ class C extends B {
 
 ## 反射
 
+- [Java反射详解](https://www.cnblogs.com/rollenholt/archive/2011/09/02/2163758.html)
+- [Java反射使用总结](http://www.cnblogs.com/zhaoyanjun/p/6074887.html)
+
 ## lambda
 
 - [Java8 手把手教你学会写lambda表达式](http://blog.csdn.net/bitcarmanlee/article/details/70195403)
