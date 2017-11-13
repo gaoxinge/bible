@@ -1,0 +1,67 @@
+
+
+task hello1 {
+    doLast {
+        println 'hello world'
+    }
+}
+
+task hello2 {
+    doFirst {
+         println 'hello world'
+    }
+}
+
+task hello3 << {
+    println 'hello world'
+}
+
+task A(dependsOn: hello1) << {
+    println 'taskA'
+}
+
+task B(dependsOn: 'hello2') << {
+    println 'taskB'
+}
+
+task C << {
+    println 'taskC'
+}
+
+C.dependsOn hello3
+
+task D << {
+    println 'taskD'
+}
+D.dependsOn  {
+    tasks.findAll {
+        task -> task.name.startsWith('lib')
+    }
+}
+task lib1 << {
+     println 'lib1'
+}
+task lib2 << {
+     println 'lib2'
+}
+
+task hello
+println hello.name
+println project.hello.name
+println tasks.hello.name
+println tasks['hello'].name
+
+task copy {
+    description 'copy'
+    println 'copy'
+}
+
+task compile << {
+    println 'We are doing the compile'
+}
+compile.doFirst {
+    if (true) {throw new StopExecutionException()}
+}
+task myTask(dependsOn: compile) << {
+    println 'I am not affected'
+}
