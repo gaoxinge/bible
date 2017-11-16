@@ -1,0 +1,2 @@
+include 'sub-project1'
+include 'sub-project2'

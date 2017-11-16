@@ -1,0 +1,25 @@
+allprojects {
+    apply plugin: 'idea'
+    
+    task allTask << {
+        println project.name
+    }
+}
+
+subprojects {
+    task subTask << {
+        println project.name
+    }
+}
+
+configure(allprojects.findAll {it.name.startsWith('sub')}) {
+    subTask << {
+        println 'this is a sub project'
+    }
+}
+
+project(':sub-project1') {
+    task forProject1 << {
+        println 'for project 1'
+    }
+}
