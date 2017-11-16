@@ -40,10 +40,7 @@ hello8 {description = 'this is hello8'}
 task hello9 << {
    println description
 }
-
-hello9.configure {
-   description = 'this is hello9'
-}
+hello9.configure {description = 'this is hello9'}
 
 task showTasks {
     println tasks.class
