@@ -9,7 +9,7 @@
 
 ## library
 
-- [project](https://github.com/gaoxinge/bible/tree/master/java/project)
+- [hello](https://github.com/gaoxinge/bible/tree/master/java/hello)
 
 ## management
 
