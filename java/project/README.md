@@ -1,0 +1,4 @@
+- 使用IntelliJ打开
+- 添加Application
+- 配置MainClass
+- 点击Run
