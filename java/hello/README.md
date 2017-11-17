@@ -1,5 +1,9 @@
-- 使用IntelliJ打开
-- 添加Application
-- 配置Main Class：first.HelloWorld
-- 配置Use classpath of module：1_main
-- 点击run
+- Gradle
+  - gralde build
+  - cd build/libs
+  - java -jar 1.jar
+- IntelliJ
+  - 添加Application
+  - 配置Main Class：first.HelloWorld
+  - 配置Use classpath of module：1_main
+  - 点击run
