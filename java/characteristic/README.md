@@ -562,7 +562,12 @@ class B extends A {
 ## 注解
 
 - [Java注解](http://www.yiibai.com/java/java-annotation-tutorial.html)
-- [Java 注解指导手册–终极向导](http://www.importnew.com/14227.html)
+- [Java注解教程：自定义注解示例，利用反射进行解析](http://www.importnew.com/14479.html)
+- [框架开发之Java注解的妙用](http://www.importnew.com/23564.html)
+- [Java注解指导手册–终极向导](http://www.importnew.com/14227.html)
+- [深入理解Java：注解（Annotation）基本概念](http://www.cnblogs.com/peida/archive/2013/04/23/3036035.html)
+- [深入理解Java：注解（Annotation）自定义注解入门](https://www.cnblogs.com/peida/archive/2013/04/24/3036689.html)
+- [深入理解Java：注解（Annotation）--注解处理器](http://www.cnblogs.com/peida/archive/2013/04/26/3038503.html)
 
 ## lambda
 
