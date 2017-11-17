@@ -559,6 +559,11 @@ class B extends A {
 }
 ```
 
+## 注解
+
+- [Java注解](http://www.yiibai.com/java/java-annotation-tutorial.html)
+- [Java 注解指导手册–终极向导](http://www.importnew.com/14227.html)
+
 ## lambda
 
 - [Java8 手把手教你学会写lambda表达式](http://blog.csdn.net/bitcarmanlee/article/details/70195403)
