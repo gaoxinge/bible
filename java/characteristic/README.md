@@ -569,6 +569,102 @@ class B extends A {
 - [深入理解Java：注解（Annotation）自定义注解入门](https://www.cnblogs.com/peida/archive/2013/04/24/3036689.html)
 - [深入理解Java：注解（Annotation）注解处理器](http://www.cnblogs.com/peida/archive/2013/04/26/3038503.html)
 
+```java
+import java.lang.reflect.*;
+import java.lang.annotation.*;
+
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@interface FruitName {
+    String value() default "";
+}
+
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@interface FruitColor {
+    public enum Color {BLUE, RED, GREEN};
+    Color fruitColor() default Color.GREEN;
+}
+
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@interface FruitProvider {
+    public int id() default -1;
+    public String name() default "";
+    public String address() default "";
+}
+
+class FruiltInfoUtil {
+    public static void getFruitInfo(Class<?> clazz) {
+        String strFruitName = "name is: ";
+        String strFruitColor = "color is: ";
+        String strFruitProvider = "provider is: ";
+        
+        Field[] fields = clazz.getDeclaredFields();
+        for (Field field: fields) {
+            if (field.isAnnotationPresent(FruitName.class)) {
+                FruitName fruitName = (FruitName) field.getAnnotation(FruitName.class);
+                strFruitName = strFruitName + fruitName.value();
+                System.out.println(strFruitName);
+            }
+            if (field.isAnnotationPresent(FruitColor.class)) {
+                FruitColor fruitColor = (FruitColor) field.getAnnotation(FruitColor.class);
+                strFruitColor += fruitColor.fruitColor().toString();
+                System.out.println(strFruitColor);
+            }
+            if (field.isAnnotationPresent(FruitProvider.class)) {
+                FruitProvider fruitProvider = (FruitProvider) field.getAnnotation(FruitProvider.class);
+                strFruitProvider += fruitProvider.id() + " " + fruitProvider.name() + " "+ fruitProvider.address();
+                System.out.println(strFruitProvider);
+            }
+        }
+    }
+}
+
+public class Apple {
+    @FruitName("Apple")
+    private String appleName;
+    
+    @FruitColor(fruitColor=FruitColor.Color.RED)
+    private String appleColor;
+    
+    @FruitProvider(id=1, name="honghushi", address="shanxi")
+    private String appleProvider;
+    
+    public void setAppleColor(String appleColor) {
+        this.appleColor = appleColor;
+    }
+    
+    public String getAppleColor() {
+        return appleColor;
+    }
+    
+    public void setAppleName(String appleName) {
+        this.appleName = appleName;
+    }
+    
+    public String getAppleName() {
+        return appleName;
+    }
+    
+    public void setAppleProvider(String appleProvider) {
+        this.appleProvider = appleProvider;
+    }
+    
+    public String getAppleProvider() {
+        return appleProvider;
+    }
+    
+    public static void main(String[] args) {
+        FruiltInfoUtil.getFruitInfo(Apple.class);
+    }
+    
+}
+```
+
 ## lambda
 
 - [Java8 手把手教你学会写lambda表达式](http://blog.csdn.net/bitcarmanlee/article/details/70195403)
