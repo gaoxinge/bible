@@ -617,7 +617,7 @@ class FruiltInfoUtil {
             }
             if (field.isAnnotationPresent(FruitProvider.class)) {
                 FruitProvider fruitProvider = (FruitProvider) field.getAnnotation(FruitProvider.class);
-                strFruitProvider += fruitProvider.id() + " " + fruitProvider.name() + " "+ fruitProvider.address();
+                strFruitProvider += fruitProvider.id() + " " + fruitProvider.name() + " " + fruitProvider.address();
                 System.out.println(strFruitProvider);
             }
         }
