@@ -12,7 +12,7 @@ dependencies {
  
 jar {
     // from {configurations.compile.collect {it.isDirectory() ? it : zipTree(it)}}
-	baseName = 'log'
+    baseName = 'log'
     manifest {
         attributes 'Main-Class': 'log.HelloWorld'
     }
