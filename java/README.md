@@ -10,6 +10,7 @@
 ## library
 
 - [hello](https://github.com/gaoxinge/bible/tree/master/java/hello)
+- [lombok](https://github.com/gaoxinge/bible/tree/master/java/lombok)
 - [log](https://github.com/gaoxinge/bible/tree/master/java/log)
 
 ## management
