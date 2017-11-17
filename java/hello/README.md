@@ -1,4 +1,5 @@
 - 使用IntelliJ打开
 - 添加Application
-- 配置MainClass
-- 点击Run
+- 配置Main Class：first.HelloWorld
+- 配置Use classpath of module：1_main
+- 点击run

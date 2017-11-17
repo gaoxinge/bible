@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+    maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    mavenCentral()
+}
+
+dependencies {
+    compile 'log4j:log4j:1.2.17'
+}
+ 
+jar {
+    // from {configurations.compile.collect {it.isDirectory() ? it : zipTree(it)}}
+	baseName = 'log'
+    manifest {
+        attributes 'Main-Class': 'log.HelloWorld'
+    }
+}
