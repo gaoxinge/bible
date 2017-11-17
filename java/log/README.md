@@ -1,2 +1,2 @@
-- [log4j]()
-- [slf4j]()
+- [log4j](https://github.com/gaoxinge/bible/tree/master/java/log/1)
+- [slf4j](https://github.com/gaoxinge/bible/tree/master/java/log/2)
