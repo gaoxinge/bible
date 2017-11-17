@@ -607,7 +607,7 @@ class FruiltInfoUtil {
         for (Field field: fields) {
             if (field.isAnnotationPresent(FruitName.class)) {
                 FruitName fruitName = (FruitName) field.getAnnotation(FruitName.class);
-                strFruitName = strFruitName + fruitName.value();
+                strFruitName += fruitName.value();
                 System.out.println(strFruitName);
             }
             if (field.isAnnotationPresent(FruitColor.class)) {
