@@ -11,6 +11,8 @@
 - gretty：gradle插件，支持tomcat，jetty
 - glassfish：JEE容器
 - jboss：JEE容器
-- tomee：JEE容器
+- tomee：JEE容器，主要包含tomcat
 
 ## 改进
+
+## 分层
