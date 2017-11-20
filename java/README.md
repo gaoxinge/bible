@@ -9,7 +9,7 @@
 
 ## Java EE
 
-- [总体]()
+- [总体](https://github.com/gaoxinge/bible/tree/master/java/%E6%80%BB%E4%BD%93)
 - [部分](https://github.com/gaoxinge/bible/tree/master/java/%E9%83%A8%E5%88%86)
 
 ## library
