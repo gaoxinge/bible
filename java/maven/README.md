@@ -1,2 +1,3 @@
+- [Maven提高篇系列之（一）——多模块vs继承](http://www.cnblogs.com/davenkin/p/advanced-maven-multi-module-vs-inheritance.html)
 - [Maven Tutorial](http://tutorials.jenkov.com/maven/maven-tutorial.html)
 - [Maven教程|易百教程](http://www.yiibai.com/maven/)
