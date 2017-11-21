@@ -16,12 +16,12 @@
 ## 改进
 
 - structs
-- hibernate
 - spring
   - spring framework
     - spring mvc
   - spring boot
   - spring cloud
+- hibernate
 
 ## 分层
 
@@ -29,11 +29,11 @@
 - spring mvc：servlet，contorller
 
 ```
-structs    -->  spring   --> hibernate
-   |              |             |
-   |              |             |
-action     -->  service  -->  dao
-   |              |             |
-   |              |             |
-controller -->  service  --> model
+structs           -->  spring             --> hibernate
+   |                     |                      |
+   |                     |                      |
+action（表示层）  -->  service（业务层）  -->  dao（持久层）
+   |                     |                      |
+   |                     |                      |
+controller        -->  service            --> model
 ```
