@@ -15,4 +15,25 @@
 
 ## 改进
 
+- structs
+- hibernate
+- spring
+  - spring framework
+    - spring mvc
+  - spring boot
+  - spring cloud
+
 ## 分层
+
+- structs：servlet，contorller
+- spring mvc：servlet，contorller
+
+```
+structs    -->  spring   --> hibernate
+   |              |             |
+   |              |             |
+action     -->  service  -->  dao
+   |              |             |
+   |              |             |
+controller -->  service  --> model
+```
