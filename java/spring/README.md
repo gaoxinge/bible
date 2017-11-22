@@ -25,3 +25,10 @@ Spring IOC是基于bean实现的：
   - @Bean
 
 ## AOP（面向切片编程）
+
+- [什么是面向切面编程AOP？](https://www.zhihu.com/question/24863332)
+- [为什么要用spring的IOC和AOP?用了IOC和AOP的优点缺点是什么?](https://www.zhihu.com/question/19993030)
+- [SpringAOP基本用法(上)](https://zhuanlan.zhihu.com/p/25892085)
+- [SpringAOP基本用法(中)](https://zhuanlan.zhihu.com/p/25892058)
+- [SpringAOP基本用法(下)](https://zhuanlan.zhihu.com/p/25891989)
+- [spring AOP是什么?你都拿它做什么?](https://zhuanlan.zhihu.com/p/28097563)
