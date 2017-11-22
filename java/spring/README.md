@@ -5,8 +5,23 @@
 - [Spring教程](http://wiki.jikexueyuan.com/project/spring/)
 - [Spring教程|易百教程](http://www.yiibai.com/spring/)
 
+## Spring容器
+
 ## IOC（控制反转），DI（依赖注入）
 
-- [Spring IoC有什么好处呢？](https://www.zhihu.com/question/23277575)
+- [Spring IOC有什么好处呢？](https://www.zhihu.com/question/23277575)
+
+Spring IOC是基于bean实现的：
+
+- 注册bean注解
+  - @Component
+  - @Controller：Action
+  - @Service：Service
+  - @Repository：Dao
+- 使用bean注解
+  - @Autowired
+  - @Resource
+- 返回bean的方法注解
+  - @Bean
 
 ## AOP（面向切片编程）
