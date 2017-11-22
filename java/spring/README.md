@@ -7,6 +7,6 @@
 
 ## IOC（控制反转），DI（依赖注入）
 
-- https://www.zhihu.com/question/23277575
+- [Spring IoC有什么好处呢？](https://www.zhihu.com/question/23277575)
 
 ## AOP（面向切片编程）
