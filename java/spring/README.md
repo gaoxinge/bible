@@ -7,6 +7,11 @@
 
 ## Spring容器
 
+- @Configuration
+- @EnableAutoConfiguration
+- @ComponentScan
+- @SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan
+
 ## IOC（控制反转），DI（依赖注入）
 
 - [Spring IOC有什么好处呢？](https://www.zhihu.com/question/23277575)
@@ -32,3 +37,9 @@ Spring IOC是基于bean实现的：
 - [SpringAOP基本用法(中)](https://zhuanlan.zhihu.com/p/25892058)
 - [SpringAOP基本用法(下)](https://zhuanlan.zhihu.com/p/25891989)
 - [spring AOP是什么?你都拿它做什么?](https://zhuanlan.zhihu.com/p/28097563)
+
+## 例子
+
+- [web]()
+- [nonweb]()
+- []()
