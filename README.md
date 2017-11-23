@@ -9,7 +9,6 @@
 ## networking
 
 - [networking101](https://github.com/gaoxinge/bible/tree/master/networking101)
-- [server](https://github.com/gaoxinge/bible/tree/master/server)
 - [asynchronous](https://github.com/gaoxinge/bible/tree/master/asynchronous)
 
 ## distribution
