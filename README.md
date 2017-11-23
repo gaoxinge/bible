@@ -75,7 +75,7 @@
 
 ## architecture
 
-- [summary]()
+- [summary](https://github.com/gaoxinge/bible/tree/master/summary)
 - [REST]()
 - [SOA]()
 - [微服务]()
