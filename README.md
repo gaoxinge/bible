@@ -13,6 +13,7 @@
 
 ## distribution
 
+- [basic](https://github.com/gaoxinge/bible/tree/master/basic)
 
 ## git
 
