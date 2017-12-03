@@ -2,7 +2,7 @@
 
 ## python server
 
-- [source code]()
+- [source code](https://github.com/gaoxinge/bible/tree/master/python%20server/source%20code)
 - [werkzeug](https://github.com/pallets/werkzeug)
 - [flask](https://github.com/pallets/flask)
 
