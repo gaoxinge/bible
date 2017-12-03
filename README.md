@@ -17,19 +17,11 @@
 
 ## git
 
-- [git简易指南](http://www.bootcss.com/p/git-guide/)
-- [gitbook](https://git-scm.com/book/zh/v2)
-- [git教程|廖雪峰](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
-- [git教程|菜鸟教程](http://www.runoob.com/git/git-tutorial.html)
-- [git教程|易百教程](http://www.yiibai.com/git/)
+- [git](https://github.com/gaoxinge/bible/tree/master/git)
 
 ## docker
 
-- [docker cheat sheet](https://github.com/wsargent/docker-cheat-sheet)
-- [docker cheat sheet](https://github.com/eon01/DockerCheatSheet)
-- [Docker入门实战](https://yuedu.baidu.com/ebook/d817967416fc700abb68fca1?pn=1)
-- [Docker从入门到实践](https://www.gitbook.com/book/yeasy/docker_practice/details)
-- [Docker教程|菜鸟教程](http://www.runoob.com/docker/docker-tutorial.html)
+- [docker](https://github.com/gaoxinge/bible/tree/master/docker)
 
 ## server
 
@@ -37,6 +29,8 @@
 - [python server](https://github.com/gaoxinge/bible/tree/master/python%20server)
 
 ## database
+
+- [database](https://github.com/gaoxinge/bible/tree/master/database)
 
 ## integration
 
