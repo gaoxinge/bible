@@ -123,6 +123,16 @@ nslookup命令用于显示DNS查询信息。例如
 - [你必须了解的基础的Linux网络命令](http://os.51cto.com/art/201609/518048.htm)
 - [Linux网络配置和网络诊断命令介绍](http://jingyan.baidu.com/article/c1465413b694d90bfcfc4c97.html)
 
+### ifconfig
+
+```
+> ifconfig
+> ifconfig -a
+> ifconifg lo
+```
+
+查看网卡和ip信息。
+
 ### netstat
 
 ```
