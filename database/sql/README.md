@@ -15,7 +15,7 @@ select b.id,b.author,a.count from tcount_tb a right join runoob_tb b on a.author
 
 ## insert
 
-```
+```sql
 insert into runoob_tb (title,author,date) values ("PHP","John Poul",NOW());
 insert into runoob_tb (title,author,date) values ("MySQL","Abdul S",NOW());
 insert into runoob_tb (title,author,date) values ("JAVA","Sanjay","2007-05-06");
