@@ -1,3 +1,40 @@
+## select
+
+```sql
+select id from runoob_tb;
+select * from runoob_tb;
+select * from runoob_tb where id>1 and date!="2007-05-06";
+select * from runoob_tb where author like "%jay";
+select * from runoob_tb where author regexp "jay";
+select * from runoob_tb order by date;
+select date,count(*) from runoob_tb group by date;
+select a.id,a.author,b.count from runoob_tb a inner join tcount_tb b on a.author=b.author;
+select a.id,a.author,b.count from runoob_tb a left join tcount_tb b on a.author=b.author;
+select b.id,b.author,a.count from tcount_tb a right join runoob_tb b on a.author=b.author;
+```
+
+## insert
+
+```
+insert into runoob_tb (title,author,date) values ("PHP","John Poul",NOW());
+insert into runoob_tb (title,author,date) values ("MySQL","Abdul S",NOW());
+insert into runoob_tb (title,author,date) values ("JAVA","Sanjay","2007-05-06");
+insert into runoob_tb (title,author,date) values ("HTML","gaoxinge","2016-07-24"), ("C++","xinge","2016-07-24"), ("Python","ge","2016-07-23");
+insert into runoob_tb2 select title,author from runoob_tb;
+```
+
+## update
+
+```sql
+update runoob_tb set title="HTML" where id=4;
+```
+
+## delete
+
+```sql
+delete from runoob_tb where id=4;
+```
+
 ### 数据类型
 
 MySQL主要有三种数据类型：数值，日期和时间，以及字符串。对于`null`，要用`is null`和`is not null`来判断
@@ -28,43 +65,6 @@ MySQL主要有三种数据类型：数值，日期和时间，以及字符串。
        );       
 
 删除：drop table runoob_tb;
-```
-
-### 插入
-
-```
-插入：insert into runoob_tb (title,author,date) values ("PHP","John Poul",NOW());
-      insert into runoob_tb (title,author,date) values ("MySQL","Abdul S",NOW());
-      insert into runoob_tb (title,author,date) values ("JAVA","Sanjay","2007-05-06");
-      insert into runoob_tb (title,author,date) values ("HTML","gaoxinge","2016-07-24"), ("C++","xinge","2016-07-24"), ("Python","ge","2016-07-23");
-      insert into runoob_tb2 select title,author from runoob_tb;
-```
-
-### 更新
-
-```
-更新：update runoob_tb set title="HTML" where id=4;
-```
-
-### 删除
-
-```
-删除：delete from runoob_tb where id=4;
-```
-
-### 查询
-
-```sql
-select id from runoob_tb;
-select * from runoob_tb;
-select * from runoob_tb where id>1 and date!="2007-05-06";
-select * from runoob_tb where author like "%jay";
-select * from runoob_tb where author regexp "jay";
-select * from runoob_tb order by date;
-select date,count(*) from runoob_tb group by date;
-select a.id,a.author,b.count from runoob_tb a inner join tcount_tb b on a.author=b.author;
-select a.id,a.author,b.count from runoob_tb a left join tcount_tb b on a.author=b.author;
-select b.id,b.author,a.count from tcount_tb a right join runoob_tb b on a.author=b.author;
 ```
 
 ### 字段
