@@ -9,6 +9,8 @@
 ## networking
 
 - [networking101](https://github.com/gaoxinge/bible/tree/master/networking101)
+- [multiprocess](https://github.com/gaoxinge/bible/tree/master/multiprocess)
+- [multitread](https://github.com/gaoxinge/bible/tree/master/multithread)
 - [asynchronous](https://github.com/gaoxinge/bible/tree/master/asynchronous)
 
 ## distribution
