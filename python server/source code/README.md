@@ -49,6 +49,22 @@ server_forever ----> _handle_request_noblock ---> process_request ---> finish_re
 
 ## http
 
+### 如何运行
+
+```
+BaseHTTPServer: HTTPServer, BaseHTTPRequestHandler
+SimpleHTTPServer: SimpleHTTPRequestHandler
+CGIHTTPServer: CGIHTTPRequestHandler
+```
+
+```
+TCPServer --> HTTPServer
+```
+
+```
+StreamRequestHandler --> BaseHTTPRequestHandler --> SimpleHTTPRequestHandler --> CGIHTTPRequestHandler
+```
+
 ## rpc
 
 ## wsgi
