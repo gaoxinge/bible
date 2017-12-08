@@ -65,6 +65,16 @@ TCPServer --> HTTPServer
 StreamRequestHandler --> BaseHTTPRequestHandler --> SimpleHTTPRequestHandler --> CGIHTTPRequestHandler
 ```
 
+- BaseHTTPRequestHandler
+  - handle --> handle_one_request --> parse_request
+  - send_error
+  - 处理请求
+    - send_response
+    - send_header
+    - end_headers
+- SimpleHTTPRequestHandler
+- CGIHTTPRequestHandler
+
 ## rpc
 
 ## wsgi
