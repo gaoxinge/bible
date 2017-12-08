@@ -50,21 +50,21 @@ MySQL主要有三种数据类型：数值，日期和时间，以及字符串。
 
 ### 数据表
 
-```
-创建：create table runoob_tb(
-      id int not null auto_increment,
-      title varchar(100) not null,
-      author varchar(40) not null,
-      date date,
-      primary key (id)
-      );
+```sql
+create table runoob_tb(
+id int not null auto_increment,
+title varchar(100) not null,
+author varchar(40) not null,
+date date,
+primary key (id)
+);
 
-       create table runoob_tb2(
-       title varchar(100) not null,
-       author varchar(40) not null,
-       );       
+create table runoob_tb2(
+title varchar(100) not null,
+author varchar(40) not null,
+);       
 
-删除：drop table runoob_tb;
+drop table runoob_tb;
 ```
 
 ### 字段
