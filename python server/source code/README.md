@@ -73,7 +73,12 @@ StreamRequestHandler --> BaseHTTPRequestHandler --> SimpleHTTPRequestHandler -->
     - send_header
     - end_headers
 - SimpleHTTPRequestHandler
+  - do_GET
+  - do_HEAD
+  - send_head
 - CGIHTTPRequestHandler
+  - do_POST
+  - send_head
 
 ## rpc
 
