@@ -3,6 +3,3 @@
 ## python
 
 ### library
-
-- [concurrent]()
-- [apscheduler]()
