@@ -42,7 +42,7 @@ select prod_id, prod_name from Products where prod_name like 'Fish%';
 select prod_id, prod_name from Products where prod_name like '__ inch teddy bear';
 ```
 
-### calcualte field
+### calculate field
 
 ```sql
 select vend_name + '(' + vend_country + ')' from Vendors order by vend_name;
@@ -53,11 +53,37 @@ select prod_id, quantity, item_price, quantity*item_price as expanded_price from
 
 ### function
 
-- count
-- sum
-- avg
-- max
-- min 
+- text
+  - left
+  - length
+  - lower
+  - ltrim
+  - right
+  - rtrim
+  - soundex
+  - upper
+- date
+  - datepart
+  - date_part
+  - to_char
+  - to_number
+  - to_date
+  - year
+  - strftime
+- value
+  - abs
+  - cos
+  - exp
+  - pi
+  - sin
+  - sqrt
+  - tan
+- aggregate
+  - avg
+  - count
+  - sum
+  - max
+  - min 
 
 ```sql
 select a.id,a.author,b.count from runoob_tb a inner join tcount_tb b on a.author=b.author;
