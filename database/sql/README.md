@@ -1,12 +1,21 @@
 ## select
 
 ```sql
-select id from runoob_tb;
-select * from runoob_tb;
+/* 
+ * basic select sql
+ */
+select * from Products; # select all
+select prod_name from Products;
+select prod_id, prod_name, prod_price form Products;
+select distinct vend_id from Products;
+select prod_name from Products limit 5;
+select prod_name from Products limit 5 offset 5;
+```
+
+```sql
 select * from runoob_tb where id>1 and date!="2007-05-06";
 select * from runoob_tb where author like "%jay";
 select * from runoob_tb where author regexp "jay";
-select * from runoob_tb order by date;
 select date,count(*) from runoob_tb group by date;
 select a.id,a.author,b.count from runoob_tb a inner join tcount_tb b on a.author=b.author;
 select a.id,a.author,b.count from runoob_tb a left join tcount_tb b on a.author=b.author;
