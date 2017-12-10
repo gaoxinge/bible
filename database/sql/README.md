@@ -12,6 +12,14 @@ select prod_name from Products limit 5;
 select prod_name from Products limit 5 offset 5;
 ```
 
+### order by
+
+```sql
+select prod_name from Products order by prod_name;
+select prod_id, prod_price, prod_name from Products order by prod_price, prod_name;
+select prod_id, prod_price, prod_name from Products order by prod_price desc, prod_name;
+```
+
 ### where 
 
 ```sql
@@ -23,7 +31,6 @@ select cust_name from Customers where cust_email is null;
 ```sql
 select * from runoob_tb where author like "%jay";
 select * from runoob_tb where author regexp "jay";
-select date,count(*) from runoob_tb group by date;
 select a.id,a.author,b.count from runoob_tb a inner join tcount_tb b on a.author=b.author;
 select a.id,a.author,b.count from runoob_tb a left join tcount_tb b on a.author=b.author;
 select b.id,b.author,a.count from tcount_tb a right join runoob_tb b on a.author=b.author;
