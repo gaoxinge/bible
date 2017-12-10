@@ -35,9 +35,14 @@ select prod_id, prod_price, prod_name from Products where vend_id = 'DLL01' and 
 select prod_name, prod_price from Products where vend_id = 'DLL01' or vend_id = 'BRS01';
 ```
 
+### like
+
 ```sql
-select * from runoob_tb where author like "%jay";
-select * from runoob_tb where author regexp "jay";
+select prod_id, prod_name from Products where prod_name like 'Fish%';
+select prod_id, prod_name from Products where prod_name like '__ inch teddy bear';
+```
+
+```sql
 select a.id,a.author,b.count from runoob_tb a inner join tcount_tb b on a.author=b.author;
 select a.id,a.author,b.count from runoob_tb a left join tcount_tb b on a.author=b.author;
 select b.id,b.author,a.count from tcount_tb a right join runoob_tb b on a.author=b.author;
