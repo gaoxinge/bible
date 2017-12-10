@@ -12,8 +12,15 @@ select prod_name from Products limit 5;
 select prod_name from Products limit 5 offset 5;
 ```
 
+### where 
+
 ```sql
-select * from runoob_tb where id>1 and date!="2007-05-06";
+select prod_name, prod_price from Products where prod_price = 3.49;
+select vend_id, prod_name from Products where vend_id != 'DLL01';
+select cust_name from Customers where cust_email is null;
+```
+
+```sql
 select * from runoob_tb where author like "%jay";
 select * from runoob_tb where author regexp "jay";
 select date,count(*) from runoob_tb group by date;
