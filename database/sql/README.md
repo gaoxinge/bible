@@ -28,6 +28,13 @@ select vend_id, prod_name from Products where vend_id != 'DLL01';
 select cust_name from Customers where cust_email is null;
 ```
 
+### and, or
+
+```sql
+select prod_id, prod_price, prod_name from Products where vend_id = 'DLL01' and prod_price <=4;
+select prod_name, prod_price from Products where vend_id = 'DLL01' or vend_id = 'BRS01';
+```
+
 ```sql
 select * from runoob_tb where author like "%jay";
 select * from runoob_tb where author regexp "jay";
