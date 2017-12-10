@@ -42,6 +42,23 @@ select prod_id, prod_name from Products where prod_name like 'Fish%';
 select prod_id, prod_name from Products where prod_name like '__ inch teddy bear';
 ```
 
+### calcualte field
+
+```sql
+select vend_name + '(' + vend_country + ')' from Vendors order by vend_name;
+select vend_name || '(' || vend_country || ')' from Vendors order by vend_name;
+select Concat(vend_name, '(',  vend_country, ')') from Vendors order by vend_name;
+select prod_id, quantity, item_price, quantity*item_price as expanded_price from OrderItems where order_num =20008;
+```
+
+### function
+
+- count
+- sum
+- avg
+- max
+- min 
+
 ```sql
 select a.id,a.author,b.count from runoob_tb a inner join tcount_tb b on a.author=b.author;
 select a.id,a.author,b.count from runoob_tb a left join tcount_tb b on a.author=b.author;
@@ -73,15 +90,6 @@ delete from runoob_tb where id=4;
 ### 数据类型
 
 MySQL主要有三种数据类型：数值，日期和时间，以及字符串。对于`null`，要用`is null`和`is not null`来判断
-
-### 函数
-
-- 内建函数
-  - count
-  - sum
-  - avg
-  - max
-  - min 
 
 ### 数据表
 
