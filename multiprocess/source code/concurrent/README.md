@@ -15,24 +15,23 @@ numbers = [
     (1551645, 2229620), (1988912, 4736670), (2198964, 7876293)
 ]
 
-# no concurrent
-results = list(map(gcd, numbers))
+if __name__ == '__main__':
+    # no concurrent
+    results = list(map(gcd, numbers))
+    print results
 
-print results
-
-# multithread
-with ThreadPoolExecutor(max_workers=2) as pool:
-    results = list(pool.map(gcd, numbers))
-
-print results
+    # multithread
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        results = list(pool.map(gcd, numbers))
+    print results
     
-# multiprocess
-with ProcessPoolExecutor(max_workers=2) as pool:
-    results = list(pool.map(gcd, numbers))
-    
-print results
+    # multiprocess
+    with ProcessPoolExecutor(max_workers=2) as pool:
+        results = list(pool.map(gcd, numbers))
+    print results
 ```
 
 ## reference
 
+- [Compulsory usage of if __name__==“__main__” in windows while using multiprocessing](https://stackoverflow.com/questions/20360686/compulsory-usage-of-if-name-main-in-windows-while-using-multiprocessi)
 - [python concurrent.futures](https://www.cnblogs.com/kangoroo/p/7628092.html)
