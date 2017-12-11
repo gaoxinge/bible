@@ -171,3 +171,8 @@ if __name__ == '__main__':
 
 - [Compulsory usage of if __name__==“__main__” in windows while using multiprocessing](https://stackoverflow.com/questions/20360686/compulsory-usage-of-if-name-main-in-windows-while-using-multiprocessi)
 - [python concurrent.futures](https://www.cnblogs.com/kangoroo/p/7628092.html)
+- [使用python的并发库concurrent.futures实现异步](http://xiaorui.cc/2014/11/15/%E4%BD%BF%E7%94%A8python%E7%9A%84%E4%B8%8A%E5%B1%82%E5%B0%81%E8%A3%85%E5%B9%B6%E5%8F%91%E5%BA%93concurrent-futures%E5%AE%9E%E7%8E%B0%E5%BC%82%E6%AD%A5/)
+- [python并发库：concurrent.futures的使用](http://blog.csdn.net/drdairen/article/details/69487643)
+- [python并发之concurrent.futures](http://blog.csdn.net/dutsoft/article/details/54728706)
+- [concurrent.futures — Asynchronous computation](http://pythonhosted.org//futures/)
+- [concurrent.futures — Launching parallel tasks](https://docs.python.org/3/library/concurrent.futures.html)
