@@ -302,6 +302,44 @@ if __name__ == '__main__':
 
 ### thread
 
+- [Queue.get([block[, timeout]])](https://docs.python.org/2/library/queue.html#Queue.Queue.get)
+- [Python守护线程](http://blog.csdn.net/u012063703/article/details/51601579)
+- [Python主线程结束为什么守护线程还在运行？](https://www.zhihu.com/question/26826953)
+- 在交互式环境里，由于python主进程没有退出，导致守护线程在主线程结束后，任然会运行
+
+```python
+import time
+import threading
+
+def fun():
+    print "start fun"
+    time.sleep(2)
+    print "end fun"
+
+print "main thread start"
+t = threading.Thread(target=fun,args=())
+t.start()
+time.sleep(1)
+print "main thread end"
+```
+
+```python
+import time
+import threading
+
+def fun():
+    print "start fun"
+    time.sleep(2)
+    print "end fun"
+
+print "main thread start"
+t = threading.Thread(target=fun,args=())
+t.setDaemon(True)
+t.start()
+time.sleep(1)
+print "main thread end"
+```
+
 ## reference
 
 - [Compulsory usage of if __name__==“__main__” in windows while using multiprocessing](https://stackoverflow.com/questions/20360686/compulsory-usage-of-if-name-main-in-windows-while-using-multiprocessi)
