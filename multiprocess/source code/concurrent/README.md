@@ -175,6 +175,105 @@ if __name__ == '__main__':
 
 - [Python弱引用学习](http://python.jobbole.com/85431/)
 
+```python
+import sys
+import gc
+import weakref
+gc.set_debug(gc.DEBUG_LEAK)
+
+def f(_):
+    print 'dead'
+
+class Man(object):
+
+    def __init__(self, name):
+        self.name = name
+
+    def f(self):
+        print self.name
+
+o = Man('Jim')
+print sys.getrefcount(o)
+
+r = weakref.ref(o, f)
+print sys.getrefcount(o)
+
+o2 = r()
+print sys.getrefcount(o)
+
+del o
+del o2
+gc.collect()
+print 1
+```
+
+```python
+import sys
+import gc
+import weakref
+gc.set_debug(gc.DEBUG_LEAK)
+
+def f(_):
+    print 'dead'
+
+class Man(object):
+
+    def __init__(self, name):
+        self.name = name
+
+    def f(self):
+        print self.name
+
+o = Man('Jim')
+print sys.getrefcount(o)
+
+r = weakref.ref(o, f)
+print sys.getrefcount(o)
+
+del o
+gc.collect()
+o2 = r()
+print o2
+```
+
+```python
+import weakref
+import gc
+import sys
+gc.set_debug(gc.DEBUG_LEAK)
+
+class Man(object):
+
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return 'Man(name=%s)' % repr(self.name)
+
+    def __del__(self):
+        print 'deleting %s' % self
+
+def demo(cache_factory):
+    all_refs = {}
+    cache = cache_factory()
+    for name in ['Jim', 'Tom', 'Green']:
+        man = Man(name)
+        all_refs[name] = man
+        cache[name] = man
+        del man
+
+    for k, v in cache.iteritems():
+        print k, '=', sys.getrefcount(v)
+    del all_refs
+    gc.collect()
+    for k, v in cache.iteritems():
+        print k, '=', sys.getrefcount(v)
+
+demo(dict)
+print
+demo(weakref.WeakValueDictionary)
+```
+
 ### atexit
 
 - [Python模块学习：atexit](http://python.jobbole.com/81473/)
