@@ -264,6 +264,7 @@ def demo(cache_factory):
 
     for k, v in cache.iteritems():
         print k, '=', sys.getrefcount(v)
+    del v
     del all_refs
     gc.collect()
     for k, v in cache.iteritems():
