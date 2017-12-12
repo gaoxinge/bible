@@ -340,6 +340,12 @@ time.sleep(1)
 print "main thread end"
 ```
 
+## _base
+
+## thread
+
+## process
+
 ## reference
 
 - [Compulsory usage of if __name__==“__main__” in windows while using multiprocessing](https://stackoverflow.com/questions/20360686/compulsory-usage-of-if-name-main-in-windows-while-using-multiprocessi)
