@@ -86,6 +86,14 @@ select prod_id, quantity, item_price, quantity*item_price as expanded_price from
   - min 
 
 ```sql
+select count(daybudget) from zs_campaign_meta;
+select count(*) from zs_campaign_meta;
+select avg(daybudget) from zs_campaign_meta;
+select avg(daybudget, daybudget) from zs_campaign_meta; # error
+select avg(*) from zs_campaign_meta; # error
+```
+  
+```sql
 select a.id,a.author,b.count from runoob_tb a inner join tcount_tb b on a.author=b.author;
 select a.id,a.author,b.count from runoob_tb a left join tcount_tb b on a.author=b.author;
 select b.id,b.author,a.count from tcount_tb a right join runoob_tb b on a.author=b.author;
