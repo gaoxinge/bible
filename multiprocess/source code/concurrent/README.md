@@ -296,6 +296,10 @@ if __name__ == '__main__':
 
 ### sys
 
+- [Maximum and Minimum values for ints](https://stackoverflow.com/questions/7604966/maximum-and-minimum-values-for-ints)
+- [What is sys.maxint in Python 3](https://stackoverflow.com/questions/13795758/what-is-sys-maxint-in-python-3)
+- [How to save traceback / sys.exc_info() values in a variable](https://stackoverflow.com/questions/8238360/how-to-save-traceback-sys-exc-info-values-in-a-variable)
+
 ### thread
 
 ## reference
