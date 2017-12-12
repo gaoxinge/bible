@@ -306,6 +306,9 @@ if __name__ == '__main__':
 - [Python守护线程](http://blog.csdn.net/u012063703/article/details/51601579)
 - [Python主线程结束为什么守护线程还在运行？](https://www.zhihu.com/question/26826953)
 - 在交互式环境里，由于python主进程没有退出，导致守护线程在主线程结束后，任然会运行
+- [关于python多线程编程中join()和setDaemon()的一点儿探究](https://www.cnblogs.com/cjyfff/p/3662355.html)
+- 非守护线程：主线程结束了，会等待子线程
+- 子线程调用join：直接阻塞主线程
 
 ```python
 import time
@@ -318,6 +321,8 @@ def fun():
 
 print "main thread start"
 t = threading.Thread(target=fun,args=())
+# t.setDaemon(False)
+# t.daemon = False
 t.start()
 time.sleep(1)
 print "main thread end"
@@ -334,7 +339,7 @@ def fun():
 
 print "main thread start"
 t = threading.Thread(target=fun,args=())
-t.setDaemon(True)
+t.setDaemon(True) # t.daemon(True)
 t.start()
 time.sleep(1)
 print "main thread end"
