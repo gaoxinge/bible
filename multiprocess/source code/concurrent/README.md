@@ -1,4 +1,6 @@
-## basic
+## usage
+
+### basic
 
 ```python
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
@@ -31,7 +33,7 @@ if __name__ == '__main__':
     print results
 ```
 
-## executor
+### executor
 
 ```python
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
@@ -57,7 +59,7 @@ if __name__ == '__main__':
     print results
 ```
 
-## future
+### future
 
 ```python
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor, as_completed, \
@@ -166,6 +168,20 @@ if __name__ == '__main__':
         for u in unfinished:
             print '%s, %s' % (u.running(), u.done())
 ```
+
+## prepare
+
+### weakref
+
+- [Python弱引用学习](http://python.jobbole.com/85431/)
+
+### atexit
+
+- [Python模块学习：atexit](http://python.jobbole.com/81473/)
+
+### sys
+
+### thread
 
 ## reference
 
