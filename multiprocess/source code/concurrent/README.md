@@ -279,6 +279,21 @@ demo(weakref.WeakValueDictionary)
 
 - [Python模块学习：atexit](http://python.jobbole.com/81473/)
 
+```python
+import atexit
+
+def f():
+    print 1
+    
+atexit.register(f)
+    
+def g():
+    print 2
+    
+if __name__ == '__main__':
+    g()
+```
+
 ### sys
 
 ### thread
