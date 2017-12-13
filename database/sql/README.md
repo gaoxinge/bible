@@ -92,7 +92,24 @@ select avg(daybudget) from zs_campaign_meta;
 select avg(daybudget, daybudget) from zs_campaign_meta; # error
 select avg(*) from zs_campaign_meta; # error
 ```
-  
+
+### group by
+
+- order
+  - select
+  - from
+  - where
+  - group by
+  - having
+  - order by
+
+```sql
+select vend_id, count(*) as num_prods from Products where prod_price >= 4 group by vend_id having count(*) >= 2;
+select order_num, count(*) as items from OrderItems group by order_num hanving count(*) >= 3 order by items, order_num;
+```
+
+### subquery
+
 ```sql
 select a.id,a.author,b.count from runoob_tb a inner join tcount_tb b on a.author=b.author;
 select a.id,a.author,b.count from runoob_tb a left join tcount_tb b on a.author=b.author;
