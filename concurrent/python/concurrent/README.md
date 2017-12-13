@@ -356,6 +356,34 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 - ThreadPoolExecutor通过submit向_work_queue传入_workItem，并启动_worker子线程
 - ThreadPoolExecutor通过调用shutdown，或在进程结束时调用_python_exit，或者当ThreadPoolExecutor被删除时，通过其弱引用来停止工作
 
+### _workItem
+
+- 用于包装future，函数，参数，传入_work_queue
+- run：将函数作用在参数上。如果报错，对future设置错误信息；如果正确运行，对future设置值
+- 注：将_worker改造成thread类，将run放入_worker中更佳
+
+### _worker
+
+- 消费者：传入ThreadPoolExecutor的弱引用和_work_queue
+- 从_work_queue中阻塞的拿去_workItem，判断是否为None。如果不是，运行_workItem.run，并continue；如果是，则执行下面的操作
+- 使用弱引用生成executor，判断
+  - _shutdown为True：The interpreter is shutting down
+  - executor为None：The executor that owns the worker has been collected
+  - executor._shutdown：The executor that owns the worker has been shutdown
+
+### ThreadPoolExecutor
+
+- 生产者：继承_base.Executor
+- submit：向_work_queue传入_workItem，并通过_adjust_thread_count启动_worker子线程，并返回future
+- shutdown：参见停止工作
+- 注：将_worker改造称thread类，将向_work_queue传入_workItem，返回future和启动_worker子线程分离更佳
+
+### 停止工作
+
+- shutdown
+- _python_exit
+- ThreadPoolExecutor被删除
+
 ## process
 
 ## reference
