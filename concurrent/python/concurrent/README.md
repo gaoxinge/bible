@@ -365,11 +365,13 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 ### _worker
 
 - 消费者：传入ThreadPoolExecutor的弱引用和_work_queue
-- 从_work_queue中阻塞的拿去_workItem，判断是否为None。如果不是，运行_workItem.run，并continue；如果是，则执行下面的操作
+- 从_work_queue中阻塞的拿去_workItem
+- 判断_workItem是否为None。如果不是，运行_workItem.run，并continue；如果是，则执行下面的操作
 - 使用弱引用生成executor，判断
   - _shutdown为True：The interpreter is shutting down
   - executor为None：The executor that owns the worker has been collected
   - executor._shutdown为True：The executor that owns the worker has been shutdown
+- 手动删除executor，避免占用内存
 
 ### ThreadPoolExecutor
 
@@ -380,9 +382,17 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 
 ### 停止工作
 
-- shutdown：通过_adjust_thread_count中的`self._thread.add(t)`监测线程池，设置`self._shutdown=True`，然后join。_worker中的_shutdown为True
-- _python_exit：通过_adjust_thread_count中的`_threads_queues[t]=self._worker_queue`监测线程池，设置_shutdown=True，然后join。_worker中的executor._shutdown为True
-- ThreadPoolExecutor被删除：_worker中的executor为None
+- shutdown
+  - 通过_adjust_thread_count中的`self._thread.add(t)`监测线程池，设置`self._shutdown=True`，_work_queue中放入一个None，然后join
+  - 一个_worker中的work_item为None且executor._shutdown为True，并通过`work_queue.put(None)`Notice other workers
+  - 注：
+- _python_exit
+  - 通过_adjust_thread_count中的`_threads_queues[t]=self._worker_queue`监测线程池，设置`_shutdown=True`，_thread_queues中放入线程个数的None，然后join
+  - _worker中wokr_item为None且_shutdown为True
+- ThreadPoolExecutor被删除
+  - _worker中的executor为None
+  
+### lock
 
 ## process
 
