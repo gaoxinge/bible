@@ -400,6 +400,33 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 
 ## process
 
+```
++----------+     +----------+       +--------+     +-----------+    +---------+
+|          |  => | Work Ids |    => |        |  => | Call Q    | => |         |
+|          |     +----------+       |        |     +-----------+    |         |
+|          |     | ...      |       |        |     | ...       |    |         |
+|          |     | 6        |       |        |     | 5, call() |    |         |
+|          |     | 7        |       |        |     | ...       |    |         |
+| Process  |     | ...      |       | Local  |     +-----------+    | Process |
+|  Pool    |     +----------+       | Worker |                      |  #1..n  |
+| Executor |                        | Thread |                      |         |
+|          |     +----------- +     |        |     +-----------+    |         |
+|          | <=> | Work Items | <=> |        | <=  | Result Q  | <= |         |
+|          |     +------------+     |        |     +-----------+    |         |
+|          |     | 6: call()  |     |        |     | ...       |    |         |
+|          |     |    future  |     |        |     | 4, result |    |         |
+|          |     | ...        |     |        |     | 3, except |    |         |
++----------+     +------------+     +--------+     +-----------+    +---------+
+```
+
+### _WorkItem, _ResultItem, _CallItem
+
+### _process_worker
+
+### _queue_management_worker, _add_call_item_to_queue
+
+### ProcessPoolExecutor
+
 ## reference
 
 - [Compulsory usage of if __name__==“__main__” in windows while using multiprocessing](https://stackoverflow.com/questions/20360686/compulsory-usage-of-if-name-main-in-windows-while-using-multiprocessi)
