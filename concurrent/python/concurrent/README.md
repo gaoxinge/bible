@@ -359,13 +359,13 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 ### _workItem
 
 - 用于包装future，函数，参数，传入_work_queue
-- run：将函数作用在参数上。如果报错，对future设置错误信息；如果正确运行，对future设置值
+- run：通过future判断是否任务被取消。如果是，返回；如果不是，则将函数作用在参数上。如果报错，对future设置错误信息；如果正确运行，对future设置值
 - 注：将_worker改造成thread类，将run放入_worker中更佳
 
 ### _worker
 
 - 消费者：传入ThreadPoolExecutor的弱引用和_work_queue
-- 从_work_queue中阻塞的拿去_workItem
+- 从_work_queue中阻塞的拿去_workItem，这样_worker不会作无用功，并且编程比较简单
 - 判断_workItem是否为None。如果不是，运行_workItem.run，并continue；如果是，则执行下面的操作
 - 使用弱引用生成executor，判断
   - _shutdown为True：The interpreter is shutting down
@@ -378,21 +378,25 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 - 生产者：继承_base.Executor
 - submit：向_work_queue传入_workItem，并通过_adjust_thread_count启动_worker子线程，并返回future
 - shutdown：参见停止工作
-- 注：将_worker改造称thread类，将向_work_queue传入_workItem，返回future和启动_worker子线程分离更佳
+- 注：将_worker改造成thread类，将向_work_queue传入_workItem，返回future和启动_worker子线程分离更佳
 
 ### 停止工作
 
 - shutdown
   - 通过_adjust_thread_count中的`self._thread.add(t)`监测线程池，设置`self._shutdown=True`，_work_queue中放入一个None，然后join
-  - 一个_worker中的work_item为None且executor._shutdown为True，并通过`work_queue.put(None)`Notice other workers
-  - 注：
+  - 一个_worker中的_workItem为None且executor._shutdown为True，并通过`work_queue.put(None)`Notice other workers
+  - 注：如果_work_queue中放入线程个数的None，不需要Notice other workers
 - _python_exit
-  - 通过_adjust_thread_count中的`_threads_queues[t]=self._worker_queue`监测线程池，设置`_shutdown=True`，_thread_queues中放入线程个数的None，然后join
-  - _worker中wokr_item为None且_shutdown为True
+  - 通过_adjust_thread_count中的`_threads_queues[t]=self._worker_queue`监测线程池和消息队列，设置`_shutdown=True`，_work_queues中放入线程个数的None，然后join
+  - _worker_中的_workItem为None且_shutdown为True
 - ThreadPoolExecutor被删除
-  - _worker中的executor为None
+  - 通过_weakref_cb，_work_queue中放入线程个数的None
+  - _worker中的_workItem为None且executor为None
   
 ### lock
+
+- ThreadPoolExecutor中有一个_shutdown_lock，目的是为了防止submit和shutdown同时使用_shutdown
+- 注：一般submit和shutdown都在主线程里执行，两者是同步的，不需要锁
 
 ## process
 
