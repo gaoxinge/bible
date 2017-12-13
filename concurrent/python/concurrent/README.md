@@ -369,7 +369,7 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 - 使用弱引用生成executor，判断
   - _shutdown为True：The interpreter is shutting down
   - executor为None：The executor that owns the worker has been collected
-  - executor._shutdown：The executor that owns the worker has been shutdown
+  - executor._shutdown为True：The executor that owns the worker has been shutdown
 
 ### ThreadPoolExecutor
 
@@ -380,9 +380,9 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 
 ### 停止工作
 
-- shutdown
-- _python_exit
-- ThreadPoolExecutor被删除
+- shutdown：通过_adjust_thread_count中的`self._thread.add(t)`监测线程池，设置`self._shutdown=True`，然后join。_worker中的_shutdown为True
+- _python_exit：通过_adjust_thread_count中的`_threads_queues[t]=self._worker_queue`监测线程池，设置_shutdown=True，然后join。_worker中的executor._shutdown为True
+- ThreadPoolExecutor被删除：_worker中的executor为None
 
 ## process
 
