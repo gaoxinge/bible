@@ -349,6 +349,13 @@ print "main thread end"
 
 ## thread
 
+```
+ThreadPoolExecutor ---> _work_queue ---> _worker
+```
+
+- ThreadPoolExecutor通过submit向_work_queue传入_workItem，并启动_worker子线程
+- ThreadPoolExecutor通过调用shutdown，或在进程结束时调用_python_exit，或者当ThreadPoolExecutor被删除时，通过其弱引用来停止工作
+
 ## process
 
 ## reference
