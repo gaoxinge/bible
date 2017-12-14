@@ -432,6 +432,8 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 - 消费者：传入
   - _call_queue：_CallItem消息队列
   - _result_queue：_ResultItem消息队列
+- 从_call_queue中阻塞的拿去_callItem，这样_worker不会作无用功，并且编程比较简单
+- 如果报错，对future设置错误信息；如果正确运行，对future设置值
 
 ### _queue_management_worker
 
@@ -446,7 +448,13 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
   - 判断_call_queue是否已满。如果满了，返回；如果不满，执行如下操作
   - 判断_work_ids是否有。如过没有，返回；如果有，执行如下操作
   - 通过_pending_work_items获取对应_WorkItem，并通过future判断是否任务被取消。如果是，删除_pending_work_items；如果不是，则把_workItem包装成_CallItem，传入_call_queue。
-
+- 处理_result_queue
+- 使用弱引用生成executor，判断
+  - _shutdown为True：The interpreter is shutting down
+  - executor为None：The executor that owns the worker has been collected
+  - executor._shutdown为True：The executor that owns the worker has been shutdown
+- 手动删除executor，避免占用内存
+  
 ### ProcessPoolExecutor
 
 - 生产者：继承_base.Executor
