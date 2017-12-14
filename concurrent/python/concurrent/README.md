@@ -419,13 +419,41 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 +----------+     +------------+     +--------+     +-----------+    +---------+
 ```
 
+- ProcessPoolExecutor通过submit向
+
 ### _WorkItem, _ResultItem, _CallItem
+
+- _WorkItem：用于包装future，函数，参数
+- _ResultItem：用于包装函数返回的结果，传入_WorkItem的计数，exception，result
+- _CallItem：用于包装需要运行的函数，传入_WorkItem的计数，函数，参数
 
 ### _process_worker
 
-### _queue_management_worker, _add_call_item_to_queue
+- 消费者：传入
+  - _call_queue：_CallItem消息队列
+  - _result_queue：_ResultItem消息队列
+
+### _queue_management_worker
+
+- 代理：传入
+  - ProcessPoolExecutor的弱引用
+  - _processes：进程池
+  - _pending_work_items：_WorkItem的计数到_WorkItem的映射表
+  - _work_ids：_WorkItem的计数消息队列
+  - _call_queue：_CallItem消息队列
+  - _result_queue：_ResultItem消息队列
+- _add_call_item_to_queue：不断把_workItem包装成_CallItem，传入_call_queue，直到_call_queue已满，或者_work_ids为空
+  - 判断_call_queue是否已满。如果满了，返回；如果不满，执行如下操作
+  - 判断_work_ids是否有。如过没有，返回；如果有，执行如下操作
+  - 通过_pending_work_items获取对应_WorkItem，并通过future判断是否任务被取消。如果是，删除_pending_work_items；如果不是，则把_workItem包装成_CallItem，传入_call_queue。
 
 ### ProcessPoolExecutor
+
+- 生产者：继承_base.Executor
+- submit：
+- shutdown：
+
+### 停止工作
 
 ## reference
 
