@@ -466,11 +466,23 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 
 ### 停止工作
 
+- shutdown
+  - 通过_adjust_thread_count中的`self._thread.add(t)`监测线程池，设置`self._shutdown=True`，_work_queue中放入一个None，然后join
+  - 一个_worker中的_workItem为None且executor._shutdown为True，并通过`work_queue.put(None)`Notice other workers
+  - 注：如果_work_queue中放入线程个数的None，不需要Notice other workers
+- _python_exit
+  - 通过_adjust_thread_count中的`_threads_queues[t]=self._worker_queue`监测线程池和消息队列，设置`_shutdown=True`，_work_queues中放入线程个数的None，然后join
+  - _worker_中的_workItem为None且_shutdown为True
+- ThreadPoolExecutor被删除
+  - 通过_weakref_cb，_work_queue中放入线程个数的None
+  - _worker中的_workItem为None且executor为None
+
 ### wake up queue management thread
 
-- _process_worker
-- submit
-- shutdown
+- _python_exit：提示queue thread停止工作
+- _process_worker：不知道为啥，可能没用
+- submit：防止当有新的worker进入时，queue thread阻塞在`result_item = result_queue.get(block=True)`
+- shutdown：提示queueu thread停止工作
 
 ###
 
