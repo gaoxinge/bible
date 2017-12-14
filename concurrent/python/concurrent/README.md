@@ -432,8 +432,11 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 - 消费者：传入
   - _call_queue：_CallItem消息队列
   - _result_queue：_ResultItem消息队列
-- 从_call_queue中阻塞的拿去_callItem，这样_worker不会作无用功，并且编程比较简单
-- 如果报错，对future设置错误信息；如果正确运行，对future设置值
+- 从_call_queue中阻塞的拿取_CallItem，这样_worker不会作无用功，并且编程比较简单
+- 判断_CallItem是否为None。如果是，wake up queue management thread，并返回；如果不是，则执行如下操作将函数作用在参数上。如果报错，对future设置错误信息；如果正确运行，对future设置值
+- 将函数作用在参数上。如果报错，对_ResultItem设置错误信息；如果正确运行，对_ResultItem设置值。同时，把_ResultItem传入_result_queue
+- 注：当_CallItem为None时，意味着_queue_manangement_work调用了shutdonw_one_process，需要结束子进程
+- 注：唤醒队列管理线程参见wake up queue manangement
 
 ### _queue_management_worker
 
@@ -462,6 +465,16 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 - shutdown：
 
 ### 停止工作
+
+### wake up queue management thread
+
+- _process_worker
+- submit
+- shutdown
+
+###
+
+### 同步
 
 ## reference
 
