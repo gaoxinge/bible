@@ -39,3 +39,65 @@ $ git clone https://github.com/libgit2/libgit2 mylibgit
 $ git clone git@github.com:libgit2/libgit2.git
 $ git clone git@github.com:libgit2/libgit2.git mylibgit
 ```
+
+## update
+
+```
+$ git status
+$ git status -s
+$ git diff # not staged
+$ git diff --staged # staged
+$ git diff --cached # staged
+```
+
+```
+$ touch .gitignore
+```
+
+```
+$ echo 'My Project' > README 
+$ git status # untracked
+$ git add README
+$ git status # staged
+$ git commit -m "readme"
+$ git status # committed
+```
+
+```
+$ vim CONTRIBUTING.md
+$ git status # modified
+$ git add CONTRIBUTING.md
+$ git status # staged
+$ git commit -m "contributing"
+$ git status # committed
+```
+
+```
+$ vim CONTRIBUTING.md
+$ git status # modified
+$ git commit -a -m "contributing"
+$ git status # committed 
+```
+
+```
+$ rm PROJECTS.md
+$ git status # deleted
+$ git rm PROJECTS.md
+$ git status # staged
+$ git commit -m "project"
+$ git status # committed
+```
+
+```
+$ git rm --cached PROJECTS.md
+$ git status # deleted & untracked
+$ git commit -m "project"
+$ git status # untracked
+```
+
+```
+$ git mv README.md README
+$ git status # renamed
+$ git commit -m "readme"
+$ git status # committed
+```
