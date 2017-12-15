@@ -499,6 +499,11 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 
 ### 例子
 
+- submit向_result_queue传入None
+- shutdown向_request_queue传入None
+- _process_worker向_request_queue传入_ResultItem
+- 停止工作
+
 ```python
 from concurrent.futures import ProcessPoolExecutor
 import time
@@ -509,10 +514,15 @@ def f(x):
 
 if __name__ == '__main__':
     pool = ProcessPoolExecutor(max_workers=2)
-    iterator = pool.map(f, [1])
+    result = pool.map(f, [1])
     pool.shutdown()
-    print iterator
+    print result
 ```
+
+- submit向_result_queue传入None
+- _process_worker向_request_queue传入_ResultItem
+- shutdown向_request_queue传入None
+- 停止工作
 
 ```python
 from concurrent.futures import ProcessPoolExecutor
@@ -528,6 +538,29 @@ if __name__ == '__main__':
     pool.shutdown()
     print result
 ```
+
+- 注：两个程序的运行顺序不同是因为使用list将触发future中的result代码，进一步触发wait，等待set_result的notify。而set_result必须等到_result_queue非空才行。此时由于shutdown被阻塞，因此_result_queue只能等待process运行的结果
+- 注：future：
+  - wait：result，exception_info
+  - notify_all：cancel，set_result，set_exception_info
+
+```python
+from concurrent.futures import ProcessPoolExecutor
+
+def f(x):
+    return x
+
+if __name__ == '__main__':
+    pool = ProcessPoolExecutor(max_workers=2)
+    f = pool.submit(f, [1])
+    pool.shutdown()
+    print f.result()
+    print f.result()
+```
+
+- 注：两个`f.result()`运行的future中的result代码是不同的：
+  - 第一次，运行的是wait之后的
+  - 第二次，运行的是wait之前的第一次，运行的是wait之后的；第二次，运行的是wait之前的
 
 ## reference
 
