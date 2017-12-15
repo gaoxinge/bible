@@ -349,9 +349,43 @@ print "main thread end"
 
 ### as_completed
 
+- _Waiter
+  - _AsCompletedWaiter
+- _AcquireFutures
+- _create_and_install_waiters
+- _yield_finished_futures
+
 ### wait
 
+- _Waiter
+  - _FirstCompletedWaiter
+  - _AllCompletedWaiter
+- _AcquireFutures
+- _create_and_install_waiters
+
 ### Future
+
+- 状态
+  - PENDING
+  - RUNNING
+  - CANCELLED
+  - CANCELLED_AND_NOTIFIED
+  - FINISHED
+- 用于编写Executor
+  - set_running_or_nofity_cancel：CANCELLED ---> CANCELLED_AND_NOTIFIED，PENDING --> RUNNING 
+  - set_result：RUNNING ---> FINISHED
+  - set_exception_info：RUNNING --> FINISHED
+- 用于调用Future
+  - cancel：PENDING --> CANCELLED
+  - result：__get_result
+  - exception_info
+  - cancelled：判断future状态是否属于CANCELLED或者CANCELLED_AND_NOTIFIED
+  - running：判断future状态是否属于RUNNING
+  - done：判断future状态是否属于CANCELLED或者CANCELED_AND_NOTIFIED或者FINISHED
+- 回调
+  - add_done_callback：当future的状态为CANCELLED或者CANCELLED_AND_NOTIFIED或者FINISHED时，把fn放入_done_callbacks；否则，运行fn
+  - _invode_callbacks：cancel，set_result，set_exception_info
+- _waiter：主要提供了与as_completed，wait的互动
 
 ### Executor
 
