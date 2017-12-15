@@ -419,13 +419,19 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
 +----------+     +------------+     +--------+     +-----------+    +---------+
 ```
 
-- ProcessPoolExecutor通过submit向
+- _work_ids：线程安全的消息队列，记录还未从thread出去的work
+- _pending_work_items：字典，记录还未进入thread的result
+- _call_queue：进程安全的消息队列，最大长度为workers的个数
+- _result_queue：进程安全的消息队列
+- ProcessPoolExecutor通过submit向_work_ids，_pending_work_items添加work，并启动thread，process
+- ProcessPoolExecutor通过调用shutdown，或在进程结束时调用_python_exit，或者当ProcessPoolExecutor被删除时，通过其弱引用来停止工作
+- 注：任意时刻_pending_work_items的个数不小于_work_ids的个数
 
 ### _WorkItem, _ResultItem, _CallItem
 
 - _WorkItem：用于包装future，函数，参数
-- _ResultItem：用于包装函数返回的结果，传入_WorkItem的计数，exception，result
-- _CallItem：用于包装需要运行的函数，传入_WorkItem的计数，函数，参数
+- _ResultItem：用于包装函数返回的结果，传入_WorkItem的计数，函数运行的exception，result
+- _CallItem：用于包装需要运行的函数和参数，传入_WorkItem的计数，函数，参数
 
 ### _process_worker
 
@@ -433,10 +439,10 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
   - _call_queue：_CallItem消息队列
   - _result_queue：_ResultItem消息队列
 - 从_call_queue中阻塞的拿取_CallItem，这样_worker不会作无用功，并且编程比较简单
-- 判断_CallItem是否为None。如果是，wake up queue management thread，并返回；如果不是，则执行如下操作将函数作用在参数上。如果报错，对future设置错误信息；如果正确运行，对future设置值
+- 判断_CallItem是否为None。如果是，wake up queue management thread，并返回；如果不是，则执行如下操作
 - 将函数作用在参数上。如果报错，对_ResultItem设置错误信息；如果正确运行，对_ResultItem设置值。同时，把_ResultItem传入_result_queue
 - 注：当_CallItem为None时，意味着_queue_manangement_work调用了shutdonw_one_process，需要结束子进程
-- 注：唤醒队列管理线程参见wake up queue manangement
+- 注：wake up queue manangement参见wake up queue manangement
 
 ### _queue_management_worker
 
@@ -447,46 +453,81 @@ ThreadPoolExecutor ---> _work_queue ---> _worker
   - _work_ids：_WorkItem的计数消息队列
   - _call_queue：_CallItem消息队列
   - _result_queue：_ResultItem消息队列
-- _add_call_item_to_queue：不断把_workItem包装成_CallItem，传入_call_queue，直到_call_queue已满，或者_work_ids为空
+- _add_call_item_to_queue：不断把_WorkItem包装成_CallItem，传入_call_queue，直到_call_queue已满，或者_work_ids为空
   - 判断_call_queue是否已满。如果满了，返回；如果不满，执行如下操作
   - 判断_work_ids是否有。如过没有，返回；如果有，执行如下操作
-  - 通过_pending_work_items获取对应_WorkItem，并通过future判断是否任务被取消。如果是，删除_pending_work_items；如果不是，则把_workItem包装成_CallItem，传入_call_queue。
+  - 取出WorkId，通过_pending_work_items获取对应_WorkItem，并通过future判断是否任务被取消。如果是，删除_pending_work_items；如果不是，则把_WorkItem包装成_CallItem，传入_call_queue
 - 处理_result_queue
+  - 从_result_queue中阻塞的拿取_ResultItem，这样_worker不会作无用功，并且编程比较简单
+  - 判断_ResultItem是否为None。如果是，执行如下操作
+  - 从_pending_work_items取出对应_WorkItem，设置future
+  - 从_pending_work_items删除对应_WorkItem
 - 使用弱引用生成executor，判断
   - _shutdown为True：The interpreter is shutting down
   - executor为None：The executor that owns the worker has been collected
   - executor._shutdown为True：The executor that owns the worker has been shutdown
+  - 判断_pending_work_items是否为空。如果是，执行如下操作：
+    - 通过shutdown_one_process关闭所有process
 - 手动删除executor，避免占用内存
+- 注：由于thread不再通过_ResultItem为None来判断是否结束，所以处理_request_queue里没有continue
+- 注：起进程放在代理里面起更佳
   
 ### ProcessPoolExecutor
 
 - 生产者：继承_base.Executor
-- submit：
-- shutdown：
+- submit：向_work_ids，_pending_work_items添加work，并通过_start_queue_management_thread启动_queue_management_worker子线程，通过_adjust_process_count启动_process_worker子进程，并返回future
+- shutdown：参见停止工作
 
 ### 停止工作
 
 - shutdown
-  - 通过_adjust_thread_count中的`self._thread.add(t)`监测线程池，设置`self._shutdown=True`，_work_queue中放入一个None，然后join
-  - 一个_worker中的_workItem为None且executor._shutdown为True，并通过`work_queue.put(None)`Notice other workers
-  - 注：如果_work_queue中放入线程个数的None，不需要Notice other workers
+  - 通过self._queue_management_thread监测线程，设置`self._shutdown_thread=True`，_result_queue中放入None，然后join
 - _python_exit
-  - 通过_adjust_thread_count中的`_threads_queues[t]=self._worker_queue`监测线程池和消息队列，设置`_shutdown=True`，_work_queues中放入线程个数的None，然后join
-  - _worker_中的_workItem为None且_shutdown为True
+  - 通过_start_queue_management_thread中的`_threads_queues[t]=self._result_queue`监测线程和消息队列，设置`_shutdown=True`，_result_queue中放入None，然后join
 - ThreadPoolExecutor被删除
-  - 通过_weakref_cb，_work_queue中放入线程个数的None
-  - _worker中的_workItem为None且executor为None
+  - 通过_weakref_cb，_work_queue中放入None
 
 ### wake up queue management thread
 
 - _python_exit：提示queue thread停止工作
-- _process_worker：不知道为啥，可能没用
-- submit：防止当有新的worker进入时，queue thread阻塞在`result_item = result_queue.get(block=True)`
-- shutdown：提示queueu thread停止工作
+- _process_worker：没用
+- weakref：提示queue thread停止工作
+- submit：当有新的worker进入时，防止queue thread阻塞在`result_item = result_queue.get(block=True)`
+- shutdown：提示queue thread停止工作
+- 注：当pending_work_item为空时，结束依赖_result_queue获取_python_exit，_weakref，shutdown传入的None
+- 注：当pending_work_item不为空时，结束依赖_result_queue获取非None的_ResultItem
 
-###
+### 例子
 
-### 同步
+```python
+from concurrent.futures import ProcessPoolExecutor
+import time
+
+def f(x):
+    time.sleep(10)
+    return x
+
+if __name__ == '__main__':
+    pool = ProcessPoolExecutor(max_workers=2)
+    iterator = pool.map(f, [1])
+    pool.shutdown()
+    print iterator
+```
+
+```python
+from concurrent.futures import ProcessPoolExecutor
+import time
+
+def f(x):
+    time.sleep(10)
+    return x
+
+if __name__ == '__main__':
+    pool = ProcessPoolExecutor(max_workers=2)
+    result = list(pool.map(f, [1]))
+    pool.shutdown()
+    print result
+```
 
 ## reference
 
