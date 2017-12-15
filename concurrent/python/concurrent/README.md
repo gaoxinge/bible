@@ -347,6 +347,22 @@ print "main thread end"
 
 ## _base
 
+### as_completed
+
+### wait
+
+### Future
+
+### Executor
+
+- 消费者
+  - submit：需要重写，用于消费者向消息队列传入任务
+  - map：基于submit
+  - shutdown：需要重写，用于停止工作
+- 上下文管理器
+  - __enter__：返回实例
+  - __exit__：自动调用shutdown
+
 ## thread
 
 ```
