@@ -560,7 +560,7 @@ if __name__ == '__main__':
 
 - 注：两个`f.result()`运行的future中的result代码是不同的：
   - 第一次，运行的是wait之后的
-  - 第二次，运行的是wait之前的第一次，运行的是wait之后的；第二次，运行的是wait之前的
+  - 第二次，运行的是wait之前的
 
 ## reference
 
