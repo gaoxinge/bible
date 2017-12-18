@@ -101,3 +101,32 @@ $ git status # renamed
 $ git commit -m "readme"
 $ git status # committed
 ```
+
+## log
+
+```
+$ git log
+$ git log -2 # 最近两条
+$ git log -p # 内容
+$ git log --stat # 内容
+```
+
+## cancel
+
+```
+# 忘记提交forgotten_file
+$ git commit -m "initial commit"
+$ git add forgotten_file
+$ git commit --amend
+```
+
+```
+# 撤销暂存的CONTRIBUTING.md
+$ git add *
+$ git reset HEAD CONTRIBUTING.md
+```
+
+```
+# 取消对CONTRIBUTING.md的修改
+$ git checkout -- CONTRIBUTING.md
+```
