@@ -95,6 +95,8 @@ server_forever ----> _handle_request_noblock ---> process_request ---> finish_re
 - 不关闭父进程的socket副本
 
 - windows版本
+  - 尝试用_subprocess重新写一个Popen：还是要把函数，参数序列化
+  - 尝试对socket进行其他种类的序列化：了解序列化
 
 ### multithread
 
