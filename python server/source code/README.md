@@ -30,11 +30,19 @@ DatagramRequestHandler
 - BaseServer
   - 初始化server_address, RequestHandlerClass
   - 运行如下
-  
+
 ```
 handle_request --|
                  |
 server_forever ----> _handle_request_noblock ---> process_request ---> finish_request ---> handle
+```
+
+- BaseRequestHandler
+  - 初始化request, client_address, server
+  - 运行如下
+
+```
+setup --> handle --> finish
 ```
 
 ### select
@@ -115,7 +123,27 @@ ForkingMixIn，ThreadingMixIn只重写了process_request，handle_timeout，可�
 
 ### rfile, wfile
 
+- [What is the difference between StringIO and io.StringIO in Python2.7?](https://stackoverflow.com/questions/3410309/what-is-the-difference-between-stringio-and-io-stringio-in-python2-7)
+- [StringIO](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431918785710e86a1a120ce04925bae155012c7fc71e000)
+
+```python
+try:
+    from cStringIO import StringIO
+except ImportError:
+    from StringIO import StringIO
+f = StringIO()
+f.write('hello')
+f.write(' ')
+f.write('world')
+print f.getvalue()
+```
+
+- StreamRequestHandler：
+- DatagramRequestHandler：
+
 ### python3与python2的区别
+
+python3使用了[selectors](https://docs.python.org/3/library/selectors.html)
 
 ## http
 
