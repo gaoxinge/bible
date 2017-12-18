@@ -89,8 +89,12 @@ server_forever ----> _handle_request_noblock ---> process_request ---> finish_re
 - collect_children
   - 在处理超时时，需要使用collect_children阻塞回收：此时只有一个子进程，因此可以在collect_children中的阻塞等待可用子进程中回收
   - 在程序退出时，需要使用collect_children阻塞回收：已在最新版的[cpython](https://github.com/python/cpython/blob/master/Lib/socketserver.py#L621)中改掉了
-  
+
 测试如下：
+
+- 不关闭父进程的socket副本
+
+- windows版本
 
 ### multithread
 
