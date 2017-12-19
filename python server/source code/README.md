@@ -180,4 +180,23 @@ StreamRequestHandler --> BaseHTTPRequestHandler --> SimpleHTTPRequestHandler -->
 
 ## rpc
 
+
+- SimpleXMLRPCServer：
+  - SimpleXMLRPCDispatcher
+  - SimpleXMLRPCRequestHandler(BaseHTTPRequestHandler)
+  - SimpleXMLRPCServer(TCPServer, SimpleXMLRPCDispatcher)
+  - MultiPathXMLRPCServer(SimpleXMLRPCServer)
+  - CGIXMLRPCRequestHandler(SimpleXMLRPCDispatcher)
+
+DocXMLRPCServer：
+- ServerHTMLDoc(HTMLDoc)
+- XMLRPCDocGenerator
+- DocXMLRPCRequestHandler(SimpleXMLRPCRequestHandler)
+- DocXMLRPCServer(SimpleXMLRPCServer, XMLRPCDocGenerator)
+- DocCGIXMLRPCRequestHandler(CGIXMLRPCRequestHandler, XMLRPCDocGenerator)
+
 ## wsgi
+
+- wsgiref
+  - handlers：BaseHandler --> SimpleHandler --> BaseCGIHandler --> CGIHandler
+  - simple_server：HTTPServer --> WSGIServer, BaseHTTPRequestHandler --> WSGIRequestHandler, SimpleHandler --> ServerHandler
