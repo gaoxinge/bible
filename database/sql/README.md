@@ -126,7 +126,7 @@ from (select distinct on (campaignid, transid, targetid)
       campaignid, transid, targetid, json_array_elements(content::json) as item
       from zs_target_hourlist where queuets >= '11111111111' and queuets <= '11111111111'
       order by campaignid, transid, targetid,requestts desc) t
-group by campaignid, transid, targetid, item->>'logDate', item->>'campaignModel'
+group by campaignid, transid, targetid, item->>'logDate', item->>'campaignModel';
 ```
 
 ### join
