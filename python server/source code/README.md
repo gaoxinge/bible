@@ -177,6 +177,38 @@ StreamRequestHandler --> BaseHTTPRequestHandler --> SimpleHTTPRequestHandler -->
 - CGIHTTPRequestHandler
   - do_POST
   - send_head
+  
+### BaseHTTPRequestHandler如何运行
+
+- handle调用handle_one_request
+- handle_one_request调用以do_开头的，以GET，POST，HEAD，PUT，DELETE结尾的方法
+
+### SimpleHTTPRequestHandler如何运行
+
+- do_GET
+- do_HEAD
+
+### CGIHTTPRequestHandler如何运行
+
+- do_POST
+  - is_cgi：判断self.path是否对应cgi脚本
+  - run_cgi：设置scriptfile，配置环境env。判断系统是unix还是windows
+    - unix：fork出子进程，在子进程中执行脚本和环境，返回数据
+	- windows：subprocess执行脚本和环境，返回数据
+	
+### unix是否阻塞
+
+- 主进程通过os.waitpid(pid, 0)阻塞
+- 没有使用subprocess
+
+### windows是否阻塞
+
+- 使用subprocess阻塞
+
+### rfile, wfile
+
+- 与客户端一一对应
+- 与服务端没有对应关系
 
 ## rpc
 
