@@ -212,20 +212,60 @@ StreamRequestHandler --> BaseHTTPRequestHandler --> SimpleHTTPRequestHandler -->
 
 ## rpc
 
+- [XML-RPC Specification](http://xmlrpc.scripting.com/spec.html)
+- [python项目实践八：使用XML-RPC进行远程文件共享](http://www.code123.cc/1335.html)
 
-- SimpleXMLRPCServer：
+### 如何运行
+
+- SimpleXMLRPCServer
   - SimpleXMLRPCDispatcher
   - SimpleXMLRPCRequestHandler(BaseHTTPRequestHandler)
   - SimpleXMLRPCServer(TCPServer, SimpleXMLRPCDispatcher)
   - MultiPathXMLRPCServer(SimpleXMLRPCServer)
   - CGIXMLRPCRequestHandler(SimpleXMLRPCDispatcher)
+- DocXMLRPCServer
+  - ServerHTMLDoc(HTMLDoc)
+  - XMLRPCDocGenerator
+  - DocXMLRPCRequestHandler(SimpleXMLRPCRequestHandler)
+  - DocXMLRPCServer(SimpleXMLRPCServer, XMLRPCDocGenerator)
+  - DocCGIXMLRPCRequestHandler(CGIXMLRPCRequestHandler, XMLRPCDocGenerator)
 
-DocXMLRPCServer：
-- ServerHTMLDoc(HTMLDoc)
-- XMLRPCDocGenerator
-- DocXMLRPCRequestHandler(SimpleXMLRPCRequestHandler)
-- DocXMLRPCServer(SimpleXMLRPCServer, XMLRPCDocGenerator)
-- DocCGIXMLRPCRequestHandler(CGIXMLRPCRequestHandler, XMLRPCDocGenerator)
+### SimpleXMlRPCDispatcher如何运行
+
+- register_instance：注册实例self.instance
+- register_function：注册函数self.funcs
+- register_introspection_function：注册函数self.funcs
+- register_multicall_function：注册函数self.funcs
+- _marshaled_dispatch：先尝试调用dispatch_method，再尝试调用self._dispatch，最后用xmlrpclib.dumps返回response
+- self._dispatch：先尝试使用self.funcs，在尝试使用self.instance
+
+### SimpleXMLRPCRequestHandler如何运行
+
+- 继承BaseHTTPRequestHandler
+- do_POST
+  - is_rpc_path_valid判断path合法
+  - 获取请求数据data
+  - server._marshaled_dispath处理data，_dispatch，path，返回response
+
+### SimpleXMLRPCServer如何运行
+
+- 继承SocketServer.TCPServer和SimpleXMLRPCDispatcher
+- 调用SimpleXMLRPCRequestHandler.do_POST
+- 调用SimpleXMLRPCDispatcher._marshaled_dispatch
+
+### MultiPathXMLRPCServer如何运行
+
+- 继承SimpleXMLRPCServer，但是写了_marshaled_dispatch
+- 调用SimpleXMLRPCRequestHandler.do_POST
+- 调用MultiPathXMLRPCServer._marshaled_dispatch
+
+### CGIXMLRPCRequestHandler如何运行
+
+- 继承SimpleXMLRPCDispatcher
+- handle_request
+  - handle_get
+  - handle_xmlrpc
+- handle_xmlrpc调用SimpleXMLRPCDispatcher_marshal_dispatch
 
 ## wsgi
 
