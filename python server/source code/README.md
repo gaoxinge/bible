@@ -198,5 +198,16 @@ DocXMLRPCServer：
 ## wsgi
 
 - wsgiref
-  - handlers：BaseHandler --> SimpleHandler --> BaseCGIHandler --> CGIHandler
-  - simple_server：HTTPServer --> WSGIServer, BaseHTTPRequestHandler --> WSGIRequestHandler, SimpleHandler --> ServerHandler
+  - handlers
+    - BaseHandler --> SimpleHandler --> BaseCGIHandler --> CGIHandler
+  - simple_server
+    - SimpleHandler --> ServerHandler
+    - HTTPServer --> WSGIServer
+	- BaseHTTPRequestHandler --> WSGIRequestHandler
+	- demo_app
+	- make_server
+
+- WSGIServer通过set_app设置demo_app
+- WSGIServer通过WSGIRequestHandler调用ServerHandler
+- WSGIServer通过get_app获取demo_app
+- ServerHandler通过run运行demo_app
