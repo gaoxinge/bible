@@ -206,7 +206,6 @@ DocXMLRPCServer：
 	- BaseHTTPRequestHandler --> WSGIRequestHandler
 	- demo_app
 	- make_server
-
 - WSGIServer通过set_app设置demo_app
 - WSGIServer通过WSGIRequestHandler调用ServerHandler
 - WSGIServer通过get_app获取demo_app
