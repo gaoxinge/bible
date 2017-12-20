@@ -111,6 +111,27 @@ select order_num, count(*) as items from OrderItems group by order_num hanving c
 ### subquery
 
 ```sql
+select cust_name, cust_contact from Customers where cust_id in ('1000000004', '1000000005');
+select cust_name, cuct_state 
+       (select count(*) from Orders where Orders.cust_id = Customers.cust_id) as orders
+from Customers where order by cust_name;
+select campaignid, transid, targetid, 
+       item->>'logDate' as logdate, 
+       (item->>'campaignModel')::int as campaignmodel,
+       sum((item->>'adPv')::double precision) as pv ,
+       sum((item->>'charge')::double precision) as charge,
+       sum((item->>'click')::double precision)as click,
+       current_timestamp as updatetime 
+from (select distinct on (campaignid, transid, targetid)
+      campaignid, transid, targetid, json_array_elements(content::json) as item
+      from zs_target_hourlist where queuets >= '11111111111' and queuets <= '11111111111'
+      order by campaignid, transid, targetid,requestts desc) t
+group by campaignid, transid, targetid, item->>'logDate', item->>'campaignModel'
+```
+
+### join
+
+```sql
 select a.id,a.author,b.count from runoob_tb a inner join tcount_tb b on a.author=b.author;
 select a.id,a.author,b.count from runoob_tb a left join tcount_tb b on a.author=b.author;
 select b.id,b.author,a.count from tcount_tb a right join runoob_tb b on a.author=b.author;
