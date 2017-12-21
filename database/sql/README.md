@@ -203,30 +203,29 @@ ORDER BY cust_name, cust_contact;
 ## insert
 
 ```sql
-insert into runoob_tb (title,author,date) values ("PHP","John Poul",NOW());
-insert into runoob_tb (title,author,date) values ("MySQL","Abdul S",NOW());
-insert into runoob_tb (title,author,date) values ("JAVA","Sanjay","2007-05-06");
-insert into runoob_tb (title,author,date) values ("HTML","gaoxinge","2016-07-24"), ("C++","xinge","2016-07-24"), ("Python","ge","2016-07-23");
-insert into runoob_tb2 select title,author from runoob_tb;
+INSERT INTO Websites (name, url, country)
+VALUES ('stackoverflow', 'http://stackoverflow.com/', 'IND');
+
+INSERT INTO Websites (name, country)
+SELECT app_name, country FROM apps;
 ```
 
 ## update
 
 ```sql
-update runoob_tb set title="HTML" where id=4;
+UPDATE Websites 
+SET alexa='5000', country='USA' 
+WHERE name='菜鸟教程';
 ```
 
 ## delete
 
 ```sql
-delete from runoob_tb where id=4;
+DELETE FROM Websites
+WHERE name='百度' AND country='CN';
 ```
 
-### 数据类型
-
-MySQL主要有三种数据类型：数值，日期和时间，以及字符串。对于`null`，要用`is null`和`is not null`来判断
-
-### 数据表
+## table
 
 ```sql
 create table runoob_tb(
@@ -242,26 +241,23 @@ title varchar(100) not null,
 author varchar(40) not null,
 );       
 
+show columns from runoob_tb2;
+
+alter table runoob_tb2 add id int;
+alter table runoob_tb2 drop id;
+alter table runoob_tb2 modify id char(10);
+alter table runoob_tb2 change id ide char(10);
+alter table runoob_tb2 modify ide bigint not null default 100;
+alter table runoob_tb2 alter ide set default 1000;
+alter table runoob_tb2 alter ide drop default;
+alter table runoob_tb2 rename to tcount_tb;
+
 drop table runoob_tb;
 ```
 
-### 字段
+### 数据类型
 
-```
-字段：show columns from runoob_tb2;
-
-添加：alter table runoob_tb2 add id int;
-
-删除：alter table runoob_tb2 drop id;
-
-修改：alter table runoob_tb2 modify id char(10);
-      alter table runoob_tb2 change id ide char(10);
-      alter table runoob_tb2 modify ide bigint not null default 100;
-      alter table runoob_tb2 alter ide set default 1000;
-      alter table runoob_tb2 alter ide drop default;
-
-表名：alter table runoob_tb2 rename to tcount_tb;
-```
+MySQL主要有三种数据类型：数值，日期和时间，以及字符串。对于`null`，要用`is null`和`is not null`来判断
 
 ### 索引
 
