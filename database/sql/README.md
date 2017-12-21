@@ -132,9 +132,72 @@ group by campaignid, transid, targetid, item->>'logDate', item->>'campaignModel'
 ### join
 
 ```sql
-select a.id,a.author,b.count from runoob_tb a inner join tcount_tb b on a.author=b.author;
-select a.id,a.author,b.count from runoob_tb a left join tcount_tb b on a.author=b.author;
-select b.id,b.author,a.count from tcount_tb a right join runoob_tb b on a.author=b.author;
+# 笛卡儿积联结，cross join
+select vend_name, prod_name, prod_price from Vendors, Products;
+
+# 等值联结，inner join
+select vend_name, prod_name, prod_price from Vendors, Products where Venders.vend_id = Products.vend_id;
+select vend_name, prod_name, prod_price from Vendors inner join Products on Venders.vend_id = Products.vend_id;
+
+# outer join
+SELECT Websites.name, access_log.count, access_log.date
+FROM Websites
+LEFT JOIN access_log
+ON Websites.id=access_log.site_id
+ORDER BY access_log.count DESC;
+
+SELECT Websites.name, access_log.count, access_log.date
+FROM Websites
+LEFT OUTER JOIN access_log
+ON Websites.id=access_log.site_id
+ORDER BY access_log.count DESC;
+
+SELECT Websites.name, access_log.count, access_log.date
+FROM access_log
+RIGHT JOIN Websites
+ON access_log.site_id=Websites.id
+ORDER BY access_log.count DESC;
+
+SELECT Websites.name, access_log.count, access_log.date
+FROM access_log
+RIGHT OUTER JOIN Websites
+ON access_log.site_id=Websites.id
+ORDER BY access_log.count DESC;
+
+SELECT Websites.name, access_log.count, access_log.date
+FROM Websites
+FULL OUTER JOIN access_log
+ON Websites.id=access_log.site_id
+ORDER BY access_log.count DESC;
+```
+
+### union
+
+```sql
+SELECT cust_name, cust_contact, cust_email
+FROM Customers
+WHERE cust_state IN ('IL', 'IN', 'MI')
+UNION
+SELECT cust_name, cust_contact, cust_email
+FROM Customers
+WHERE cust_name = 'Fun4All';
+
+SELECT cust_name, cust_contact, cust_email
+FROM Customers
+WHERE cust_state IN ('IL', 'IN', 'MI')
+UNION ALL
+SELECT cust_name, cust_contact, cust_email
+FROM Customers
+WHERE cust_name = 'Fun4All';
+
+SELECT cust_name, cust_contact, cust_email
+FROM Customers
+WHERE cust_state IN ('IL', 'IN', 'MI')
+UNION ALL
+SELECT cust_name, cust_contact, cust_email
+FROM Customers
+WHERE cust_name = 'Fun4All'
+ORDER BY cust_name, cust_contact;
 ```
 
 ## insert
