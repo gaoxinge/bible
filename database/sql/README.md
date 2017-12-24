@@ -255,10 +255,29 @@ alter table runoob_tb2 rename to tcount_tb;
 drop table runoob_tb;
 ```
 
-### 数据类型
+## view
+
+```sql
+CREATE VIEW OrderItemsExpanded AS
+SELECT order_num,
+       prod_id,
+       quantity,
+       item_price,
+       quantity * item_price AS expanded_price
+From OrderItems
+```
+
+## 存储过程
+
+## 数据类型
 
 MySQL主要有三种数据类型：数值，日期和时间，以及字符串。对于`null`，要用`is null`和`is not null`来判断
 
-### 索引
+## 索引
 
 索引主要分为一般索引，唯一索引以及主键。他们都可由`create`创建，`alter`修改
+
+## 其他
+
+- 事务管理
+- 游标
