@@ -1,3 +1,40 @@
+## 数据类型
+
+- 数值
+- 日期和时间
+- 字符串
+- null
+  - is null
+  - is not null
+
+## 约束
+
+- 主键约束（Primary Key Constraint）
+- 唯一约束（Unique Constraint）
+- 检查约束（Check Constraint）
+- 默认约束（Default Constraint）
+- 外键约束（Foreign Key Constraint）
+
+### 参考
+
+- [数据库中的五种约束及其添加方法](http://blog.csdn.net/shuohuameijiang/article/details/7275716)
+- [数据库的约束简介](https://www.cnblogs.com/netsql/archive/2010/05/06/1729162.html)
+- [数据库的三大范式以及五大约束](https://www.cnblogs.com/waj6511988/p/7027127.html)
+
+## 索引
+
+- 一般索引
+- 唯一索引
+- 主键索引
+- 聚集索引
+
+### 参考
+
+- [SQL索引一步到位](https://www.cnblogs.com/AK2012/archive/2013/01/04/2844283.html)
+- [mysql索引总结----mysql 索引类型以及创建](http://blog.csdn.net/xluren/article/details/32746183)
+- [数据库索引的实现原理](http://blog.csdn.net/kennyrose/article/details/7532032)
+- [MySQL索引原理及慢查询优化](http://blog.jobbole.com/86594/)
+
 ## select
 
 ```sql
@@ -267,17 +304,11 @@ SELECT order_num,
 From OrderItems
 ```
 
-## 存储过程
-
-## 数据类型
-
-MySQL主要有三种数据类型：数值，日期和时间，以及字符串。对于`null`，要用`is null`和`is not null`来判断
-
-## 索引
-
-索引主要分为一般索引，唯一索引以及主键。他们都可由`create`创建，`alter`修改
-
 ## 其他
 
+- 函数
+- 存储过程
 - 事务管理
 - 游标
+- 触发器
+- 数据库安全
