@@ -14,7 +14,7 @@
 
 ## distribution
 
-- [basic](https://github.com/gaoxinge/bible/tree/master/basic)
+- [operating system](https://github.com/gaoxinge/bible/tree/master/operating%20system)
 
 ## git
 
