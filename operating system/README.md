@@ -1,4 +1,4 @@
-# basic
+# operating system
 
 ## operating system
 
@@ -7,7 +7,3 @@
 - [Principles of Computer Systems](http://web.mit.edu/6.826/archive/S04/)
 - [Computer Science from the Bottom Up](http://www.bottomupcs.com/)
 - [Operating Systems: Three Easy Pieces](http://pages.cs.wisc.edu/~remzi/OSTEP/)
-
-## distribution system
-
-- [Principles of Distributed Computing](https://disco.ethz.ch/courses/podc_allstars/)
