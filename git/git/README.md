@@ -130,3 +130,11 @@ $ git reset HEAD CONTRIBUTING.md
 # 取消对CONTRIBUTING.md的修改
 $ git checkout -- CONTRIBUTING.md
 ```
+
+## remote repository
+
+```
+$ git clone https://github.com/libgit2/libgit2
+$ git push origin master
+$ git pull
+```
