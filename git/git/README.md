@@ -138,3 +138,21 @@ $ git clone https://github.com/libgit2/libgit2
 $ git push origin master
 $ git pull
 ```
+
+## tag
+
+```
+$ git log --pretty=oneline
+$ git tag -a v1.2 -m 'my version 1.2'
+$ git tag -a v1.4 6887d6
+$ git tag v1.4-1w
+$ git tag
+$ git tag -l 'v1.4*'
+$ git show v1.4-1w
+```
+
+```
+$ git push origin v1.4
+$ git push origin --tags
+$ git checkout -b version2 v1.2
+```
