@@ -156,3 +156,43 @@ $ git push origin v1.4
 $ git push origin --tags
 $ git checkout -b version2 v1.2
 ```
+
+## branch
+
+```
+$ git branch testing
+$ git checkout testing
+$ git checkout -b testing
+$ git log --oneline --decorate
+$ git log --oneline --decorate --graph --all
+```
+
+```
+$ git checkout -b iss53
+$ vim index.html
+$ git commit -a -m 'added a new footer [issue 53]'
+
+$ git checkout master
+$ git checkout -b hotfix
+$ vim index.html
+$ git commit -a -m 'fixed the broken email address'
+$ git checkout master
+$ git merge hotfix
+$ git branch -d hotfix
+
+$ git checkout iss53
+$ vim index.html
+$ git commit -a -m 'finished the new footer [issue 53]'
+$ git checkout master
+$ git merge iss53 # conflict
+$ git branch -d iss53
+```
+
+```
+$ git branch
+$ git branch -v
+$ git branch --merged
+$ git branch --no-merged
+$ git branch -d iss53 # merged
+$ git branch -D testing # no-merged
+```
