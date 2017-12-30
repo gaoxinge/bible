@@ -68,6 +68,6 @@
 ## architecture
 
 - [summary](https://github.com/gaoxinge/bible/tree/master/summary)
-- [REST]()
+- [REST](https://github.com/gaoxinge/bible/tree/master/REST)
 - [SOA]()
-- [微服务]()
+- [micro service]()
