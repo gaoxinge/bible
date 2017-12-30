@@ -1,6 +1,6 @@
 # REST
 
-## restful style architecture 
+## restful architecture 
 
 ```
 platform --> rest server --> resource
