@@ -14,20 +14,36 @@
 
 ## IOC（控制反转），DI（依赖注入）
 
-- [Spring IOC有什么好处呢？](https://www.zhihu.com/question/23277575)
+### bean factory
 
-Spring IOC是基于bean实现的：
+- 工厂模式
+  - 单例
+  - 原型
 
-- 注册bean注解
+### 注册
+
+- xml
+- 类注解
   - @Component
   - @Controller：Action
   - @Service：Service
   - @Repository：Dao
-- 使用bean注解
-  - @Autowired
-  - @Resource
-- 返回bean的方法注解
-  - @Bean
+- 方法注解
+  - @Configuration/@Bean
+
+### 使用
+  
+- @Autowired
+- @Resource
+- @Injected
+  
+### 参考
+
+- [Spring IOC有什么好处呢？](https://www.zhihu.com/question/23277575)
+- [Spring整理系列(11)——@Configuration注解、@Bean注解以及配置自动扫描、bean作用域](http://blog.csdn.net/javaloveiphone/article/details/52182899)
+- [Spring初探之bean工厂（上）](http://blog.csdn.net/windy83/article/details/7405032)
+- [Spring初探之bean工厂（下）](http://blog.csdn.net/Windy83/article/details/7407546)
+- [通过annotation(注解)实现BeanFactory工厂模式(三)](https://my.oschina.net/u/923324/blog/832269)
 
 ## AOP（面向切片编程）
 
@@ -41,4 +57,5 @@ Spring IOC是基于bean实现的：
 ## 例子
 
 - [web](https://github.com/gaoxinge/bible/tree/master/java/spring/1)
-- [nonweb](https://github.com/gaoxinge/bible/tree/master/java/spring/2)
+- [nonweb1](https://github.com/gaoxinge/bible/tree/master/java/spring/2)
+- [nonweb2](https://github.com/gaoxinge/bible/tree/master/java/spring/3)

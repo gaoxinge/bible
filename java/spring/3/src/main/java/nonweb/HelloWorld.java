@@ -12,12 +12,12 @@ public class HelloWorld implements CommandLineRunner {
     private BeanFactory bf;
     
     @Autowired
-    private Comp comp;
+    private TestBean testBean;
     
     @Override
     public void run(String... args) {
-        System.out.println((Comp) bf.getBean("Comp"));
-        System.out.println(comp);
+        System.out.println((TestBean) bf.getBean("testBean"));
+        System.out.println(testBean);
     }
     
     public static void main(String[] args) {
