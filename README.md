@@ -24,6 +24,10 @@
 
 - [docker](https://github.com/gaoxinge/bible/tree/master/docker)
 
+## cloud os
+
+- [cloud os](https://github.com/gaoxinge/bible/tree/master/cloud%20os)
+
 ## server
 
 - [c server](https://github.com/gaoxinge/bible/tree/master/c%20server)
