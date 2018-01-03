@@ -32,3 +32,7 @@ platform --> rest server --> resource
 
 - [理解RESTful架构](http://www.ruanyifeng.com/blog/2011/09/restful)
 - [RESTful API设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
+- [RESTful架构详解](http://www.runoob.com/w3cnote/restful-architecture.html)
+- [RESTful架构风格概述](https://blog.igevin.info/posts/restful-architecture-in-general/)
+- [深入理解RESTful Api架构](https://mengkang.net/620.html)
+- [RESTful API设计最佳实践](http://blog.jobbole.com/41233/)
