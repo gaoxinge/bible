@@ -69,7 +69,7 @@
 
 ## development
 
-- [DevOps]()
+- [DevOps](https://github.com/gaoxinge/bible/tree/master/DevOps)
 - agile
 - waterfall
 
@@ -79,8 +79,7 @@
 - [REST](https://github.com/gaoxinge/bible/tree/master/REST)
 - [SOA]()
 - [micro service]()
-
-- [Serveless]()
-- [Domain-driven Design]()
+- [serveless]()
+- [domain-driven design]()
 
 ## software development
