@@ -81,9 +81,9 @@
 
 - [summary](https://github.com/gaoxinge/bible/tree/master/summary)
 - [REST](https://github.com/gaoxinge/bible/tree/master/REST)
-- [SOA]()
 - [micro service]()
-- [domain-driven design]()
+- SOA
+- ROA
 
 ## software development
 
