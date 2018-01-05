@@ -37,3 +37,6 @@ platform --> rest server --> resource
 - [深入理解RESTful Api架构](https://mengkang.net/620.html)
 - [RESTful Web服务：教程](https://zhuanlan.zhihu.com/p/21644769)
 - [RESTful API设计最佳实践](http://blog.jobbole.com/41233/)
+- [深入浅出REST](http://www.infoq.com/cn/articles/rest-introduction)
+- [理解本真的REST架构风格](http://www.infoq.com/cn/articles/understanding-restful-style/)
+- [如何获取（GET）一杯咖啡——星巴克REST案例分析](http://www.infoq.com/cn/articles/webber-rest-workflow/)
