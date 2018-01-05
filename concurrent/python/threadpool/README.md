@@ -27,7 +27,7 @@
 
 - run：需要注意
 ```python
-if self._dismissed.isSet(0:
+if self._dismissed.isSet():
     self._requests_queue.put(request)
     break
 ```
