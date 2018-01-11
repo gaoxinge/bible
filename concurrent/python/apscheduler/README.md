@@ -16,6 +16,12 @@
 
 ## triggers
 
+控制调度逻辑。
+
+- date：在指定时间，调度一次
+- interval：相隔指定时间，调度一次
+- cron：在指定时间，反复调度
+
 ## job stores
 
 ## executors
