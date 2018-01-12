@@ -16,6 +16,13 @@
 
 ## job
 
+- modify
+- reschedule
+- pause
+- resume
+- remove
+- pending
+
 ## triggers
 
 控制调度逻辑。
