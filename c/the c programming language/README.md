@@ -47,3 +47,58 @@ int main() {
     return 0;
 }
 ```
+
+## 结构体变量的声明
+
+```c
+#include <stdio.h>
+
+struct Book {
+    int id;
+    char *name;
+};
+
+union u_tag {
+    int ival;
+    float fval;
+    char *sva;
+};
+
+int main() {
+    struct Book book;
+    struct Book2 {
+        int id;
+        char *name;
+    } book2;
+    
+    union u_tag tag;
+    union u {
+        int ival;
+        float fval;
+        char *sva;
+    } t;
+    return 0;
+}
+```
+
+## 八进制
+
+```c
+#include <stdio.h>
+#define KEYWORD  01
+#define EXTERNAL 02
+#define STATIC   04
+
+int main() {
+    enum {keyword = 01, external = 02, statics = 04};
+    
+    printf("%d", KEYWORD);
+    printf("%d", EXTERNAL);
+    printf("%d", STATIC);
+    
+    printf("%d", keyword);
+    printf("%d", external);
+    printf("%d", statics);
+    return 0;
+}
+```
