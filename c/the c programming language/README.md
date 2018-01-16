@@ -102,3 +102,16 @@ int main() {
     return 0;
 }
 ```
+
+## 格式化输出
+
+```c
+#include <stdio.h>
+
+int main() {
+    char *c = "%s\n";
+    printf(c);                // ?@@
+    printf(c, "hello world"); // hello world
+    return 0;
+}
+```
