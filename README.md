@@ -47,9 +47,9 @@
 
 ## service discovery
 
-- consul
-- zookeeper
 - etcd
+- [consul]()
+- zookeeper
 
 ## deploy
 
