@@ -16,6 +16,13 @@
 
 - [operating system](https://github.com/gaoxinge/bible/tree/master/operating%20system)
 
+## git
+
+- [git](https://github.com/gaoxinge/bible/tree/master/git)
+- GitHub
+- GitWeb
+- GitLab
+
 ## server
 
 - [c server](https://github.com/gaoxinge/bible/tree/master/c%20server)
@@ -24,13 +31,6 @@
 ## database
 
 - [database](https://github.com/gaoxinge/bible/tree/master/database)
-
-## git
-
-- [git](https://github.com/gaoxinge/bible/tree/master/git)
-- GitHub
-- GitWeb
-- GitLab
 
 ## integration
 
