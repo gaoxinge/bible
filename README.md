@@ -45,6 +45,12 @@
 
 ### jenkins
 
+## service discovery
+
+- consul
+- zookeeper
+- etcd
+
 ## deploy
 
 ### mesos
@@ -64,12 +70,6 @@
 - [docker](https://tin6150.github.io/psg/blogger_container_hpc.html)
 - [singularity](http://hao.jobbole.com/singularity/)
 - [mesos](http://geek.csdn.net/news/detail/193272)
-
-## 服务发现
-
-### consul
-### zookeeper
-### etcd
 
 ## development
 
