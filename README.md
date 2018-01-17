@@ -16,22 +16,6 @@
 
 - [operating system](https://github.com/gaoxinge/bible/tree/master/operating%20system)
 
-## git
-
-- [git](https://github.com/gaoxinge/bible/tree/master/git)
-
-## docker
-
-- [docker](https://github.com/gaoxinge/bible/tree/master/docker)
-
-## cloud os
-
-- [cloud os](https://github.com/gaoxinge/bible/tree/master/cloud%20os)
-
-## serveless
-
-- [serveless](https://github.com/gaoxinge/bible/tree/master/serveless)
-
 ## server
 
 - [c server](https://github.com/gaoxinge/bible/tree/master/c%20server)
@@ -41,28 +25,42 @@
 
 - [database](https://github.com/gaoxinge/bible/tree/master/database)
 
+## git
+
+- [git](https://github.com/gaoxinge/bible/tree/master/git)
+- GitHub
+- GitWeb
+- GitLab
+
 ## integration
 
-### jenkins
+- jenkins
+- strider
+- travis
+- codeship
 
-## service discovery
+## docker
+
+- [docker](https://github.com/gaoxinge/bible/tree/master/docker)
+
+### service discovery
 
 - etcd
 - [consul]()
 - zookeeper
 
-## deploy
+### deploy
 
-### mesos
+#### mesos
 
 - [mesos](http://mesos.org.cn/Mesos-Introduction.html)
 
-### marathon
+#### marathon
 
 - [marathon](http://mesosphere.github.io/marathon/)
 - [marathon api](http://mesosphere.github.io/marathon/docs/rest-api.html)
 
-### singularity
+#### singularity
 
 - [singularity](https://github.com/singularityware)
 - [singularity](http://singularity.lbl.gov/)
@@ -70,6 +68,14 @@
 - [docker](https://tin6150.github.io/psg/blogger_container_hpc.html)
 - [singularity](http://hao.jobbole.com/singularity/)
 - [mesos](http://geek.csdn.net/news/detail/193272)
+
+## cloud os
+
+- [cloud os](https://github.com/gaoxinge/bible/tree/master/cloud%20os)
+
+## serveless
+
+- [serveless](https://github.com/gaoxinge/bible/tree/master/serveless)
 
 ## development
 
