@@ -115,3 +115,37 @@ int main() {
     return 0;
 }
 ```
+
+## sizeof
+
+```c
+#include <stdio.h>
+int f(int *);
+
+int main() {
+    int a;
+    printf("%d\n", sizeof(a));
+    printf("%d\n", sizeof(int));
+    
+    int b[3];
+    printf("%d\n", sizeof(b));
+    
+    int n = 3;
+    int c[n];
+    printf("%d\n", sizeof(c));
+    
+    int d[] = {1, 2, 3};
+    printf("%d\n", f(d));
+    return 0;
+} 
+
+int f(int *a) {
+    int sum = 0;
+    int n = sizeof(a);
+    int m = sizeof(a[0]);
+    printf("n=%d, m=%d\n", n, m);
+    for (int i = 0; i < n / m; ++i)
+        sum += i;
+    return sum;
+}
+```
