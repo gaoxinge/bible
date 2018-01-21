@@ -149,3 +149,45 @@ int f(int *a) {
     return sum;
 }
 ```
+
+## 文件描述符
+
+- [File descriptor](https://en.wikipedia.org/wiki/File_descriptor)
+- [每天进步一点点——Linux中的文件描述符与打开文件之间的关系](http://blog.csdn.net/cywosp/article/details/38965239)
+- [Linux文件描述符](https://www.jianshu.com/p/430340c4a37a)
+- [How do you read from stdin in Python?](https://stackoverflow.com/questions/1450393/how-do-you-read-from-stdin-in-python)
+
+每个进程都维护这一张文件描述符表
+
+```python
+import sys
+print(sys.stdin)    # 0
+print(sys.stdout)   # 1
+print(sys.stderr)   # 2
+f = open('test.py')
+print(f.fileno())   # 3
+```
+
+### 重定向
+
+改变了进程默认的stdin，stdout
+
+- stdin：`prog < infile`
+- stdout：`prog > infile`
+
+## 管道
+
+- [How to get file descriptor of buffer in memory?](https://stackoverflow.com/questions/1558772/how-to-get-file-descriptor-of-buffer-in-memory)
+
+pipe左侧的进程的stdout指向pipe，右侧的进程的stdin指向pipe
+
+- `prog | anotherprog`
+
+```python
+import os
+r, w = os.pipe()
+r = os.fdopen(r)
+print(r.fileno()) # 3
+w = os.fdopen(w)
+print(w.fileno()) # 4 
+```
