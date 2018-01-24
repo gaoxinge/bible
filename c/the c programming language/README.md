@@ -202,6 +202,12 @@ print(w.fileno()) # 4
 - [theForger's Win32 API Programming Tutorial](http://www.winprog.org/tutorial/)
 - [windows programming](https://github.com/gaoxinge/bible/blob/master/c/the%20c%20programming%20language/windows%20programming.pdf)
 
+windows编程/windows环境编程：系统调用api（win32 api）通过动态链接库（dll）实现
+
+- msc：windows环境，windows api
+- mingw：windows环境，linux api
+- cygwin：linux环境，linux api
+
 ### linux
 
-
+linux编程/linux环境编程：系统调用api通过libc（c library）实现，比如glibc（gnu c library）
