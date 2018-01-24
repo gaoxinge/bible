@@ -191,3 +191,17 @@ print(r.fileno()) # 3
 w = os.fdopen(w)
 print(w.fileno()) # 4 
 ```
+
+## 系统调用
+
+- [system call](https://en.wikipedia.org/wiki/System_call)
+
+### windows
+
+- [How to start programming in Windows?](https://stackoverflow.com/questions/5125431/how-to-start-programming-in-windows)
+- [theForger's Win32 API Programming Tutorial](http://www.winprog.org/tutorial/)
+- [windows programming]()
+
+### linux
+
+
