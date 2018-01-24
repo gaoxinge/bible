@@ -22,6 +22,14 @@
 - resume
 - remove
 - pending
+- _get_run_times
+- _modify
+- __getstate__
+- __setstate__
+- __eq__
+- __repr__
+- __str__
+- __unicode__
 
 ## triggers
 
@@ -34,6 +42,22 @@
 ## job stores
 
 ## executors
+
+### BasePoolExecutor
+
+### pool
+
+- BasePoolExecutor继承BaseExecutor
+- ThreadPoolExecutor继承BasePoolExecutor
+- ProcessPoolExecutor继承BasePoolExecutor
+
+### gevent
+
+### asyncio
+
+### tornado
+
+### twisted
 
 ## schedulers
 
@@ -52,13 +76,24 @@
 - pause
 - resume
 - running
+- wakeup
+- _configure
+- _dispatch_event
+- _create_plugin_instance
+- _create_lock
+- _process_jobs
 - executors
   - add_executor：添加对应别名的executor
   - remove_executor：移除对应别名的executor
   - _lookup_executor：通过别名查找对应的executor
+  - _create_default_executor
 - jobstores
   - add_jobstore
   - remove_jobstore
+  - _lookup_jobstore
+  - create_default_jobstore
+- triggers
+  - _create_trigger
 - listeners
   - add_listener
   - remove_listener
@@ -66,6 +101,7 @@
   - add_job
   - scheduled_job
   - modify_job
+  - reschedule_job
   - pause_job
   - resume_job
   - get_jobs
@@ -73,20 +109,36 @@
   - remove_job
   - remove_all_jobs
   - print_jobs
+  - _real_add_job
+  - _lookup_job
   
 ### BlockingScheduler
 
+- 继承BaseScheduler
+
 ### BackgroundScheduler
+
+- 继承BlockingScheduler
 
 ### GeventScheduler
 
+- 继承BlockingScheduler
+
 ### AsyncIOScheduler
+
+- 继承BaseScheduler
 
 ### TornadoScheduler
 
+- 继承BaseScheduler
+
 ### TwistedScheduler
 
+- 继承BaseScheduler
+
 ### QtScheduler
+
+- 继承BaseScheduler
 
 ## reference
 
