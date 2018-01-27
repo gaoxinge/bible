@@ -242,3 +242,63 @@ int main() {
     return 0;
 }
 ```
+
+```c
+#include <unistd.h>
+#include <stdio.h>
+int getchar1();
+
+/****************************
+ * 不带缓存的getchar1
+ * 输入：qwer\n
+ * 返回1：q
+ * 返回2：w
+ ****************************/
+int main() {
+    char c1 = getchar1();
+    putchar(c1);
+    char c2 = getchar();
+    putchar(c2);
+    return 0;
+}
+
+int getchar1() {
+    char c;
+    return (read(0, &c, 1) == 1) ? (unsigned char) c : EOF;
+}
+```
+
+```c
+#include <unistd.h>
+#include <stdio.h>
+#define BUFSIZE 3
+int getchar1();
+
+/****************************
+ * 带缓存的getchar1
+ * 输入：qwer\n
+ * 返回1：q
+ * 返回2：r
+ ****************************/
+int main() {
+    char c;
+    char c1 = getchar1();
+    putchar(c1);
+    char c2 = getchar();
+    putchar(c2);
+    return 0;
+}
+
+int getchar1() {
+    static char buf[BUFSIZE];
+    static char *bufp = buf;
+    static int n = 0;
+    
+    if (n == 0) {
+        n = read(0, buf, sizeof(buf));
+        bufp = buf;
+    }
+    
+    return (--n >= 0) ? (unsigned char) *bufp++ : EOF;
+}
+```
