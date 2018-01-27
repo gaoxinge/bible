@@ -281,7 +281,6 @@ int getchar1();
  * 返回2：r
  ****************************/
 int main() {
-    char c;
     char c1 = getchar1();
     putchar(c1);
     char c2 = getchar();
