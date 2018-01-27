@@ -211,3 +211,34 @@ windows编程/windows环境编程：系统调用api（win32 api）通过动态�
 ### linux
 
 linux编程/linux环境编程：系统调用api通过libc（c library）实现，比如glibc（gnu c library）
+
+#### unistd
+
+```c
+#include <unistd.h>
+#include <stdio.h>
+#define BUFSIZE 3
+
+/****************************
+ * 进入显示start，退出显示end
+ * 
+ * write函数
+ * 作用：将stdin中反复读入
+ *      BUFSIZE个字符，放
+ *      入buf里
+ * 触发条件：回车，且回车也
+ *      计入stdin里
+ ****************************/
+int main() {
+    char buf[BUFSIZE];
+    int n;
+    
+    printf("%s\n", "start");
+    while ((n = read(0, buf, BUFSIZE)) > 0) {
+        printf("\n%d\n", n);
+        write(1, buf, n);
+    }
+    printf("%s\n", "end");
+    return 0;
+}
+```
