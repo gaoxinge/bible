@@ -20,6 +20,7 @@
 - [lombok](https://github.com/gaoxinge/bible/tree/master/java/lombok)
 - [json](https://github.com/gaoxinge/bible/tree/master/java/json)
 - [log](https://github.com/gaoxinge/bible/tree/master/java/log)
+- [quartz](https://github.com/gaoxinge/bible/tree/master/java/quartz)
 
 ## management
 
