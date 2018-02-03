@@ -401,3 +401,17 @@ int main() {
     return 0;
 }  
 ```
+
+## NULL
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("%d", NULL == 0);          // 1
+    printf("%d", NULL == (char *) 0); // 1
+    printf("%s", 0);                  // (null)
+    printf("%s", (char *) 0);         // (null)
+    return 0;
+}
+```
