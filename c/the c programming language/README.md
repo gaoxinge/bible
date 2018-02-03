@@ -81,6 +81,68 @@ int main() {
 }
 ```
 
+```c
+#include <stdio.h>
+
+// 初始化book
+struct {
+    char *name;
+} book;
+
+int main() {
+    book.name = "abc";
+    printf("%s", book.name);
+    return 0;
+}
+```
+
+```c
+#include <stdio.h>
+
+// 定义结构体类型struct Booky
+struct Booky {
+    char *name;
+};
+
+int main() {
+    struct Booky book;
+    book.name = "abc";
+    printf("%s", book.name);
+    return 0;
+}
+```
+
+```c
+#include <stdio.h>
+
+// 初始化book
+struct Booky {
+    char *name;
+} book;
+
+int main() {
+    book.name = "abc";
+    printf("%s", book.name);
+    return 0;
+}
+```
+
+```c
+#include <stdio.h>
+
+// 定义结构体类型Book
+typedef struct Booky {
+    char *name;
+} Book;
+
+int main() {
+    Book book;
+    book.name = "abc";
+    printf("%s", book.name);
+    return 0;
+}
+```
+
 ## 八进制
 
 ```c
@@ -300,4 +362,42 @@ int getchar1() {
     
     return (--n >= 0) ? (unsigned char) *bufp++ : EOF;
 }
+```
+
+## extern，include
+
+- extern：表示变量是全局的
+- include：用于导入变量
+
+```c
+/*Demo.h*/ 
+#ifndef _DEMO_H_  
+#define _DEMO_H_  
+  
+extern int a;  
+extern int b;  
+int add(int a, int b);  
+  
+#endif
+```
+
+```c
+/*Demo.c*/  
+#include "Demo.h"   
+int a = 10;  
+int b = 20;  
+  
+int add(int l, int r) {  
+    return l + r;  
+}
+```
+
+```c
+#include "Demo.h"  
+#include <stdio.h>
+  
+int main() {
+    printf("%d, %d, %d", a, b, add(a, b));
+    return 0;
+}  
 ```
