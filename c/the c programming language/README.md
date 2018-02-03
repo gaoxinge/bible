@@ -415,3 +415,28 @@ int main() {
     return 0;
 }
 ```
+
+## _flushbuf
+
+```c
+int _flushbuf(int x, FILE *fp) {
+    
+    if ((fp->flag & (_WRITE|_EOF|_ERR)) != _WRITE)         /* 检查文件状态 */
+        return EOF;
+        
+    int bufsize = (fp->flag & _UNBUF) ? 1 : BUFSIZE;       /* 设置文件缓存空间 */
+    if (fp->base == NULL)                                  /* 没有缓存，可能是因为没有初始化 */
+        if (fp->base = (char *) malloc(bufsize) == null)
+            return EOF;
+    
+    write(fp->fd, fp->base, bufsize);                      /* flush */
+    
+    fp->ptr = fp->base;                                    /* 重置 */
+    fp->cnt = 0;
+    
+    *fp->ptr++ = x;                                        /* 更新 */
+    fp->cnt++;
+    
+    return x;
+}
+```
