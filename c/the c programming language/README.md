@@ -440,3 +440,8 @@ int _flushbuf(int x, FILE *fp) {
     return x;
 }
 ```
+
+## 对齐
+
+- [失传的C结构体打包技艺](https://github.com/ludx/The-Lost-Art-of-C-Structure-Packing)
+- [C语言的struct/union字节对齐详解](http://blog.csdn.net/keyearth/article/details/6129882)
