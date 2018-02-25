@@ -6,8 +6,8 @@ repositories {
 }
 
 dependencies {
-	compile 'org.quartz-scheduler:quartz:2.2.3'
-	compile 'org.quartz-scheduler:quartz-jobs:2.2.3'
+    compile 'org.quartz-scheduler:quartz:2.2.3'
+    compile 'org.quartz-scheduler:quartz-jobs:2.2.3'
 }
 
 jar {
