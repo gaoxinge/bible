@@ -21,4 +21,4 @@
 
 - run
 - tasks.append
-- yield 'recv' / 'send'
+- yield
