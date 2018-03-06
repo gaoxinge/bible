@@ -5,7 +5,7 @@
 ### code
 
 - [x] [Python中的进程、线程、协程、同步、异步、回调](http://python.jobbole.com/81692/)
-- [ ] [python中协程](http://python.jobbole.com/87156/)
+- [x] [python中协程](http://python.jobbole.com/87156/)
 - [ ] [Python协程](http://python.jobbole.com/87767/)
 - [ ] [Python Enhanced Generator－Coroutine](http://python.jobbole.com/88143/)
 - [ ] [Python的异步IO：Asyncio简介（一）](http://python.jobbole.com/87541/)
