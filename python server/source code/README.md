@@ -121,6 +121,12 @@ ForkingMixIn，ThreadingMixIn只重写了process_request，handle_timeout，可�
 
 ### 为什么没有ForkingUnixStreamServer, ForkingUnixDatagramServer
 
+- [Unix Domain Sockets](https://pymotw.com/2/socket/uds.html)
+- [How do I create a Python socket server that listens on a file descriptor?](https://stackoverflow.com/questions/11597284/how-do-i-create-a-python-socket-server-that-listens-on-a-file-descriptor)
+- [Python实例浅谈之九使用本地socket文件](http://blog.csdn.net/taiyang1987912/article/details/46774319)
+
+AF_UNIX和AF_NETLINK，AF_INET，AF_INET6并列，可以使用多进程
+
 ### rfile, wfile
 
 - [What is the difference between StringIO and io.StringIO in Python2.7?](https://stackoverflow.com/questions/3410309/what-is-the-difference-between-stringio-and-io-stringio-in-python2-7)
