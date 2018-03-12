@@ -144,8 +144,22 @@ f.write('world')
 print f.getvalue()
 ```
 
-- StreamRequestHandler：
-- DatagramRequestHandler：
+- StreamRequestHandler
+  - self.connection = self.request
+  - self.rfile = self.connection.makefile('rb', self.rbufsize)
+  - self.wfile = self.connection.makefile('wb', self.wbufsize)
+- TCPServer
+  - get_request：return self.socket.accept()
+  - self.request, self.client_address = self.get_request()
+  - self.connection = self.socket.accept()[0]  
+- DatagramRequestHandler
+  - self.packet, self.socket = self.request
+  - self.rfile = StringIO(self.packet)
+  - self.wfile = StringIO()
+- UDPServer
+  - get_request：data, client_addr = self.socket.recvfrom(self.max_packet_size) / return (data, self.socket), client_addr
+  - self.request, self.client_address = self.get_request()
+  - self.packet = data
 
 ### python3与python2的区别
 
