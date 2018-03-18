@@ -8,7 +8,7 @@
 - [x] [python中协程](http://python.jobbole.com/87156/)
 - [x] [Python协程](http://python.jobbole.com/87767/)
 - [x] [Python Enhanced Generator－Coroutine](http://python.jobbole.com/88143/)
-- [ ] [Python的异步IO：Asyncio简介（一）](http://python.jobbole.com/87541/)
+- [x] [Python的异步IO：Asyncio简介（一）](http://python.jobbole.com/87541/)
 - [ ] [Python并发编程之协程/异步IO](http://python.jobbole.com/87202/)
 - [ ] [Python黑魔法---异步IO（asyncio）协程](http://python.jobbole.com/87310/)
 - [ ] [初探Python3的异步IO编程](http://python.jobbole.com/84025/)
