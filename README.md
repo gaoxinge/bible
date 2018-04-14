@@ -86,6 +86,7 @@
 ## architecture
 
 - [summary](https://github.com/gaoxinge/bible/tree/master/summary)
+- [MVC](https://github.com/gaoxinge/bible/tree/master/MVC)
 - [REST](https://github.com/gaoxinge/bible/tree/master/REST)
 - [micro service](https://github.com/gaoxinge/bible/tree/master/micro%20service)
 - SOA
