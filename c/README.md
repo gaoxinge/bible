@@ -25,8 +25,9 @@
 - [x] [Modern C++ Design](https://book.douban.com/subject/1119904/)
 - [ ] [The Boost C++ Libraries](https://theboostcpplibraries.com/)
 
-### blog
+### template meta programming
 
+- [C++模板元编程的应用有哪些，意义是什么？](https://www.zhihu.com/question/21656266)
 - [蓝色小药丸](https://zhuanlan.zhihu.com/sildenafil)
 - [Skill's LXX](https://zhuanlan.zhihu.com/skillxx)
 - [神奇魔法咸鱼堂](https://zhuanlan.zhihu.com/magicsaltyfish)
