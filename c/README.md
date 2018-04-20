@@ -25,6 +25,13 @@
 - [x] [Modern C++ Design](https://book.douban.com/subject/1119904/)
 - [ ] [The Boost C++ Libraries](https://theboostcpplibraries.com/)
 
+### blog
+
+- [蓝色小药丸](https://zhuanlan.zhihu.com/sildenafil)
+- [Skill's LXX](https://zhuanlan.zhihu.com/skillxx)
+- [神奇魔法咸鱼堂](https://zhuanlan.zhihu.com/magicsaltyfish)
+- [less is more](https://zhuanlan.zhihu.com/lessmore)
+
 ## makefile
 
 - [跟我一起写Makefile](https://seisman.github.io/how-to-write-makefile)
