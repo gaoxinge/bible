@@ -12,6 +12,11 @@
 - [x] [编写零缺陷的C语言代码](http://www.duckware.com/bugfreec/index.html)
 - [x] [GCC简介](http://www.network-theory.co.uk/docs/gccintro/)
 
+### 奇技淫巧
+
+- [C语言有什么奇技淫巧？](https://www.zhihu.com/question/27417946)
+- [C++有哪些奇技淫巧？](https://www.zhihu.com/question/27338446)
+
 ## c++
 
 - [x] [Effective C++](https://book.douban.com/subject/1842426/)
