@@ -27,7 +27,45 @@ delete          (s, 10)   (a, 10)
 
 ## main能否有两个set
 
+- 运行
+
+```
+> gcc -o main1 main1.c Set.c
+> main1.exe
+```
+
+- heap的变化
+
+```
+          0         1         2         3        4        5        6        7        8        9
+new            (s1, 10)      
+new            (s1, 10)   (a, 10)
+add            (s1, 10)   (a, 1)
+new            (s1, 10)   (a, 1)   (s2, 10)
+new            (s1, 10)   (a, 1)   (s2, 10)  (b, 10)
+add            (s1, 10)   (a, 1)   (s2, 10)  (b, 3)       
+```
+
 ## set能否包含set
+
+- 运行
+
+```
+> gcc -o main2 main2.c Set.c
+> main2.exe
+```
+
+- heap的变化
+
+```
+          0         1         2         3        4        5        6        7        8        9
+new            (s1, 10)
+new            (s1, 10)   (a, 10)
+new            (s1, 10)   (a, 10)  (s2, 10)
+add            (s1, 10)   (a, 1)   (s2, 10)
+add            (s1, 10)   (a, 1)   (s2, 1)
+add            (s1, 1)    (a, 1)   (s2, 1)
+```
 
 ## 限制
 
