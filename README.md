@@ -49,7 +49,7 @@
 - [consul]()
 - zookeeper
 
-### deploy
+### scheduler
 
 #### mesos
 
