@@ -43,31 +43,16 @@
 
 - [docker](https://github.com/gaoxinge/bible/tree/master/docker)
 
-### service discovery
+### service
 
 - etcd
-- [consul]()
+- consul
 - zookeeper
 
 ### scheduler
 
-#### mesos
-
-- [mesos](http://mesos.org.cn/Mesos-Introduction.html)
-
-#### marathon
-
-- [marathon](http://mesosphere.github.io/marathon/)
-- [marathon api](http://mesosphere.github.io/marathon/docs/rest-api.html)
-
-#### singularity
-
-- [singularity](https://github.com/singularityware)
-- [singularity](http://singularity.lbl.gov/)
-- [singularity api](http://getsingularity.com/Docs/reference/apidocs/api-requests.html)
-- [docker](https://tin6150.github.io/psg/blogger_container_hpc.html)
-- [singularity](http://hao.jobbole.com/singularity/)
-- [mesos](http://geek.csdn.net/news/detail/193272)
+- [mesos](https://github.com/gaoxinge/bible/tree/master/mesos)
+- [singularity](https://github.com/gaoxinge/bible/tree/master/singularity)
 
 ## cloud os
 
