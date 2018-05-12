@@ -1,0 +1,6 @@
+- [singularity](https://github.com/singularityware)
+- [singularity](http://singularity.lbl.gov/)
+- [singularity api](http://getsingularity.com/Docs/reference/apidocs/api-requests.html)
+- [docker](https://tin6150.github.io/psg/blogger_container_hpc.html)
+- [singularity](http://hao.jobbole.com/singularity/)
+- [mesos](http://geek.csdn.net/news/detail/193272)
