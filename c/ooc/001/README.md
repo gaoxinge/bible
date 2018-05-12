@@ -1,5 +1,14 @@
 ## 初始化
 
+- 运行
+
+```
+> gcc -o main main.c Set.c
+> main.exe
+```
+
+- heap的变化
+
 ```
           0         1         2         3        4        5        6        7        8        9
 new             (s, 10)
