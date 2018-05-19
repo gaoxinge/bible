@@ -21,8 +21,8 @@ struct xxx {
 
 static void* xxx_ctor(void* _self, va_list* app);
 static void* xxx_dtor(void* _self);
-static void* String_clone(const void* _self);
-static int String_differ(const void* _self, const void* _b);
+static void* xxx_clone(const void* _self);
+static int   xxx_differ(const void* _self, const void* _b);
 
 static const struct Class _xxx = {
     sizeof(struct xxx),
