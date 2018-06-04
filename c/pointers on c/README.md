@@ -110,4 +110,20 @@ void strcpy(char* buffer, char const* string) {
 - `const char*` 和 `char const*` 为指向常量的指针
 - `char* const` 为指针常量
 - `++` 的优先级高于 `*`
-- strcpy中的buffer需要提前分配内存 
+- strcpy中的buffer需要提前分配内存
+
+## 字符数组的初始化
+
+```c
+#include <stdio.h>
+
+int main() {
+    char  message1[] = {'H', 'e', 'l', 'l', 'o', '\0'};  // 字符数组
+    char  message2[] = "Hello";                          // 字符数组
+    char* message3   = "Hello";                          // 字符串常量
+    
+    printf("%s %s %s", message1, message2, message3);
+    
+    return 0;
+}
+```
