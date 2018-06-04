@@ -97,3 +97,17 @@ L2:
 	popl	%ebp
 	ret
 ```
+
+## 作为函数参数的数组名
+
+```c
+void strcpy(char* buffer, char const* string) {
+    while((*buffer++ = *string++) != '\0')
+        ;
+}
+```
+
+- `const char*` 和 `char const*` 为指向常量的指针
+- `char* const` 为指针常量
+- `++` 的优先级高于 `*`
+- strcpy中的buffer需要提前分配内存 
