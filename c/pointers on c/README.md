@@ -127,3 +127,95 @@ int main() {
     return 0;
 }
 ```
+
+## 一维数组
+
+- `a[10]`: 10, 行
+- `a[1]` 或者 `*(a + 1)`
+- `int f(int *a)` 或者 `int f(int a[])`
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int *p  = a;
+    
+    for (int i = 0; i < 10; ++i)
+        printf("%d ", a[i]);
+    
+    for (; p < a + 10; ++p)
+        printf("%d ", *p);
+    
+    return 0;
+}
+```
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int *p  = a;
+    printf("%p\n", a);
+    printf("%p\n", p);
+    return 0;
+}
+```
+
+## 二维数组
+
+- `a[2][10]`: 2-10, 行列
+- `a[1][1]` 或者 `*(a[1] + 1)` 或者 `*(*(a + 1) + 1)`
+- `int f(int (*a)[10])` 或者 `int f(int a[][10])`
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a[2][10] = {
+        {1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+        {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+    };
+    
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 10; ++j)
+            printf("%d ", a[i][j]);
+    printf("\n");
+    
+    int (*p1)[10]  = a; // &a[0]
+    for (; p1 < a + 2; ++p1)
+        for (int j = 0; j < 10; ++j)
+            printf("%d ", *(*p1 + j));
+    printf("\n");
+    
+    int *p2 = (int*) a; // a[0], &a[0][0]
+    for (; p2 < a[0] + 20; ++p2)
+        printf("%d ", *p2);
+    printf("\n");
+    
+    return 0;
+}
+```
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a[2][10] = {
+        {1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+        {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+    };
+    printf("%p\n", a);
+    printf("%p\n", a[0]);
+    
+    int (*p1)[10]  = a; // &a[0]
+    printf("%p\n", p1);
+    printf("%p\n", *p1);
+    
+    int *p2 = (int*) a; // a[0], &a[0][0]
+    printf("%p\n", p2);
+    
+    return 0;
+}
+```
