@@ -219,3 +219,39 @@ int main() {
     return 0;
 }
 ```
+
+## 一维数组与二维数组
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int *p  = a;
+    int (*p1)[1] = (int (*)[1]) a;
+    int (*p2)[2] = (int (*)[2]) a;
+    int (*p3)[3] = (int (*)[3]) a;
+    
+    for (int i = 0; i < 10; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+    
+    for (; p < a + 10; ++p)
+        printf("%d ", *p);
+    printf("\n");
+    
+    for (; p1 < (int (*)[1])(a + 10); ++p1)
+        printf("%d ", **p1);
+    printf("\n");
+    
+    for (; p2 < (int (*)[2])(a + 10); ++p2)
+        printf("%d ", **p2);
+    printf("\n");
+    
+    for (; p3 < (int (*)[3])(a + 10); ++p3)
+        printf("%d ", **p3);
+    printf("\n");
+    
+    return 0;
+}
+```
