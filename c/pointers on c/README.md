@@ -255,3 +255,87 @@ int main() {
     return 0;
 }
 ```
+
+## 指针数组
+
+```c
+#include <string.h>
+#include <stdio.h>
+
+const char* keyword[] = {
+    "do",
+    "for",
+    "if",
+    "register",
+    "return",
+    "switch",
+    "while"
+};
+
+#define N_KEYWORD (sizeof(keyword) / sizeof(keyword[0]))
+int lookup_keyword(const char* desired_word, const char* keyword_table[], const int size);
+
+
+int main() {
+    printf("%d\n", sizeof(keyword));      // 28 = sizeof(char*) * 7
+    printf("%d\n", sizeof(keyword[0]));   // 4  = sizeof(char*)
+    printf("%d\n", lookup_keyword("a",        keyword, N_KEYWORD));
+    printf("%d\n", lookup_keyword("for",      keyword, N_KEYWORD));
+    printf("%d\n", lookup_keyword("register", keyword, N_KEYWORD));
+    
+    return 0;
+}
+
+int lookup_keyword(const char* const desired_word, 
+                   const char* keyword_table[], 
+                   const int size) {
+    const char** kwp;
+    
+    for (kwp = keyword_table; kwp < keyword_table + size; kwp++)
+        if (strcmp(desired_word, *kwp) == 0)
+            return kwp - keyword_table;
+        
+    return -1;
+}
+```
+
+```c
+#include <string.h>
+#include <stdio.h>
+
+const char keyword[][9] = {
+    "do",
+    "for",
+    "if",
+    "register",
+    "return",
+    "switch",
+    "while"
+};
+
+#define N_KEYWORD (sizeof(keyword) / sizeof(keyword[0]))
+int lookup_keyword(const char* desired_word, const char keyword_table[][9], const int size);
+
+
+int main() {
+    printf("%d\n", sizeof(keyword));      // 63 = 9 * sizeof(char) * 7
+    printf("%d\n", sizeof(keyword[0]));   // 9  = 9 * sizeof(char)
+    printf("%d\n", lookup_keyword("a",        keyword, N_KEYWORD));
+    printf("%d\n", lookup_keyword("for",      keyword, N_KEYWORD));
+    printf("%d\n", lookup_keyword("register", keyword, N_KEYWORD));
+    
+    return 0;
+}
+
+int lookup_keyword(const char* const desired_word, 
+                   const char keyword_table[][9], 
+                   const int size) {
+    const char (*kwp)[9];
+    
+    for (kwp = keyword_table; kwp < keyword_table + size; kwp++)
+        if (strcmp(desired_word, *kwp) == 0)
+            return kwp - keyword_table;
+        
+    return -1;
+}
+```
