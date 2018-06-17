@@ -51,10 +51,10 @@
 
 ### scheduler
 
-- swarm
-- [mesos](https://github.com/gaoxinge/bible/tree/master/mesos)
-- kubernetess
 - [singularity](https://github.com/gaoxinge/bible/tree/master/singularity)
+- swarm
+- mesos
+- kubernetess
 
 ## cloud os
 
