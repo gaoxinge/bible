@@ -339,3 +339,92 @@ int lookup_keyword(const char* const desired_word,
     return -1;
 }
 ```
+
+## 双链表
+
+```c
+if (next != null) {
+    if (this != rootp) {
+        newnode->fwd = next;
+        this->fwd = newnode;
+        newnode->bwd = this;
+        next->bwd = newnode;
+    } else {
+        newnode->fwd = next;
+        rootp->fwd = newnode;
+        newnode->bwd = NULL;
+        next->bwd = newnode;
+    }
+} else {
+    if (this != rootp) {
+        newnode->fwd = NULL;
+        this->fwd = newnode;
+        newnode->bwd = this;
+        rootp->bwd = newnode;
+    } else {
+        newnode->fwd = NULL;
+        rootp->fwd = newnode;
+        newnode->bwd = NULL;
+        rootp->bwd = newnode;
+    }
+}
+```
+
+```c
+if (next != null) {
+    newnode->fwd = next;
+    if (this != rootp) {
+        this->fwd = newnode;
+        newnode->bwd = this;
+    } else {
+        rootp->fwd = newnode;
+        newnode->bwd = NULL;
+    }
+    next->bwd = newnode;
+} else {
+    newnode->fwd = NULL;
+    if (this != rootp) {
+        this->fwd = newnode;
+        newnode->bwd = this;
+    } else {
+        rootp->fwd = newnode;
+        newnode->bwd = NULL;
+    }
+    rootp->bwd = newnode;
+}
+```
+
+```c
+if (this != rootp) {
+    this->fwd = newnode;
+    newnode->bwd = this;
+} else {
+    rootp->fwd = newnode;
+    newnode->bwd = NULL;
+}
+
+if (next != null) {
+    newnode->fwd = next;
+    next->bwd = newnode;
+} else {
+    newnode->fwd = NULL;
+    rootp->bwd = newnode;
+}
+```
+
+```c
+newnode->fwd = next;
+this->fwd = newnode;
+
+if (this != rootp) {
+    newnode->bwd = this;
+} else {
+    newnode->bwd = NULL;
+}
+
+if (next != null) {
+    next->bwd = newnode;
+} else {
+    rootp->bwd = newnode;
+}
+```
