@@ -13,4 +13,4 @@
 
 ## py vs dll vs pyd
 
-- [1]()
+- [1](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/1)
