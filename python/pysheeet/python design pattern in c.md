@@ -1,0 +1,4 @@
+- [Decorator in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/4)
+- [A Set of Functions](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/5)
+- [Closure in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/6)
+- [Generator](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/7)
