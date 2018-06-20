@@ -8,3 +8,6 @@
 - [Simple try: exp except: exp finally: in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/11)
 - [Simple coroutine in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/12)
 - [Keyword Arguments in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/13)
+- [Function “MAP”](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/14)
+- [foreach in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/15)
+- [Simple OOP in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/16)
