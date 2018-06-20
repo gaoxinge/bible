@@ -2,3 +2,7 @@
 - [A Set of Functions](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/5)
 - [Closure in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/6)
 - [Generator](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/7)
+- [Context Manager in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/8)
+- [Tuple in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/9)
+- [Error Handling](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/10)
+- [Simple try: exp except: exp finally: in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/11)
