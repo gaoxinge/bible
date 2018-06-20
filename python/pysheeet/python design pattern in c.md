@@ -6,3 +6,5 @@
 - [Tuple in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/9)
 - [Error Handling](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/10)
 - [Simple try: exp except: exp finally: in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/11)
+- [Simple coroutine in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/12)
+- [Keyword Arguments in C](https://github.com/gaoxinge/bible/tree/master/python/pysheeet/13)
