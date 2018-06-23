@@ -47,6 +47,25 @@
 - 参考
   - [文本文件和二进制文件的区别？请举例说明](https://www.zhihu.com/question/19971994)
   - [详解二进制文件和文本文件的区别暨换行和回车详解](https://blog.csdn.net/wu_nan_nan/article/details/53469958)
+  - [文件读写](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431917715991ef1ebc19d15a4afdace1169a464eecc2000)
 
+#### 补充
 
+```python
+# -*- coding: utf-8 -*-
 
+f = open("1/test.jpg", "rb")
+result = f.read()
+print "%#x" % ord(result[0]), "%#x" % ord(result[1])
+f.close()
+
+f = open("1/test.class", "rb")
+result = f.read()
+print "%#x" % ord(result[0]), "%#x" % ord(result[1]), "%#x" % ord(result[2]), "%#x" % ord(result[3])
+f.close()
+
+f = open("1/test.exe", "rb")
+result = f.read()
+print "%#x" % ord(result[0]), "%#x" % ord(result[1])
+f.close()
+``` 
