@@ -10,6 +10,7 @@
 
 #### 指令
 
+- [指令存储在外存中还是内存？](https://www.zhihu.com/question/57522333)
 - [程序的机器级表示<CSAPP>](https://blog.csdn.net/qq_20183489/article/details/53856926)
 - [csapp chapter3:程序的机器级表示](http://ju.outofmemory.cn/entry/107328)
 
