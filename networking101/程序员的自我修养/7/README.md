@@ -27,3 +27,59 @@
 |----|-|-|
 |mov|值|地址|
 |add|值|地址|
+
+##### 观察2
+
+```c
+int sum1(int a, int b) {
+    return a + b;
+}
+
+int sum2(int a, int b, int c) {
+    return a + b + c;
+}
+
+int sum(int *a, int b) {
+    return *a + b;
+}
+```
+
+```
+
+a.o:     file format pe-i386
+
+
+Disassembly of section .text:
+
+00000000 <_sum1>:
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	8b 55 08             	mov    0x8(%ebp),%edx    // a = M[V(%ebp) + 8]
+   6:	8b 45 0c             	mov    0xc(%ebp),%eax    // b = M[V(%ebp) + 12]
+   9:	01 d0                	add    %edx,%eax
+   b:	5d                   	pop    %ebp
+   c:	c3                   	ret    
+
+0000000d <_sum2>:
+   d:	55                   	push   %ebp
+   e:	89 e5                	mov    %esp,%ebp
+  10:	8b 55 08             	mov    0x8(%ebp),%edx    // a = M[V(%ebp) + 8]
+  13:	8b 45 0c             	mov    0xc(%ebp),%eax    // b = M[V(%ebp) + 12]
+  16:	01 c2                	add    %eax,%edx
+  18:	8b 45 10             	mov    0x10(%ebp),%eax   // c = M[V(%ebp) + 16]
+  1b:	01 d0                	add    %edx,%eax
+  1d:	5d                   	pop    %ebp
+  1e:	c3                   	ret    
+
+0000001f <_sum>:
+  1f:	55                   	push   %ebp
+  20:	89 e5                	mov    %esp,%ebp
+  22:	8b 45 08             	mov    0x8(%ebp),%eax
+  25:	8b 10                	mov    (%eax),%edx
+  27:	8b 45 0c             	mov    0xc(%ebp),%eax
+  2a:	01 d0                	add    %edx,%eax
+  2c:	5d                   	pop    %ebp
+  2d:	c3                   	ret    
+  2e:	90                   	nop
+  2f:	90                   	nop
+```
