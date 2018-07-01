@@ -3,7 +3,7 @@
 ### 整体流程
 
 ```
-         prepropress             complie             asssembly             ld
+            cpp                     ccl                  as               ld
 hello.c -------------> hello.i -----------> hello.s ----------> hello.o ---------> hello.out
 ```
 
