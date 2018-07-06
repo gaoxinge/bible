@@ -101,7 +101,7 @@ setup --> handle --> finish
 测试如下：
 
 - 不关闭父进程的socket副本
-
+  - [multiprocess-test1](https://github.com/gaoxinge/bible/tree/master/python%20server/source%20code/multiprocess-test1)
 - windows版本
   - 尝试用_subprocess重新写一个Popen：还是要把函数，参数序列化
   - 尝试对socket进行其他种类的序列化：了解序列化
