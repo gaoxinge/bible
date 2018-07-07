@@ -16,6 +16,7 @@
 
 - [C语言有什么奇技淫巧？](https://www.zhihu.com/question/27417946)
 - [C++有哪些奇技淫巧？](https://www.zhihu.com/question/27338446)
+- [c++中的类到底是怎么实现信息隐蔽的？](https://www.zhihu.com/question/263672254)
 
 ## c++
 
