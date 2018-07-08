@@ -11,3 +11,18 @@
 
 - [Using sendfile do copy](https://www.pythonsheets.com/notes/python-socket.html#using-sendfile-do-copy)
 - [Sending a file through sendfile](https://www.pythonsheets.com/notes/python-socket.html#sending-a-file-through-sendfile)
+
+## raw socket
+
+### protocol
+
+- ARP (linux)
+- IP
+- ICMP
+- TCP (linux)
+
+### part
+
+- server
+- client
+- sniffer
