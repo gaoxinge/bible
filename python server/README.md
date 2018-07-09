@@ -12,4 +12,5 @@
 ## python web framework
 
 - [werkzeug](https://github.com/pallets/werkzeug)
+- [jinja](https://github.com/pallets/jinja)
 - [flask](https://github.com/pallets/flask)
