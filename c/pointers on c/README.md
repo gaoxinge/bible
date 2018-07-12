@@ -432,3 +432,4 @@ if (next != null) {
 ## 堆栈
 
 - [数组堆栈](https://github.com/gaoxinge/bible/tree/master/c/pointers%20on%20c/%E6%95%B0%E7%BB%84%E5%A0%86%E6%A0%88)
+- [动态数组堆栈](https://github.com/gaoxinge/bible/tree/master/c/pointers%20on%20c/%E5%8A%A8%E6%80%81%E6%95%B0%E5%A0%86%E6%A0%88)
