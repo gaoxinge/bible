@@ -428,3 +428,7 @@ if (next != null) {
     rootp->bwd = newnode;
 }
 ```
+
+## 堆栈
+
+- [数组堆栈]()
