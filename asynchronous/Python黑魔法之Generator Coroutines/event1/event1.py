@@ -50,7 +50,6 @@ def run(tasks):
             events.remove(event)
             callback = event.get_callback()
             callback()
-            break
 
 def _next(task):
     try:
