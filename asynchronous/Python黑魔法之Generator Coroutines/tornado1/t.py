@@ -8,6 +8,8 @@ def task1():
     print("task1", 1)
     yield moment
     print("task1", 2)
+    yield moment
+    print("task1", 3)
 
 
 @coroutine
