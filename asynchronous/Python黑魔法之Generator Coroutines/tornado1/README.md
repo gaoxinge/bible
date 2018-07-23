@@ -1,4 +1,4 @@
-## timeout, handler: IOStream
+## timeout, handler: IOStream, future: IOStream
 
 - tcpclient
 - httpclient
