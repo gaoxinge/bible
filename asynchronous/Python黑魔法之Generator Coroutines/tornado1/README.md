@@ -1,14 +1,13 @@
-## timeout
+## timeout, handler: IOStream
 
 - tcpclient
 - httpclient
+- curl_httpclient
 - simple_httpclient
 
-## handler
-
-- netutil
-  - tcpserver
-  - httpserver
+## handler: netutil
+- tcpserver
+- httpserver
 
 ## reference
 
