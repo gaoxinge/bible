@@ -35,7 +35,7 @@
 - [ ] [Generators: The Final Frontier](http://www.dabeaz.com/finalgenerator/)
 - [x] [PYTHON COROUTINES](https://blog.thumbtack.net/python-coroutines/)
 - [x] [Implementing "weightless threads" with Python generators](https://www.ibm.com/developerworks/library/l-pythrd/index.html)
-- [ ] [A Web Crawler With asyncio Coroutines](http://aosabook.org/en/500L/a-web-crawler-with-asyncio-coroutines.html)
+- [x] [A Web Crawler With asyncio Coroutines](http://aosabook.org/en/500L/a-web-crawler-with-asyncio-coroutines.html)
 
 ### library
 
