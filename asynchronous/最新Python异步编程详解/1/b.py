@@ -3,23 +3,21 @@ def inner_generator():
     while True:
         i = yield i
         if i > 10:
-            break
+            raise StopIteration
+
 
 def outer_generator():
-    g = inner_generator()
-    g.send(None)
-    from_outer = 1
-    while True:
-        from_inner = g.send(from_outer)
-        from_outer = yield from_inner
+    print("do something before yield")
+    yield from inner_generator()
+
 
 def main():
     g = outer_generator()
     g.send(None)
     i = 0
-    while True:
+    while 1:
         try:
-            i = g.send(i+1)
+            i = g.send(i + 1)
             print(i)
         except StopIteration:
             break
