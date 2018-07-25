@@ -1,3 +1,0 @@
-# distributed system
-
-## distributed system
