@@ -36,6 +36,8 @@
 - [x] [PYTHON COROUTINES](https://blog.thumbtack.net/python-coroutines/)
 - [x] [Implementing "weightless threads" with Python generators](https://www.ibm.com/developerworks/library/l-pythrd/index.html)
 - [x] [A Web Crawler With asyncio Coroutines](http://aosabook.org/en/500L/a-web-crawler-with-asyncio-coroutines.html)
+- [ ] [Some thoughts on asynchronous API design in a post-async/await world](https://vorpus.org/blog/some-thoughts-on-asynchronous-api-design-in-a-post-asyncawait-world/)
+- [ ] [A tale of event loops](https://github.com/AndreLouisCaron/a-tale-of-event-loops)
 
 ### library
 
