@@ -46,6 +46,10 @@
 - [gevent](https://github.com/gaoxinge/bible/tree/master/asynchronous/gevent)
 - [twisted](https://github.com/gaoxinge/bible/tree/master/asynchronous/twisted)
 - [tornado](https://github.com/gaoxinge/bible/tree/master/asynchronous/tornado)
+- [curio](https://github.com/gaoxinge/bible/tree/master/asynchronous/curio)
+- [trio](https://github.com/gaoxinge/bible/tree/master/asynchronous/trio)
+- [pyuv](https://github.com/gaoxinge/bible/tree/master/asynchronous/pyuv)
+- [libuv](https://github.com/gaoxinge/bible/tree/master/asynchronous/libuv)
 - [celery](https://github.com/gaoxinge/bible/tree/master/asynchronous/celery)
 
 ## c
