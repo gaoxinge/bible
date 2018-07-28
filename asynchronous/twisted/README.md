@@ -1,2 +1,6 @@
 - [Twisted与异步编程入门](https://www.gitbook.com/book/likebeta/twisted-intro-cn/details)
 - [Twisted Web in 60 seconds: Index](http://jcalderone.livejournal.com/50562.html)
+- [twisted(1)--何为异步](http://www.cnblogs.com/yueerwanwan0204/p/5589860.html)
+- [Twisted源码分析1](https://blog.csdn.net/u012592285/article/details/51165218)
+- [Twisted源码分析系列01-reactor](https://www.jianshu.com/p/26ae331b09b0)
+- [Network programming with the Twisted framework, Part 1](https://www.ibm.com/developerworks/library/l-twist1/index.html)
