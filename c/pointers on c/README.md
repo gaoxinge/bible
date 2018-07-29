@@ -434,3 +434,7 @@ if (next != null) {
 - [数组堆栈](https://github.com/gaoxinge/bible/tree/master/c/pointers%20on%20c/%E6%95%B0%E7%BB%84%E5%A0%86%E6%A0%88)
 - [动态数组堆栈](https://github.com/gaoxinge/bible/tree/master/c/pointers%20on%20c/%E5%8A%A8%E6%80%81%E6%95%B0%E5%A0%86%E6%A0%88)
 - [用动态数组实现堆栈](https://github.com/gaoxinge/bible/tree/master/c/pointers%20on%20c/%E7%94%A8%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E5%A0%86%E6%A0%88)
+
+## 队列
+
+- [队列](https://github.com/gaoxinge/bible/tree/master/c/pointers%20on%20c/%E9%98%9F%E5%88%97)
