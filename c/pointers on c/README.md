@@ -438,3 +438,8 @@ if (next != null) {
 ## 队列
 
 - [队列](https://github.com/gaoxinge/bible/tree/master/c/pointers%20on%20c/%E9%98%9F%E5%88%97)
+
+## 二叉树
+
+- [数组形式的二叉搜索数](https://github.com/gaoxinge/bible/tree/master/c/pointers%20on%20c/%E6%95%B0%E7%BB%84%E5%BD%A2%E5%BC%8F%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%95%B0)
+- [链式二叉搜索树](https://github.com/gaoxinge/bible/tree/master/c/pointers%20on%20c/%E9%93%BE%E5%BC%8F%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91)
