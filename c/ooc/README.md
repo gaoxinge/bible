@@ -1,8 +1,6 @@
-## 1
+## object oriented programming in c
 
-- encapsulation
-- inheritance
-- polymorphism: virtual table
+- [object oriented programming in c](http://ldeniau.web.cern.ch/ldeniau/oopc.html)
 
 ## gobject
 
@@ -10,6 +8,12 @@
 - xlib: x window system client library
   - qt ---> kde
   - gdk/glib (gobject) ---> gtk ---> gnome
+
+## c++ object model
+
+- encapsulation
+- inheritance
+- polymorphism: virtual table
 
 ## cello
 
