@@ -17,6 +17,7 @@
 
 - [C语言有什么奇技淫巧？](https://www.zhihu.com/question/27417946)
 - [C++有哪些奇技淫巧？](https://www.zhihu.com/question/27338446)
+- [C语言可否自定义数值类型(或是任意个字节的数值类型)?](https://www.zhihu.com/question/30956458)
 - [c++中的类到底是怎么实现信息隐蔽的？](https://www.zhihu.com/question/263672254)
 - [砖头的制造工艺](https://zhuanlan.zhihu.com/c_148841715)
 - [C语言黑魔法](https://zhuanlan.zhihu.com/c_83697357)
