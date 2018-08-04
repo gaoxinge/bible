@@ -9,6 +9,7 @@
 - [x] [现代C语言](http://icube-icps.unistra.fr/img_auth.php/d/db/ModernC.pdf)
 - [x] [风格的要素——C语言版](http://www.oualline.com/books.free/style/index.html)
 - [x] [使用标准C语言进行面向对象编程](https://www.cs.rit.edu/~ats/books/ooc.pdf)
+- [x] [C Interfaces and Implementations](https://book.douban.com/subject/1826292/)
 - [x] [编写零缺陷的C语言代码](http://www.duckware.com/bugfreec/index.html)
 - [x] [GCC简介](http://www.network-theory.co.uk/docs/gccintro/)
 
