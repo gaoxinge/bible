@@ -18,6 +18,7 @@
 ## cello
 
 - [Cello](https://github.com/orangeduck/Cello)
+- [A Fat Pointer Library](http://libcello.org/learn/a-fat-pointer-library)
 
 ## oop
 
