@@ -11,6 +11,7 @@
 - [networking101](https://github.com/gaoxinge/bible/tree/master/networking101)
 - [concurrent](https://github.com/gaoxinge/bible/tree/master/concurrent)
 - [asynchronous](https://github.com/gaoxinge/bible/tree/master/asynchronous)
+- [model](https://github.com/gaoxinge/bible/tree/master/model)
 
 ## distribution
 
