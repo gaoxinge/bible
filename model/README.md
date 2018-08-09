@@ -1,10 +1,18 @@
 ## summary
 
 - [Such blocking very concurrency, wow](http://shairosenfeld.com/such_blocking_very_concurrency/#1)
+- message pass
+  - go: goroutine and channel
+  - python: thread and message queue
+  - same language/different language: process and pipe, message queue
+- worker consumer
+  - worker consumer
+  - publisher subscriber
 
-## Actor Model
+## Actor Model (mailbox)
 
 - [Actor Model](https://en.wikipedia.org/wiki/Actor_model)
+- [漫谈并发编程：Actor模型](https://www.jianshu.com/p/db04cab86ab9)
 - gevent-actor-sample
   - [github](https://github.com/ianjuma/gevent-actor-sample)
   - [blog](https://medium.com/@ianjuma/the-actor-model-in-python-with-gevent-b8375d0986fa)
@@ -19,10 +27,7 @@
 - python-actors
   - [github](https://github.com/tamland/python-actors/)
 
-## CSP: communicating sequential processes
-
-- go: goroutine and channel
-- python: thread and message queue
+## CSP: communicating sequential processes (channel)
 
 ```python
 # -*- coding: utf-8 -*-
@@ -76,8 +81,6 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-
-- same language/different language: process and pipe, message queue
 
 ## reactor pattern
 
