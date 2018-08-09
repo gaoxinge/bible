@@ -1,3 +1,7 @@
+## summary
+
+- [Such blocking very concurrency, wow](http://shairosenfeld.com/such_blocking_very_concurrency/#1)
+
 ## Actor Model
 
 - [Actor Model](https://en.wikipedia.org/wiki/Actor_model)
