@@ -1,3 +1,20 @@
+## Actor Model
+
+- [Actor Model](https://en.wikipedia.org/wiki/Actor_model)
+- gevent-actor-sample
+  - [github](https://github.com/ianjuma/gevent-actor-sample)
+  - [blog](https://medium.com/@ianjuma/the-actor-model-in-python-with-gevent-b8375d0986fa)
+- Thespian
+  - [github](https://github.com/godaddy/Thespian)
+  - [doc](https://godaddy.github.io/Thespian/doc/#outline-container-h:e8dd9cdc-1a23-4f11-9d4b-017a12b07593)
+  - [pdf](https://godaddy.github.io/Thespian/doc/in_depth.pdf)
+- pykka
+  - [github](https://github.com/jodal/pykka/tree/master)
+- xudd
+  - [github](https://github.com/xudd/xudd)
+- python-actors
+  - [github](https://github.com/tamland/python-actors/)
+
 ## CSP: communicating sequential processes
 
 - go: goroutine and channel
