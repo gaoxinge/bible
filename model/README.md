@@ -85,4 +85,6 @@ if __name__ == "__main__":
 ## reactor pattern
 
 - reactor pattern: select
+  - [Reactor](https://www.cse.wustl.edu/~schmidt/PDF/reactor-siemens.pdf)
+  - [Scalable IO in Java](http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf)
 - proactor pattern
