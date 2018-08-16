@@ -48,8 +48,6 @@
 - [tornado](https://github.com/gaoxinge/bible/tree/master/asynchronous/tornado)
 - [curio](https://github.com/gaoxinge/bible/tree/master/asynchronous/curio)
 - [trio](https://github.com/gaoxinge/bible/tree/master/asynchronous/trio)
-- [pyuv](https://github.com/gaoxinge/bible/tree/master/asynchronous/pyuv)
-- [uvloop](https://github.com/gaoxinge/bible/tree/master/asynchronous/uvloop)
 - [celery](https://github.com/gaoxinge/bible/tree/master/asynchronous/celery)
 
 ## c
