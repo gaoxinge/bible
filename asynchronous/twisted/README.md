@@ -1,6 +1,8 @@
 - [Twisted与异步编程入门](https://www.gitbook.com/book/likebeta/twisted-intro-cn/details)
 - [Twisted Web in 60 seconds: Index](http://jcalderone.livejournal.com/50562.html)
 - [twisted学习笔记之： 延迟对象deferred](https://blog.csdn.net/suiyunonghen/article/details/4029492)
+- [Twisted异步编程--Deferred](https://www.cnblogs.com/zhangjing0502/archive/2012/05/16/2504415.html)
+- [解Twisted的Deferred机制（一）](https://blog.csdn.net/wenxuansoft/article/details/51718525)
 - [Twisted学习(一)----------------------Deffered参考](https://blog.csdn.net/happyanger6/article/details/53073881)
 - [Twisted学习（二)--------------构造Deferreds](https://blog.csdn.net/happyanger6/article/details/53164863)
 - [Twisted学习(三)---------------Deferred介绍](https://blog.csdn.net/happyanger6/article/details/53206907)
