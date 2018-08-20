@@ -50,3 +50,7 @@
 ## makefile
 
 - [跟我一起写Makefile](https://seisman.github.io/how-to-write-makefile)
+
+## vim
+
+- [给想学习VIM的超级小白的文章](https://zhuanlan.zhihu.com/p/22530297)
