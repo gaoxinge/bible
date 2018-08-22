@@ -32,7 +32,7 @@
 - [x] [Generator Tricks for Systems Programmers](http://www.dabeaz.com/generators/)
 - [x] [Generator Tricks for Systems Programmers - Version 2.0](http://www.dabeaz.com/generators-uk/)
 - [ ] [A Curious Course on Coroutines and Concurrency](http://www.dabeaz.com/coroutines/)
-- [ ] [Generators: The Final Frontier](http://www.dabeaz.com/finalgenerator/)
+- [x] [Generators: The Final Frontier](http://www.dabeaz.com/finalgenerator/)
 - [x] [PYTHON COROUTINES](https://blog.thumbtack.net/python-coroutines/)
 - [x] [Implementing "weightless threads" with Python generators](https://www.ibm.com/developerworks/library/l-pythrd/index.html)
 - [x] [A Web Crawler With asyncio Coroutines](http://aosabook.org/en/500L/a-web-crawler-with-asyncio-coroutines.html)
