@@ -2,10 +2,10 @@
 
 This repository contains codes and exercises from the [c interfaces and implementations](https://book.douban.com/subject/1826292/).
 
-- [chapter01](https://github.com/gaoxinge/c-interfaces-and-implementations/tree/master/chapter01)
-- [chapter02](https://github.com/gaoxinge/c-interfaces-and-implementations/tree/master/chapter02)
-- [chapter03](https://github.com/gaoxinge/c-interfaces-and-implementations/tree/master/chapter03)
-- [chapter04](https://github.com/gaoxinge/c-interfaces-and-implementations/tree/master/chapter04)
+- [chapter01](https://github.com/gaoxinge/bible/tree/master/c/c%20interfaces%20and%20implementations/chapter01)
+- [chapter02](https://github.com/gaoxinge/bible/tree/master/c/c%20interfaces%20and%20implementations/chapter02)
+- [chapter03](https://github.com/gaoxinge/bible/tree/master/c/c%20interfaces%20and%20implementations/chapter03)
+- [chapter04](https://github.com/gaoxinge/bible/tree/master/c/c%20interfaces%20and%20implementations/chapter04)
 
 ## reference
 
