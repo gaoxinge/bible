@@ -53,4 +53,4 @@
 
 ### code
 
-- [ ] [Coroutines in C](https://www.chiark.greenend.org.uk/~sgtatham/coroutines.html)
+- [x] [Coroutines in C](https://www.chiark.greenend.org.uk/~sgtatham/coroutines.html)
