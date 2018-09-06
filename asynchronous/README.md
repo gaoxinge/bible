@@ -17,7 +17,7 @@
 - [x] [Python"黑魔法"之Generator Coroutines](http://python.jobbole.com/85117/)
 - [x] [Python中的异步编程：Asyncio](http://python.jobbole.com/87988/)
 - [x] [Python协程：从yield/send到async/await](http://python.jobbole.com/86069/)
-- [ ] [Python3.5协程究竟是个啥](http://python.jobbole.com/86481/)
+- [x] [Python3.5协程究竟是个啥](http://python.jobbole.com/86481/)
 - [ ] [python:利用asyncio进行快速抓取](http://blog.jobbole.com/63897/)
 - [ ] [Python异步网络爬虫（1）](http://python.jobbole.com/86727/)
 - [ ] [Python异步网络爬虫（2）](http://python.jobbole.com/86795/)
