@@ -25,6 +25,80 @@
 - 将CPU的指令寄存器设置成可执行文件的入口，启动运行：入口在ELF Header中
 - 执行过程中，通过页错误的方式，先把指令和数据从可执行文件加载到虚拟地址空间，再从虚拟地址加载到物理地址，最后执行
 
+### 6.4 进程虚存空间分布
+
+#### 6.4.1 ELF文件链接视图和执行视图
+
+- linux：虚拟内存区域VMA，virtual memory area；windows：虚拟段virtual section
+- section：elf的链接视图；segment：elf的执行视图（VMA）（program header table）（可执行文件，共享目标文件）
+- 参见P164图6-8
+
+```c
+#include <stdlib.h>
+
+int main() {
+	while (1) {
+		sleep(1000);
+	}
+	return 0;
+}
+```
+
+```
+$ gcc -static SectionMapping.c -o SectinMapping.elf
+$ readelf -S SectionMapping.elf
+$ readelf -l SectionMapping.elf 
+```
+
+#### 6.4.2 堆和栈
+
+- 参见P167图6-9
+
+```
+$ ./SectionMapping.elf &
+$ cat /proc/21963/maps
+```
+
+#### 6.4.3 堆的最大申请数量
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+unsinged maximum = 0;
+
+int main() {
+	unsigned blocksize[] = {1024 * 1024, 1024, 1};
+	int i, count;
+	for (i = 0; i < 3; i++) {
+		for (count = 1; ; count++) {
+			void *block = malloc(maximum + blocksize[i] * count);
+			if (block) {
+				maximum = maximum + blocksize[i] * count;
+				free(block);
+			} else {
+				break;
+			}
+		}
+	}
+	printf("maximum malloc size = %u bytes\n", maximum);
+}
+```
+
+- linux：4GB进程，3GB用户空间，2.9GB堆内存
+- windows：4GB进程，2GB用户空间，1.5GB堆内存
+
+#### 6.4.4 段地址对齐
+
+- 略
+
+#### 6.4.5 进程栈初始化
+
+- 栈内存
+  - 环境变量
+  - 命令行参数
+  - main，argc，argv
+
 ### 6.5 Linux内核装载ELF过程简介
 
 #### 魔数
