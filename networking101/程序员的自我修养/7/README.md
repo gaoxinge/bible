@@ -1,5 +1,80 @@
 ## 第7章 动态链接
 
+### 7.1 为什么要动态链接
+
+- 节省内存和磁盘空间，减少物理页面的换入换出，增加CPU缓存的命中率
+- 使得程序的开发，发布，升级更容易
+- 增加程序的扩展性，兼容性
+
+### 7.2 简单的动态链接例子
+
+```c
+/* Program1.c */
+#include "Lib.h"
+
+int main() {
+	foobar(1);
+	return 0;
+}
+
+/* Program2.c */
+#include "Lib.h"
+
+int main() {
+	foobar(2);
+	return 0;
+}
+
+/* Lib.c */
+#include <stdio.h>
+
+void foobar(int i) {
+	prinft("Printing from Lib.so %d\n", i);
+}
+
+/* Lib.h */
+#ifndef LIB_H
+#define LIB_H
+
+void foobar(int i);
+
+#endif
+```
+
+```
+$ gcc -fPIC -shared -o LIb.so Lib.c
+$ gcc -o Program1 Program1.c ./Lib.so
+$ gcc -o Program2 Program2.c ./Lib.so
+```
+
+#### 动态链接程序运行时地址
+
+```
+$ reaelf -l lib.so
+
+$ ./Program1 &
+$ cat /proc/12985/maps
+$ kill 12985
+```
+
+```
+ffffe000 - fffff000    [vdso]
+bf965000 - bf97b000    [stack]
+b7ff7000 - b7ff9000    /lib/ld-2.6.1.so
+b7fdd000 - b7ff7000    /lib/ld-2.6.1.so
+b7fdb000 - b7fdd000
+b7fda000 - b7fdb000    ./Lib.so
+b7fd9000 - b7fda000    ./Lib.so
+b7fd8000 - b7fd9000
+b7fcb000 - b7fce000
+b7fc9000 - b7fcb000    /lib/tls/i686/comv/libc-2.6.1.so
+b7fc8000 - b7fc9000    /lib/tls/i686/comv/libc-2.6.1.so
+b7e84000 - b7fc8000    /lib/tls/i686/comv/libc-2.6.1.so
+b7e83000 - b7e84000    
+08049000 - 0804a000    ./Program1
+08048000 - 08049000    ./Program1
+```
+
 ### 7.3 地址无关代码
 
 #### 命令
