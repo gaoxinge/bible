@@ -12,21 +12,26 @@
                                                                   |--->  IP
 ```
 
+### 一个网卡可以绑定几个MAC地址
+
+- 一个
+
+### 一个网卡可以绑定几个IP
+
+- 多个
+
 ### MAC地址
 
 - [怎么查询电脑mac地址](https://jingyan.baidu.com/article/84b4f56529f2dc60f7da325c.html)
 
+### IP地址
+
+- ipconfig：查看网卡绑定的IP（使用无线路由器上网，对应的是无线网卡 ）
+- baidu：查看运营商提供的IP（NAT）
+
 ### gethostbyname
 
 ### dns
-
-### windows的网络适配器
-
-### windows的ipconfig命令
-
-### 一个网卡可以绑定几个ip
-
-### 如何查看主机的ip
 
 ## windows
 

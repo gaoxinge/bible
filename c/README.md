@@ -42,10 +42,16 @@
 ### template meta programming
 
 - [C++模板元编程的应用有哪些，意义是什么？](https://www.zhihu.com/question/21656266)
+- [菜鸡Freeman的c++学习笔记](https://zhuanlan.zhihu.com/freemanscpp)
+- [蓝色的味道](https://zhuanlan.zhihu.com/frozengene)
 - [蓝色小药丸](https://zhuanlan.zhihu.com/sildenafil)
 - [Skill's LXX](https://zhuanlan.zhihu.com/skillxx)
 - [神奇魔法咸鱼堂](https://zhuanlan.zhihu.com/magicsaltyfish)
 - [less is more](https://zhuanlan.zhihu.com/lessmore)
+
+## c vs c++
+
+- [纯C语言的工作有前（钱）景吗？](https://www.zhihu.com/question/30292024)
 
 ## makefile
 
