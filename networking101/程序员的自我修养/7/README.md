@@ -235,3 +235,23 @@ $ gcc -shared -fPIC -o pic.so pic.c global.c
 
 - 代码部分地址无关：进程共享
 - 数据部分地址相关：每个进程中都有独立的副本
+
+#### 参考
+
+- [动态装入(Dynamic loading) 和动态链接 (dynamic linking)的区别是什么?](https://blog.csdn.net/giantpoplar/article/details/46485649)
+- [c语言中动态库的使用（启动时链接和运行时链接）](https://blog.csdn.net/guotianqing/article/details/79777273)
+- [终于搞明白DLL为什么可以多进程共用了](https://bbs.csdn.net/topics/390355714)
+- [difference between dynamic loading and dynamic linking?](https://stackoverflow.com/questions/10052464/difference-between-dynamic-loading-and-dynamic-linking)
+- [Difference between load-time dynamic linking and run-time dynamic linking](https://stackoverflow.com/questions/2055840/difference-between-load-time-dynamic-linking-and-run-time-dynamic-linking)
+
+### 7.4 延迟绑定；7.5动态链接相关结构；7.6 动态链接的步骤和实现
+
+- [聊聊Linux动态链接中的PLT和GOT（1）——何谓PLT与GOT](https://blog.csdn.net/linyt/article/details/51635768)
+- [聊聊Linux动态链接中的PLT和GOT（2）——延迟重定位](https://blog.csdn.net/linyt/article/details/51636753)
+- [聊聊Linux动态链接中的PLT和GOT（3）——公共GOT表项](https://blog.csdn.net/linyt/article/details/51637832)
+- [聊聊Linux动态链接中的PLT和GOT（4）——穿针引线](https://blog.csdn.net/linyt/article/details/51893258)
+- [Linkers and Dynamic Linking](https://web.stanford.edu/~ouster/cgi-bin/cs140-spring14/lecture.php?topic=linkers)
+
+### 7.7 显示运行时链接
+
+- 
