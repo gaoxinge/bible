@@ -242,8 +242,10 @@ $ gcc -shared -fPIC -o pic.so pic.c global.c
 - [c语言中动态库的使用（启动时链接和运行时链接）](https://blog.csdn.net/guotianqing/article/details/79777273)
 - [动态内存管理详解：malloc/free/new/delete/brk/mmap（介绍的很明白）](https://blog.csdn.net/g_brightboy/article/details/22793439)
 - [终于搞明白DLL为什么可以多进程共用了](https://bbs.csdn.net/topics/390355714)
+- [Anatomy of Linux dynamic libraries](https://www.ibm.com/developerworks/linux/library/l-dynamic-libraries/)
 - [difference between dynamic loading and dynamic linking?](https://stackoverflow.com/questions/10052464/difference-between-dynamic-loading-and-dynamic-linking)
 - [Difference between load-time dynamic linking and run-time dynamic linking](https://stackoverflow.com/questions/2055840/difference-between-load-time-dynamic-linking-and-run-time-dynamic-linking)
+- [What happens to global and static variables in a shared library when it is dynamically linked?](https://stackoverflow.com/questions/19373061/what-happens-to-global-and-static-variables-in-a-shared-library-when-it-is-dynam)
 - [What system call is used to load libraries in Linux?](https://unix.stackexchange.com/questions/226524/what-system-call-is-used-to-load-libraries-in-linux)
 
 ### 7.4 延迟绑定；7.5动态链接相关结构；7.6 动态链接的步骤和实现
