@@ -258,5 +258,3 @@ $ gcc -shared -fPIC -o pic.so pic.c global.c
 - [Linux动态链接之GOT与PLT](https://www.cnblogs.com/xingyun/archive/2011/12/10/2283149.html)
 - [ELF文件的加载和动态链接过程](http://jzhihui.iteye.com/blog/1447570)
 - [Linkers and Dynamic Linking](https://web.stanford.edu/~ouster/cgi-bin/cs140-spring14/lecture.php?topic=linkers)
-
-### 7.7 显示运行时链接
