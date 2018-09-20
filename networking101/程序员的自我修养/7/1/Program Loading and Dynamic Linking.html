@@ -1,0 +1,2852 @@
+
+<!-- saved from url=(0081)https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Program Loading and Dynamic Linking</title>
+<meta name="robots" content="nofollow">
+<meta name="description" content="Assembly Language Programmer&#39;s Guide: DIGITAL
+UNIX Version 4.0D">
+<meta name="AUTHOR" content="Copyright (c) Digital Equipment Corporation 1997. A
+ll rights reserved.">
+</head>
+<body bgcolor="#CCCCCC">
+<a name="pgm_load_chapter"></a>
+<p></p><hr>
+
+<h1>9&nbsp;&nbsp;&nbsp;&nbsp;Program Loading and Dynamic Linking</h1>
+<p>
+Executable files and shared library files are used to create a process
+image when a program is started by the system.
+This chapter describes the object file structures that relate to program
+execution and also describes how the process image is created from
+executable and shared object files.
+</p><p>
+This chapter addresses the following topics:
+</p><ul>
+<p></p><li>
+Factors that influence linking and loading operations.
+(<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#background_section">Section 9.1</a>)
+<p></p></li><li>
+The loading process.
+(<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#loading_section">Section 9.2</a>)
+<p></p></li><li>
+Dynamic linking and loading.
+(<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#linking_section">Section 9.3</a>)
+</li></ul><p>
+<a name="background_section"></a>
+</p><p></p><hr>
+
+<h2>
+9.1&nbsp;&nbsp;&nbsp;&nbsp;Object File Considerations
+</h2>
+<p>
+The following sections describe several general factors that are
+involved in the linking and loading process.
+<a name="no_id_33"></a>
+</p><p></p><hr>
+
+<h3>
+9.1.1&nbsp;&nbsp;&nbsp;&nbsp;Structures
+</h3>
+<p>
+The following object file structures contain information that is used
+in linking and loading operations:
+</p><ul>
+<p></p><li>
+File Header -
+The file header identifies a file as an object file and additionally
+indicates whether the object is a static executable file, a shared
+executable file, or a shared library file.
+<p></p></li><li>
+Optional Header -
+The optional header immediately follows the file header and identifies
+the size, location, and virtual addresses of the object's segments.
+<p></p></li><li>
+Section Headers -
+Section headers describe the individual sections that comprise the
+object's segments. Section headers are normally not used in program
+loading; however, the section headers are used to locate the
+dynamic section in shared executable files and shared libraries.
+</li></ul><p>
+See
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_013.HTM#object_chapter">Chapter 7</a>
+for further details on file headers, optional headers, and section
+headers.
+<a name="no_id_34"></a>
+</p><p></p><hr>
+
+<h3>
+9.1.2&nbsp;&nbsp;&nbsp;&nbsp;Base Addresses
+</h3>
+<p>
+<a name="nx_id_686"></a>
+Executable files and shared library files have a base address, which is
+the lowest virtual address associated with the process image of the
+program.  The base address is used to relocate the process image
+during dynamic linking.
+</p><p>
+During program loading, the base address is calculated from the memory
+load address, the maximum page size, and the lowest virtual address of
+the program's loadable segment.
+<a name="no_id_35"></a>
+</p><p></p><hr>
+
+<h3>
+9.1.3&nbsp;&nbsp;&nbsp;&nbsp;Segment Access Permissions
+</h3>
+<p>
+<a name="nx_id_687"></a>
+<a name="nx_id_688"></a>
+A program that is to be loaded by the system must have at least one
+loadable segment, even though this is not required by the file format.
+When the process image is created, the segments are assigned access
+permissions, which are determined by the type of segment and type
+of program image.
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#perm_tbl">Table 9-1</a>
+shows the access permissions for the various segment and image types.
+<a name="perm_tbl"></a>
+</p><h3>
+Table 9-1: Segment Access Permissions
+</h3>
+<a name="nx_id_689"></a>
+<a name="nx_id_690"></a>
+<a name="nx_id_691"></a>
+<table border="4" cellpadding="4">
+<tbody><tr>
+<td valign="top" align="left">
+<strong>
+Image
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+Segment
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+Access Permissions
+</strong>
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+OMAGIC
+</td>
+<td valign="top" align="left">
+text, data, bss
+</td>
+<td valign="top" align="left">
+Read, Write, Execute
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+NMAGIC
+</td>
+<td valign="top" align="left">
+text
+</td>
+<td valign="top" align="left">
+Read, Execute
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+NMAGIC
+</td>
+<td valign="top" align="left">
+data, bss
+</td>
+<td valign="top" align="left">
+Read, Write, Execute
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+ZMAGIC
+</td>
+<td valign="top" align="left">
+text
+</td>
+<td valign="top" align="left">
+Read, Execute
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+ZMAGIC
+</td>
+<td valign="top" align="left">
+data, bss
+</td>
+<td valign="top" align="left">
+Read, Write, Execute
+</td>
+</tr>
+</tbody></table><p>
+<a name="no_id_36"></a>
+</p><p></p><hr>
+
+<h3>
+9.1.4&nbsp;&nbsp;&nbsp;&nbsp;Segment Contents
+</h3>
+<p>
+An object file segment can contain one or more sections. The number
+of sections in a segment is not important for program loading, but
+specific information must be present for linking and execution.
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#text_segment_fig">Figure 9-1</a>
+illustrates typical segment contents for executable files and shared
+object files.
+The order of sections within a segment may vary.
+</p><p>
+Text segments contain instructions and read-only data, and data
+segments contain writable data. Text segments and data segments
+typically include the sections shown in
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#text_segment_fig">Figure 9-1</a>.
+<a name="nx_id_692"></a>
+<a name="nx_id_693"></a>
+<a name="nx_id_694"></a>
+<a name="nx_id_695"></a>
+<a name="nx_id_696"></a>
+</p><p>
+<a name="text_segment_fig"></a>
+</p><h3>Figure 9-1: Text and Data Segments of Object Files</h3>
+<p><img src="./Program Loading and Dynamic Linking_files/FIGU_021.GIF"></p><p>
+</p><p>
+<a name="loading_section"></a>
+</p><p></p><hr>
+
+<h2>
+9.2&nbsp;&nbsp;&nbsp;&nbsp;Program Loading
+</h2>
+<p>
+<a name="nx_id_697"></a>
+<a name="nx_id_698"></a>
+<a name="nx_id_699"></a>
+<a name="nx_id_700"></a>
+<a name="nx_id_701"></a>
+As the system creates or augments a process image, it logically
+copies a file's segment to a virtual memory segment.
+The time at which the system physically reads the file
+depends on the program's execution behavior,
+system load, and other factors. A process does not require a physical
+page unless it references the logical page during execution.
+</p><p>
+Processes commonly leave many pages unreferenced.
+This improves system performance because delaying physical reads
+frequently obviates them.
+To obtain this efficiency in practice, shared executable files and
+shared library files must have segment images whose virtual addresses
+are zero, modulo the file system block size.
+</p><p>
+<a name="nx_id_702"></a>
+<a name="nx_id_703"></a>
+<a name="nx_id_704"></a>
+Virtual addresses for the text and data segments must be aligned on
+64KB (0x10000) or larger power of 2 boundaries. File offsets must be
+aligned on 8KB (0x2000) or larger power of 2 boundaries.
+<a name="nx_id_705"></a>
+<a name="nx_id_706"></a>
+</p><p>
+Because the page size can be larger than the alignment restrictions of
+a segment's file offset, up to seven file pages (depending on page
+size)
+can hold text or data that is not logically part of the segment.
+The contents of the various file pages are as follows:
+</p><ul>
+<p></p><li>
+The first text page contains the COFF file header, section headers,
+and other information.
+<p></p></li><li>
+The last text page may hold a copy of the beginning of data.
+<p></p></li><li>
+The first data page may have a copy of the end of text.
+<p></p></li><li>
+The last data page may contain file information not relevant to the
+running process.
+</li></ul><p>
+Logically, the system enforces the memory permissions as if each segment
+were complete and separate; segment's addresses are adjusted to ensure
+that each logical page in the address space has a single set of
+permissions.
+</p><p>
+The end of the data segment requires special handling for uninitialized
+data, which must be set to zero. If a file's last data page includes
+information not in the logical memory page, the extraneous data must
+be set to zero, not the contents of the executable file.
+<a name="linking_section"></a>
+</p><p></p><hr>
+
+<h2>
+9.3&nbsp;&nbsp;&nbsp;&nbsp;Dynamic Linking
+</h2>
+<p>
+<a name="nx_id_707"></a>
+<a name="nx_id_708"></a>
+An executable file is loaded at fixed addresses; the system creates its
+segments using the virtual addresses from the optional header.
+The system transfers control directly to the entry point of the
+executable file.
+</p><p>
+An executable file that uses dynamic linking requires one or more
+shared libraries to be loaded in addition to the executable file.
+<a name="nx_id_709"></a>
+Instead of loading the executable file, the system loads the dynamic
+loader, which in turn loads the executable file and its shared
+libraries.
+<a name="no_id_37"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.1&nbsp;&nbsp;&nbsp;&nbsp;Dynamic Loader
+</h3>
+<p>
+<a name="nx_id_710"></a>
+<a name="nx_id_711"></a>
+When building an executable file that uses dynamic linking, the
+linker adds the flag
+<code>F_MIPS_CALL_SHARED</code>
+to the
+<code>f_flags</code>
+field of the file header. This flag tells the system to invoke the
+dynamic loader to load the executable file.
+<a name="nx_id_712"></a>
+<a name="nx_id_713"></a>
+Typically, the dynamic loader requested is
+<code>/sbin/loader</code>,
+the default loader.
+The
+<code>exec</code>
+function and the dynamic loader cooperate to create the process image.
+Creating the process image involves the following operations:
+</p><ul>
+<p></p><li>
+Adding segments of the file to the process image
+<p></p></li><li>
+Adding segments of shared object files to the process image
+<p></p></li><li>
+Performing relocations for the executable file and its shared library
+files
+<p></p></li><li>
+Transferring control to the program, making it appear that the program
+received control directly from
+<code>exec</code>
+</li></ul><p>
+To assist the dynamic loader, the linker also constructs the following
+data items for shared library files and shared executable files:
+</p><ul>
+<p></p><li>
+The
+<code>.dynamic</code>
+section contains the dynamic header.
+(See
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#dynamic_section">Section 9.3.2</a>.)
+<p></p></li><li>
+The
+<code>.got</code>
+section contains the global offset table.
+(See
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#got_tbl_section">Section 9.3.3</a>.)
+<p></p></li><li>
+The
+<code>.dynsym</code>
+section contains the dynamic symbol table.
+(See
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#dynsym_section">Section 9.3.4</a>.)
+<p></p></li><li>
+The
+<code>.rel.dyn</code>
+section contains the dynamic relocation table.
+(See
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#reldyn_section">Section 9.3.5</a>.)
+<p></p></li><li>
+The
+<code>.msym</code>
+section contains the msym table.
+(See
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#msym_section">Section 9.3.6</a>.)
+<p></p></li><li>
+The
+<code>.hash</code>
+section contains a symbol hash table.
+(See
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#hash_table_section">Section 9.3.7</a>.)
+<p></p></li><li>
+The
+<code>.dynstr</code>
+section contains the dynamic string table.
+(See
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#dynstr_section">Section 9.3.8</a>.)
+<p></p></li><li>
+The
+<code>.liblist</code>
+section contains the library dependency table.
+(See
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#liblist_section">Section 9.3.10.1</a>.)
+<p></p></li><li>
+The
+<code>.conflict</code>
+section contains the conflict symbol table.
+(See
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#conflict_section">Section 9.3.10.2</a>.)
+</li></ul><p>
+These data items are located in loadable segments and are available
+during execution.
+</p><p>
+Shared library files may be located at virtual addresses that differ
+from the addresses in the optional header.
+The dynamic loader relocates the memory image and updates absolute
+addresses before control is given to the program.
+</p><p>
+If the environment variable
+<code>LD_BIND_NOW</code>
+has a non-null value, the dynamic loader processes all relocations
+before transferring control to the program. The dynamic loader
+may use the lazy binding technique to evaluate procedure linkage
+table entries, avoiding symbol resolution and relocation for functions
+that are not called.
+(See
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#lazy_binding_sect">Section 9.3.3.1</a>
+for information about lazy binding.)
+</p><p>
+The following sections describe the various dynamic linking sections.
+The C language definitions are in the header files
+<code>elf_abi.h</code>
+and
+<code>elf_mips.h</code>.
+<a name="dynamic_section"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.2&nbsp;&nbsp;&nbsp;&nbsp;Dynamic Section (.dynamic)
+</h3>
+<p>
+<a name="nx_id_714"></a>
+<a name="nx_id_715"></a>
+<a name="nx_id_716"></a>
+The dynamic section acts as a table of contents for dynamic linking
+information within the object. Dynamic sections
+are present only in shared executable files and shared library files.
+</p><p>
+The dynamic section is located by its section header. This section
+header is identified by its name
+(<code>.dynamic</code>)
+or its section type
+(<code>STYP_DYNAMIC</code>)
+in the flags field
+(<code>s_flags</code>).
+</p><p>
+The dynamic section is an array with entries of the following type:
+</p><p>
+</p><pre>typedef struct {
+    Elf32_Sword     d_tag;
+    union {
+        Elf32_Word  d_val;
+        Elf32_Addr  d_ptr;
+    } d_un;
+} Elf32_Dyn;
+</pre>
+<p>
+The structure and union members in the preceding structure definition
+provide the following information:
+</p><p></p><dl><dt>
+<code>d_tag</code>
+</dt><dd>
+Indicates how the
+<code>d_un</code>
+field is to be interpreted.
+</dd></dl><p>
+</p><p></p><dl><dt>
+<code>d_val</code>
+</dt><dd>
+Represents integer values.
+</dd></dl><p>
+<br>
+</p><p></p><dl><dt>
+<code>d_ptr</code>
+</dt><dd>
+Represents program virtual addresses. A file's virtual addresses may
+not match the memory virtual addresses during execution. The dynamic
+loader computes actual addresses based on the virtual address from
+the file and the memory base address. Object files do not contain
+relocation entries to correct addresses in the dynamic section.
+</dd></dl><p>
+</p><p>
+The
+<code>d_tag</code>
+requirements for shared executable files and shared library files are
+summarized in
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#d_tag_tbl">Table 9-2</a>.
+"Mandatory" indicates that
+the dynamic linking array must contain an entry of that type;
+"optional" indicates that an entry for the tag may exist
+but is not required.
+<a name="d_tag_tbl"></a>
+</p><h3>
+Table 9-2: Dynamic Array Tags (d_tag)
+</h3>
+<table border="4" cellpadding="4">
+<tbody><tr>
+<td valign="top" align="left">
+<strong>
+Name
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+Value
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+d_un
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+Executable
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+Shared Object
+</strong>
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<strong>
+DT_NULL
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+0
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+ignored
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+mandatory
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+mandatory
+</strong>
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_NEEDED
+</td>
+<td valign="top" align="right">
+1
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_PLTRELSZ<bold>[Table&nbsp;Note&nbsp;1]</bold>
+</td>
+<td valign="top" align="right">
+2
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_PLTGOT
+</td>
+<td valign="top" align="right">
+3
+</td>
+<td valign="top" align="left">
+d_ptr
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_HASH
+</td>
+<td valign="top" align="right">
+4
+</td>
+<td valign="top" align="left">
+d_ptr
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_STRTAB
+</td>
+<td valign="top" align="right">
+5
+</td>
+<td valign="top" align="left">
+d_ptr
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_SYMTAB
+</td>
+<td valign="top" align="right">
+6
+</td>
+<td valign="top" align="left">
+d_ptr
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_RELA<bold>[Table&nbsp;Note&nbsp;1]</bold>
+</td>
+<td valign="top" align="right">
+7
+</td>
+<td valign="top" align="left">
+d_ptr
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_RELASZ<bold>[Table&nbsp;Note&nbsp;1]</bold>
+</td>
+<td valign="top" align="right">
+8
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_RELAENT<bold>[Table&nbsp;Note&nbsp;1]</bold>
+</td>
+<td valign="top" align="right">
+9
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_STRSZ
+</td>
+<td valign="top" align="right">
+10
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_SYMENT
+</td>
+<td valign="top" align="right">
+11
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_INIT
+</td>
+<td valign="top" align="right">
+12
+</td>
+<td valign="top" align="left">
+d_ptr
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_FINI
+</td>
+<td valign="top" align="right">
+13
+</td>
+<td valign="top" align="left">
+d_ptr
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_SONAME
+</td>
+<td valign="top" align="right">
+14
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+ignored
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_RPATH
+</td>
+<td valign="top" align="right">
+15
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+ignored
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_SYMBOLIC
+</td>
+<td valign="top" align="right">
+16
+</td>
+<td valign="top" align="left">
+ignored
+</td>
+<td valign="top" align="left">
+ignored
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_REL
+</td>
+<td valign="top" align="right">
+17
+</td>
+<td valign="top" align="left">
+d_ptr
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_RELSZ
+</td>
+<td valign="top" align="right">
+18
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_RELENT
+</td>
+<td valign="top" align="right">
+19
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_PLTREL<bold>[Table&nbsp;Note&nbsp;1]</bold>
+</td>
+<td valign="top" align="right">
+20
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_DEBUG<bold>[Table&nbsp;Note&nbsp;1]</bold>
+</td>
+<td valign="top" align="right">
+21
+</td>
+<td valign="top" align="left">
+d_ptr
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+ignored
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_TEXTREL<bold>[Table&nbsp;Note&nbsp;1]</bold>
+</td>
+<td valign="top" align="right">
+22
+</td>
+<td valign="top" align="left">
+ignored
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_JMPREL<bold>[Table&nbsp;Note&nbsp;1]</bold>
+</td>
+<td valign="top" align="right">
+23
+</td>
+<td valign="top" align="left">
+d_ptr
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_LOPROC
+</td>
+<td valign="top" align="right">
+0x70000000
+</td>
+<td valign="top" align="left">
+unspecified
+</td>
+<td valign="top" align="left">
+unspecified
+</td>
+<td valign="top" align="left">
+unspecified
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_HIPROC
+</td>
+<td valign="top" align="right">
+0x7fffffff
+</td>
+<td valign="top" align="left">
+unspecified
+</td>
+<td valign="top" align="left">
+unspecified
+</td>
+<td valign="top" align="left">
+unspecified
+</td>
+</tr>
+</tbody></table><p>
+</p><p>
+Table Notes:
+</p><ol>
+<p></p><li>
+Not used by the default system linker and loader.
+</li></ol><p>
+The uses of the various dynamic array tags are as follows:
+</p><p></p><dl><dt>
+DT_NULL
+</dt><dd>
+Marks the end of the array.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_NEEDED
+</dt><dd>
+Contains the string table offset of a null terminated
+string that is the name of a needed library. The offset is an index
+into the table indicated in the
+<code>DT_STRTAB</code>
+entry. The dynamic array may contain multiple entries of this type.
+The order of these entries is significant.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_PLTRELSZ
+</dt><dd>
+Contains the total size in bytes of the relocation entries
+associated with the procedure linkage table. If an entry of type
+<code>DT_JMPREL</code>
+is present, it must have an associated
+<code>DT_PLTRELSZ</code>
+entry.
+(Not used by the default system linker and loader.)
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_PLTGOT
+</dt><dd>
+Contains an address associated with either the procedure
+linkage table, the global offset table, or both.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_HASH
+</dt><dd>
+Contains the address of the symbol hash table.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_STRTAB
+</dt><dd>
+Contains the address of the string table.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_SYMTAB
+</dt><dd>
+Contains the address of the symbol table with
+<code>Elf32_Sym</code>
+entries.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_RELA
+</dt><dd>
+Contains the address of a relocation table. Entries
+in the table have explicit addends, such as
+<code>Elf32_Rela</code>.
+An object file may have multiple relocation sections. When the linker
+builds the relocation table for an shared executable file or shared
+object file, these sections are concatenated to form a single table.
+While the sections are independent in the object file, the dynamic
+loader sees a single table.
+When the dynamic loader creates a process image or adds a shared
+library file to a process image, it reads the relocation table and
+performs the associated actions. If this entry is present, the dynamic
+structure must also contain
+<code>DT_RELASZ</code>
+and
+<code>DT_RELAENT</code>
+entries. When relocation is mandatory for a file, either
+<code>DT_RELA</code>
+or
+<code>DT_REL</code>
+may be present.
+(Not used by the default system linker and loader.)
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_RELASZ
+</dt><dd>
+Contains the size in bytes of the
+<code>DT_RELA</code>
+relocation table.
+(Not used by the default system linker and loader.)
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_RELAENT
+</dt><dd>
+Contains the size in bytes of a
+<code>DT_RELA</code>
+relocation table entry.
+(Not used by the default system linker and loader.)
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_STRSZ
+</dt><dd>
+Contains the size in bytes of the string table.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_SYMENT
+</dt><dd>
+Contains the size in bytes of a symbol table entry.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_INIT
+</dt><dd>
+Contains the address of the initialization function.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_FINI
+</dt><dd>
+Contains the address of the termination function.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_SONAME
+</dt><dd>
+Contains the string table offset of a null-terminated
+string that gives the name of the shared library file. The offset is
+an index into the table indicated in the
+<code>DT_STRTAB</code>
+entry.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_RPATH
+</dt><dd>
+Contains the string table offset of a null-terminated
+library search path string. The offset is an index into the table
+indicated in the
+<code>DT_STRTAB</code>
+entry.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_SYMBOLIC
+</dt><dd>
+If this entry is present, the dynamic loader uses a different
+symbol resolution algorithm for references within a library.
+The symbol search starts from the shared library file instead of the
+shared executable file. If the shared library file does not supply the
+referenced symbol, the shared executable file and other shared library
+file are searched.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_REL
+</dt><dd>
+Contains the address of the relocation table. An object file
+can have multiple relocation sections. When the linker builds the
+relocation table for a shared executable file or shared library
+file, these sections are concatenated to form a single table.
+While the sections are independent in the object file, the dynamic
+loader sees a single table. When the dynamic loader creates a process
+image or adds a shared library file to a
+process image, it reads the relocation table and performs the
+associated actions.
+If this entry is present, the dynamic structure must contain the
+<code>DT_RELSZ</code>
+entry.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_RELSZ
+</dt><dd>
+Contains the size in bytes of the relocation table pointed
+to by the
+<code>DT_REL</code>
+entry.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_RELENT
+</dt><dd>
+Contains the size in bytes of a
+<code>DT_REL</code>
+entry.
+</dd></dl><p>
+<br>
+</p><p></p><dl><dt>
+DT_PLTREL
+</dt><dd>
+Specifies the type of relocation entry referred to
+by the procedure linkage table. The
+<code>d_val</code>
+member holds
+<code>DT_REL</code>
+or
+<code>DT_RELA</code>,
+as appropriate. All relocations in a procedure linkage table must
+use the same relocation.
+(Not used by the default system linker and loader.)
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_DEBUG
+</dt><dd>
+Used for debugging. The contents of this entry are not specified.
+(Not used by the default system linker and loader.)
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_TEXTREL
+</dt><dd>
+If this entry is not present, no relocation entry should cause
+a modification to a nonwritable segment. If this entry is present,
+one or more relocations might request modifications to a nonwritable
+segment.
+(Not used by the default system linker and loader.)
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_JMPREL
+</dt><dd>
+If this entry is present, its
+<code>d_ptr</code>
+field contains the address of relocation entries associated only
+with the procedure linkage table. The dynamic loader may ignore
+these entries during process initialization if lazy binding is
+enabled.
+See
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#lazy_binding_sect">Section 9.3.3.1</a>
+for information about lazy binding.
+(Not used by the default system linker and loader.)
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_LOPROC through DT_HIPROC
+</dt><dd>
+Reserved for processor-specific semantics.
+</dd></dl><p>
+<a name="no_id_38"></a>
+</p><h3>
+Table 9-3: Processor-Specific Dynamic Array Tags (d_tag)
+</h3>
+<table border="4" cellpadding="4">
+<tbody><tr>
+<td valign="top" align="left">
+<strong>
+Name
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+Value
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+d_un
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+Executable
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+Shared Object
+</strong>
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<strong>
+DT_MIPS_RLD_VERSION
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+0x70000001
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+d_val
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+mandatory
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+mandatory
+</strong>
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_MIPS_TIME_STAMP
+</td>
+<td valign="top" align="left">
+0x70000002
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_MIPS_ICHECKSUM
+</td>
+<td valign="top" align="left">
+0x70000003
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_MIPS_IVERSION
+</td>
+<td valign="top" align="left">
+0x70000004
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_MIPS_FLAGS
+</td>
+<td valign="top" align="left">
+0x70000005
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_MIPS_BASE_ADDRESS
+</td>
+<td valign="top" align="left">
+0x70000006
+</td>
+<td valign="top" align="left">
+d_ptr
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_MIPS_CONFLICT
+</td>
+<td valign="top" align="left">
+0x70000008
+</td>
+<td valign="top" align="left">
+d_ptr
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_MIPS_LIBLIST
+</td>
+<td valign="top" align="left">
+0x70000009
+</td>
+<td valign="top" align="left">
+d_ptr
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_MIPS_LOCAL_GOTNO
+</td>
+<td valign="top" align="left">
+0x7000000A
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_MIPS_CONFLICTNO
+</td>
+<td valign="top" align="left">
+0x7000000B
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_MIPS_LIBLISTNO
+</td>
+<td valign="top" align="left">
+0x70000010
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_MIPS_SYMTABNO
+</td>
+<td valign="top" align="left">
+0x70000011
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_MIPS_UNREFEXTNO
+</td>
+<td valign="top" align="left">
+0x70000012
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+optional
+</td>
+<td valign="top" align="left">
+optional
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_MIPS_GOTSYM
+</td>
+<td valign="top" align="left">
+0x70000013
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+DT_MIPS_HIPAGENO<bold>[Table&nbsp;Note&nbsp;1]</bold>
+</td>
+<td valign="top" align="left">
+0x70000014
+</td>
+<td valign="top" align="left">
+d_val
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+<td valign="top" align="left">
+mandatory
+</td>
+</tr>
+</tbody></table><p>
+</p><p>
+Table Notes:
+</p><ol>
+<p></p><li>
+Not used by the default system linker and loader.
+</li></ol><p>
+The uses of the various processor-specific dynamic array tags
+are as follows:
+</p><p></p><dl><dt>
+DT_MIPS_RLD_VERSION
+</dt><dd>
+Holds an index into the object file's string table,
+which holds the version of the run-time linker interface.
+The version is 1 for executable objects that have a single GOT and
+2 for executable objects that have multiple GOTs.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_MIPS_TIME_STAMP
+</dt><dd>
+Contains a 32-bit time stamp.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_MIPS_ICHECKSUM
+</dt><dd>
+Contains a value that is the sum of all
+of the COMMON sizes and
+the names of defined external symbols.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_MIPS_IVERSION
+</dt><dd>
+Contains the string table offset of a series of colon-separated
+version strings. An index value of zero means no version string was
+specified.
+</dd></dl><p>
+<br>
+</p><p></p><dl><dt>
+DT_MIPS_FLAGS
+</dt><dd>
+Contains a set of 1-bit flags.
+The following flags are defined for
+<code>DT_MIPS_FLAGS</code>:
+<table border="4" cellpadding="4">
+<tbody><tr>
+<td valign="top" align="left">
+<strong>
+Flag
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+Value
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+Meaning
+</strong>
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+RHF_QUICKSTART
+</code>
+</td>
+<td valign="top" align="left">
+0x00000001
+</td>
+<td valign="top" align="left">
+Object may be quickstarted by loader
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+RHF_NOTPOT
+</code>
+</td>
+<td valign="top" align="left">
+0x00000002
+</td>
+<td valign="top" align="left">
+Hash size not a power of two
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+RHF_NO_LIBRARY_REPLACEMENT
+</code>
+</td>
+<td valign="top" align="left">
+0x00000004
+</td>
+<td valign="top" align="left">
+Use default system libraries only
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+RHF_NO_MOVE
+</code>
+</td>
+<td valign="top" align="left">
+0x00000008
+</td>
+<td valign="top" align="left">
+Do not relocate
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+RHF_RING_SEARCH
+</code>
+</td>
+<td valign="top" align="left">
+0x10000000
+</td>
+<td valign="top" align="left">
+Symbol resolution same as
+<code>DT_SYMBOLIC</code>
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+RHF_DEPTH_FIRST
+</code>
+</td>
+<td valign="top" align="left">
+0x20000000
+</td>
+<td valign="top" align="left">
+Depth first symbol resolution
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+RHF_USE_31BIT_ADDRESSES
+</code>
+</td>
+<td valign="top" align="left">
+0x40000000
+</td>
+<td valign="top" align="left">
+TASO (Truncated Address Support Option) objects
+</td>
+</tr>
+</tbody></table><p>
+</p></dd></dl><p>
+</p><p></p><dl><dt>
+DT_MIPS_BASE_ADDRESS
+</dt><dd>
+Contains the base address.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_MIPS_CONFLICT
+</dt><dd>
+Contains the address of the
+<code>.conflict</code>
+section.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_MIPS_LIBLIST
+</dt><dd>
+Contains the address of the
+<code>.liblist</code>
+section.
+</dd></dl><p>
+<br>
+</p><p></p><dl><dt>
+DT_MIPS_LOCAL_GOTNO
+</dt><dd>
+Contains the number of local GOT entries.
+The dynamic array contains one of these entries for each GOT.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_MIPS_CONFLICTNO
+</dt><dd>
+Contains the number of entries in the
+<code>.conflict</code>
+section and is mandatory if there is a
+<code>.conflict</code>
+section.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_MIPS_LIBLISTNO
+</dt><dd>
+Contains the number of entries in the
+<code>.liblist</code>
+section.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_MIPS_SYMTABNO
+</dt><dd>
+Indicates the number of entries in the
+<code>.dynsym</code>
+section.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_MIPS_UNREFEXTNO
+</dt><dd>
+Holds an index into the dynamic symbol table.
+The index is the entry of the first external symbol that is not
+referenced within the object.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_MIPS_GOTSYM
+</dt><dd>
+Holds the index of the first dynamic symbol table entry
+that corresponds to an entry in the global offset table.
+The dynamic array contains one of these entries for each GOT.
+</dd></dl><p>
+</p><p></p><dl><dt>
+DT_MIPS_HIPAGENO
+</dt><dd>
+Holds the number of page table entries in the global offset
+table. A page table entry here refers to 64KB of data space.
+This entry is used by the profiling tools and is optional.
+(Not used by the default system linker and loader.)
+</dd></dl><p>
+</p><p>
+All other tag values are reserved.
+Entries may appear in any order, except for the relative order of the
+<code>DT_NEEDED</code>
+entries and the
+<code>DT_NULL</code>
+entry at the end of the array.
+<a name="no_id_39"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.2.1&nbsp;&nbsp;&nbsp;&nbsp;Shared Object Dependencies
+</h3>
+<p>
+<a name="nx_id_717"></a>
+<a name="nx_id_718"></a>
+<a name="nx_id_719"></a>
+When the linker processes an archive library, library members are
+extracted and copied into the output object file.
+These statically linked services are available during execution and
+do not involve the dynamic loader.  Shared executable files also
+provide services that require the dynamic loader
+to include the appropriate shared library files in the process image.
+To accomplish this, shared executable files and shared library files must
+describe their dependencies.
+</p><p>
+The dependencies, indicated by the
+<code>DT_NEEDED</code>
+entries of the dynamic structure, indicate which shared library files
+are required for the program.
+The dynamic loader builds a process image by connecting the referenced
+shared library files and their dependencies. When resolving
+symbolic references, the dynamic loader looks first at the symbol table
+of the shared executable program, then at the symbol tables of the
+<code>DT_NEEDED</code>
+entries (in order), then at the second-level
+<code>DT_NEEDED</code>
+entries, and so on. Shared library files must be readable by the
+process.
+</p><blockquote><p align="center"><font size="+1"><strong>Note</strong></font></p><p>
+Even if a shared object is referenced more than once in the dependency
+list, the dynamic loader includes only one instance of the object
+in the process image.
+</p></blockquote><p>
+</p><p>
+Names in the dependency list are copies of the
+<code>DT_SONAME</code>
+strings.
+</p><p>
+If a shared library name has one or more slash characters in its name,
+such as
+<code>/usr/lib/libz</code>,
+the dynamic loader uses the string as the pathname. If the name has
+no slashes, such as
+<code>liba</code>,
+the object is searched as follows:
+</p><ol>
+<p></p><li>
+The dynamic array tag
+<code>DT_RPATH</code>
+may give a string that holds a list of directories separated
+by colons, such as
+<code>/usr/newlib:/usr/local/lib</code>.
+The dynamic loader searches these directories in order and, if a
+library is not located, it then searches the current directory.
+<p></p></li><li>
+The environment variable
+<code>LD_LIBRARY_PATH</code>
+can hold a list of colon-separated directories, optionally followed
+by a semicolon and another directory list. These directories are
+searched after those specified by
+<code>DT_RPATH.</code>
+<p></p></li><li>
+If the library was not located in any of the directories
+specified by
+<code>DT_RPATH</code>
+or
+<code>LD_LIBRARY_PATH</code>,
+the dynamic loader searches
+<code>/usr/shlib</code>,
+<code>/usr/ccs/lib</code>,
+<code>/usr/lib/cmplrs/cc</code>,
+<code>/usr/lib</code>,
+and then
+<code>/usr/local/lib</code>.
+</li></ol><p>
+The following environment variables are defined:
+<table border="4" cellpadding="4">
+<tbody><tr>
+<td valign="top" align="left">
+<code>
+_RLD_ARGS
+</code>
+</td>
+<td valign="top" align="left">
+Argument to dynamic loader
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+_RLD_ROOT
+</code>
+</td>
+<td valign="top" align="left">
+Prefix that the dynamic loader adds to all paths except those
+<br>
+specified by
+<code>LD_LIBRARY_PATH</code>
+</td>
+</tr>
+</tbody></table></p><p>
+</p><blockquote><p align="center"><font size="+1"><strong>Note</strong></font></p><p>
+For security, the dynamic loader ignores environmental search
+specifications, such as
+<code>LD_LIBRARY_PATH</code>,
+for set-user-ID and set-group-ID programs.
+</p></blockquote><p>
+<a name="got_tbl_section"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.3&nbsp;&nbsp;&nbsp;&nbsp;Global Offset Table (.got)
+</h3>
+<p>
+<a name="nx_id_720"></a>
+Position-independent code cannot
+contain absolute virtual addresses.
+Global offset tables (GOTs) hold absolute addresses in
+private data, thus making the addresses available without compromising
+the position-independence and sharability of a program's text.
+A program references its global offset table using position-independent
+addressing and extracts absolute values, thus redirecting
+position-independent references to absolute locations.
+</p><p>
+The global offset table is split into two logically separate
+subtables - local and external:
+</p><ul>
+<p></p><li>
+Local entries reside in the first part of the table; these are
+entries for which there are standard local relocation entries.
+These entries only require relocation if they occur in a shared
+library file with a memory load address that differs from
+the virtual address of its loadable segments.
+As with the defined external entries in the global offset table,
+these local entries contain actual addresses.
+<p></p></li><li>
+External entries reside in the second part of the section. Each
+entry in the external part of the GOT corresponds to an entry in the
+<code>.dynsym</code>
+section.
+The first referenced global symbol in the
+<code>.dynsym</code>
+section corresponds to the first quadword of the table, the second
+symbol corresponds to the second quadword, and so on.
+Each quadword in the external entry part of the GOT contains the
+actual address for its corresponding symbol.
+<p>
+The external entries for defined symbols
+must contain actual addresses. If an entry corresponds to an undefined
+symbol and the table entry contains a zero, the entry must be resolved
+by the dynamic loader, even if the dynamic loader is performing a
+<strong>quickstart</strong>.
+(See
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#quickstart_section">Section 9.3.10</a>
+for information about quickstart processing.)
+</p></li></ul><p>
+</p><p>
+After the system creates memory segments for a loadable object file,
+the dynamic loader may process the relocation entries. The only
+relocation entries remaining are type
+<code>R_REFQUAD</code>
+or
+<code>R_REFLONG</code>,
+referring to local entries in the GOT and data items containing
+addresses.  The dynamic loader determines the associated symbol
+(or section) values,
+calculates their absolute addresses, and sets the proper values.
+Although the absolute addresses may be unknown when the linker builds
+an object file, the dynamic loader knows the addresses of all memory
+segments and can find the correct symbols and calculate the
+absolute addresses.
+</p><p>
+If a program requires direct access to the absolute address of a symbol,
+it uses the appropriate GOT entry. Because the shared executable file
+and shared library file have separate global offset tables, a symbol's
+address may appear in several tables. The dynamic loader processes all
+necessary relocations before giving control to the process image, thus
+ensuring the absolute addresses are available during execution.
+</p><p>
+The zero (first) entry of the
+<code>.dynsym</code>
+section is reserved and holds a null symbol table entry.
+The corresponding zero entry in the GOT is reserved to hold the
+address of the entry point in the dynamic loader to call when using
+<strong>lazy binding</strong>
+to resolve text symbols (see
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#lazy_binding_sect">Section 9.3.3.1</a>
+for information about resolving text symbols using lazy binding).
+</p><p>
+The system may choose different memory segment addresses for the same
+shared library file in different programs; it may even choose different
+library addresses for different executions of the same program.
+Nonetheless, memory segments do not change addresses once the process
+image is established. As long as a process exists, its memory segments
+reside at fixed virtual addresses.
+</p><p>
+A single GOT can hold a maximum of 8190 local and global entries.
+If a program references 8K or more global symbols, it will have
+multiple GOTs.
+Each GOT in a multiple-GOT object is referenced by means of a
+different global pointer value.
+A single
+<code>.got</code>
+section holds all of the GOTs in a multiple-GOT object.
+</p><p>
+The
+<code>DT_MIPS_LOCAL_GOTNO</code>
+and
+<code>DT_PLTGOT</code>
+entries of the dynamic section describe the attributes of the global
+offset table.
+<a name="lazy_binding_sect"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.3.1&nbsp;&nbsp;&nbsp;&nbsp;Resolving Calls to Position-Independent Functions
+</h3>
+<p>
+<a name="nx_id_721"></a>
+<a name="nx_id_722"></a>
+The GOT is used to hold addresses of position-independent functions as
+well as data addresses. It is not possible to resolve function calls
+from one shared executable file or shared library file to another at
+static link time, so all of the function address entries in the GOT
+would normally be resolved at run time by the dynamic loader.
+Through the use of specially
+constructed pieces of code known as stubs, this run-time resolution
+can be deferred through a technique known as lazy binding.
+</p><p>
+<a name="nx_id_723"></a>
+<a name="nx_id_724"></a>
+Using the lazy binding technique, the linker builds a stub for each
+called function and allocates GOT entries that initially point to
+the stubs.
+Because of the normal calling sequence for position-independent code,
+the call invokes the stub the first time that the call is made.
+</p><p>
+</p><pre>stub_xyz:
+    ldq  t12, .got_index(gp)
+    lda  $at, .dynsym_index_low(zero)
+    ldah $at, .dynsym_index_high($at)
+    jmp  t12, (t12)
+</pre>
+<p>
+The stub code loads register
+<code>t12</code>
+with an entry from the GOT.
+The entry loaded into register
+<code>t12</code>
+is the address of the procedure in the dynamic loader that handles lazy
+binding.
+The stub code also loads register
+<code>$at</code>
+with the index into the
+<code>.dynsym</code>
+section of the referenced external symbol. The code then transfers
+control to the dynamic loader and loads register
+<code>t12</code>
+with the address following the stub. The dynamic loader determines
+the correct address for the called function and replaces the address
+of the stub in the GOT with the address of the function.
+</p><p>
+Most undefined text references can be handled by lazy text evaluation,
+except when the address of a function is used in other than a
+<code>jsr</code>
+instruction. In the exception case, the program uses the address of
+the stub instead of the actual address of the function.
+Determining which case is in effect is based on the following
+processing:
+</p><ul>
+<p></p><li>
+The linker generates symbol-table entries for all function references
+with the
+<code>st_shndx</code>
+field containing
+<code>SHN_UNDEF</code>
+and the
+<code>st_type</code>
+field containing
+<code>STT_FUNC</code>.
+<p></p></li><li>
+The dynamic loader examines each symbol-table entry when it starts
+execution:
+<ul>
+<p></p><li>
+If the
+<code>st_value</code>
+field for one of these symbols is nonzero, only
+<code>jsr</code>
+references were made to the function and nothing needs to be done
+to the GOT entry.
+<p></p></li><li>
+If the field is zero, some other kind of reference was made to
+the function and the GOT entry must be replaced with the actual
+address of the referenced function.
+</li></ul><p>
+</p></li></ul><p>
+</p><p>
+The
+<code>LD_BIND_NOW</code>
+environment variable can also change dynamic loader behavior.
+If its value is non-null, the dynamic loader evaluates all
+symbol-table entries of type
+<code>STT_FUNC</code>,
+replacing their stub addresses in the GOT with the actual address of
+the referenced function.
+</p><blockquote><p align="center"><font size="+1"><strong>Note</strong></font></p><p>
+Lazy binding generally improves overall application performance
+because unused symbols do not incur the dynamic loader overhead.
+Two situations, however, make lazy binding undesirable for some
+applications:
+</p><ul>
+<p></p><li>
+The initial reference to a function in a shared object file takes
+longer than subsequent calls because the dynamic loader intercepts
+the call to resolve the symbol. Some applications cannot tolerate this
+unpredictability.
+<p></p></li><li>
+If an error occurs and the dynamic loader
+cannot resolve the symbol, the dynamic loader terminates the program.
+Under lazy binding, this might occur at arbitrary times. Once again,
+some applications cannot tolerate this unpredictability.
+</li></ul><p>
+</p></blockquote>
+<p>
+By turning off lazy binding, the dynamic loader forces the failure
+to occur during process initialization, before the application
+receives control.
+</p><p>
+<a name="dynsym_section"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.4&nbsp;&nbsp;&nbsp;&nbsp;Dynamic Symbol Section (.dynsym)
+</h3>
+<p>
+<a name="nx_id_725"></a>
+The dynamic symbol section provides information on all external
+symbols, either imported or exported from an object.
+</p><p>
+All externally visible symbols, both defined and undefined, must
+be hashed into the hash table
+(see<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#hash_table_section">Section 9.3.7</a>).
+</p><p>
+Undefined symbols of type
+<code>STT_FUNC</code>
+that have been referenced only by
+<code>jsr</code>
+instructions may contain nonzero values in their
+<code>st_value</code>
+field denoting the stub address used for lazy evaluation for this
+symbol. The dynamic loader uses this to reset the GOT entry for this
+external symbol to its stub address when unloading a shared library
+file.  All other undefined symbols must contain zero in their
+<code>st_value</code>
+fields.
+</p><p>
+Defined symbols in a shared executable file cannot be preempted.
+The symbol table in the shared executable file is always searched
+first to resolve any symbol references.
+</p><p>
+<br>
+The dynamic symbol section contains an array of entries of the
+following type:
+</p><p>
+</p><pre>typedef struct {
+    Elf32_Word      st_name;
+    Elf32_Addr      st_value;
+    Elf32_Word      st_size;
+    unsigned char   st_info;
+    unsigned char   st_other;
+    Elf32_Half      st_shndx;
+} Elf32_Sym;
+</pre>
+<p>
+The structure members in the preceding structure definition provide
+the following information:
+</p><p></p><dl><dt>
+<code>st_name</code>
+</dt><dd>
+Contains the offset of the symbol's name in the dynamic string section.
+</dd></dl><p>
+</p><p></p><dl><dt>
+<code>st_value</code>
+</dt><dd>
+Contains the value of the symbol for those symbols defined within
+the object; otherwise, contains the value zero.
+</dd></dl><p>
+</p><p></p><dl><dt>
+<code>st_size</code>
+</dt><dd>
+Identifies the size of symbols with common
+storage allocation; otherwise, contains the value zero.
+For
+<code>STB_DUPLICATE</code>
+symbols, the size field holds the index of the primary symbol.
+</dd></dl><p>
+</p><p></p><dl><dt>
+<code>st_info</code>
+</dt><dd>
+Identifies the symbol's binding and type. The macros
+<code>ELF32_ST_BIND</code>
+and
+<code>ELF32_ST_TYPE</code>
+are used to access the individual values.
+<p>
+A symbol's binding determines the linkage visibility and behavior. The
+binding is encoded in the
+<code>st_info</code>
+field and can have one of the following values:
+<table border="4" cellpadding="4">
+<tbody><tr>
+<td valign="top" align="left">
+<strong>
+Value
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+Description
+</strong>
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+STB_LOCAL
+</code>
+</td>
+<td valign="top" align="left">
+Indicates that the symbol is local to the object.
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+STB_GLOBAL
+</code>
+</td>
+<td valign="top" align="left">
+Indicates that the symbol is visible to other objects.
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+STB_WEAK
+</code>
+</td>
+<td valign="top" align="left">
+Indicates that the symbol is a weak global symbol.
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+STB_DUPLICATE
+</code>
+</td>
+<td valign="top" align="left">
+Indicates the symbol is a duplicate. (Used for
+objects that have multiple GOTs.)
+</td>
+</tr>
+</tbody></table></p><p>
+A symbol's type identifies its use. The type is encoded in the
+<code>st_info</code>
+field and can have one of the following values:
+<table border="4" cellpadding="4">
+<tbody><tr>
+<td valign="top" align="left">
+<strong>
+Value
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+Description
+</strong>
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+STT_NOTYPE
+</code>
+</td>
+<td valign="top" align="left">
+Indicates that the symbol has no type or its type is unknown.
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+STT_OBJECT
+</code>
+</td>
+<td valign="top" align="left">
+Indicates that the symbol is a data object.
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+STT_FUNC
+</code>
+</td>
+<td valign="top" align="left">
+Indicates that the symbol is a function.
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+STT_SECTION
+</code>
+</td>
+<td valign="top" align="left">
+Indicates that the symbol is associated with a program section.
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+STT_FILE
+</code>
+</td>
+<td valign="top" align="left">
+Indicates that the symbol as the name of a source file.
+</td>
+</tr>
+</tbody></table></p><p>
+</p></dd></dl><p>
+<br>
+</p><p></p><dl><dt>
+<code>st_other</code>
+</dt><dd>
+Currently holds a value of zero and has no defined meaning.
+</dd></dl><p>
+</p><p></p><dl><dt>
+<code>st_shndx</code>
+</dt><dd>
+Identifies the section to which this symbol is related.
+<p>
+All symbols are defined relative to some program section. The
+<code>st_shndx</code>
+field identifies the section and can have one of the following values:
+<table border="4" cellpadding="4">
+<tbody><tr>
+<td valign="top" align="left">
+<strong>
+Value
+</strong>
+</td>
+<td valign="top" align="left">
+<strong>
+Description
+</strong>
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+SHN_UNDEF
+</code>
+</td>
+<td valign="top" align="left">
+Indicates that the symbol is undefined.
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+SHN_ABS
+</code>
+</td>
+<td valign="top" align="left">
+Indicates that the symbol has an absolute value.
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+SHN_COMMON
+</code>
+</td>
+<td valign="top" align="left">
+Indicates that the symbol has common storage (unallocated).
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+SHN_MIPS_ACOMMON
+</code>
+</td>
+<td valign="top" align="left">
+Indicates that the symbol has common storage (allocated).
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+SHN_MIPS_TEXT
+</code>
+</td>
+<td valign="top" align="left">
+Indicates that the symbol is in a text segment.
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+SHN_MIPS_DATA
+</code>
+</td>
+<td valign="top" align="left">
+Indicates that the symbol is in a data segment.
+</td>
+</tr>
+</tbody></table></p><p>
+</p></dd></dl><p>
+</p><p>
+The entries of the dynamic symbol section are ordered as follows:
+</p><ul>
+<p></p><li>
+A single null entry.
+<p></p></li><li>
+Symbols local to the object.
+<p></p></li><li>
+Unreferenced global symbols, that is, symbols that are defined within
+the object but not referenced.
+<p></p></li><li>
+Referenced global symbols.
+These symbols
+correspond one-to-one with the GOT entries for global symbols.
+</li></ul><p>
+<a name="nx_id_726"></a>
+<a name="nx_id_727"></a>
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#dynsym_fig">Figure 9-2</a>
+shows the layout of the
+<code>.dynsym</code>
+section and its relationship to the
+<code>.got</code>
+section.
+</p><p>
+<a name="dynsym_fig"></a>
+</p><h3>Figure 9-2: Relationship Between .dynsym and .got</h3>
+<p><img src="./Program Loading and Dynamic Linking_files/FIGU_022.GIF"></p><p>
+</p><p>
+The
+<code>DT_SYMENT</code>
+and
+<code>DT_SYMTAB</code>
+entries of the dynamic section describe the attributes of the dynamic
+symbol table.
+<a name="reldyn_section"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.5&nbsp;&nbsp;&nbsp;&nbsp;Dynamic Relocation Section (.rel.dyn)
+</h3>
+<p>
+<a name="nx_id_728"></a>
+The dynamic relocation section describes all locations within the object
+that must be adjusted if the object is loaded at an address other than
+its linked base address.
+</p><p>
+Only one dynamic relocation section is used to resolve addresses
+in data items,
+and it must be called
+<code>.rel.dyn</code>.
+Shared executable files can contain normal relocation sections in
+addition to a dynamic relocation section. The normal relocation
+sections may contain resolutions for any absolute values in the main
+program. The dynamic linker does not resolve these or relocate the
+main program.
+</p><p>
+As noted previously, only
+<code>R_REFQUAD</code>
+and
+<code>R_REFLONG</code>
+relocation entries are supported in the dynamic relocation section.
+</p><p>
+The dynamic relocation section is an array of entries of the
+following type:
+</p><p>
+</p><pre>typedef struct {
+    Elf32_Addr      r_offset;
+    Elf32_Word      r_info;
+} Elf32_Rel;
+</pre>
+<p>
+The structure members in the preceding structure definition provide
+the following information:
+</p><p></p><dl><dt>
+<code>r_offset</code>
+</dt><dd>
+Identifies the location within the object to be adjusted.
+</dd></dl><p>
+</p><p></p><dl><dt>
+<code>r_info</code>
+</dt><dd>
+Identifies the relocation type and the index of the symbol
+that is referenced.
+The macros
+<code>ELF32_R_SYM</code>
+and
+<code>ELF32_R_TYPE</code>
+access the individual attributes.
+The relocation type must be either
+<code>R_REFQUAD</code>
+or
+<code>R_REFLONG</code>.
+</dd></dl><p>
+</p><p>
+The entries of the dynamic relocation section are ordered by symbol
+index value.
+</p><p>
+The
+<code>DT_REL</code>
+and
+<code>DT_RELSZ</code>
+entries of the dynamic section describe the attributes of the dynamic
+relocation section.
+<a name="msym_section"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.6&nbsp;&nbsp;&nbsp;&nbsp;Msym Section (.msym)
+</h3>
+<p>
+<a name="nx_id_729"></a>
+The optional
+<code>.msym</code>
+section contains precomputed hash values and dynamic relocation
+indexes for each entry in the dynamic symbol table.
+Each entry in the
+<code>.msym</code>
+section maps directly to an entry in the
+<code>.dynsym</code>
+section.  The
+<code>.msym</code>
+section is an array of entries of the following type:
+</p><p>
+</p><pre>typedef struct
+{
+    Elf32_Word  ms_hash_value;
+    Elf32_Word  ms_info;
+} Elf32_Msym;
+</pre>
+<p>
+The structure members in the preceding structure definition provide the
+following information:
+</p><p></p><dl><dt>
+<code>ms_hash_value</code>
+</dt><dd>
+The hash value computed from the name of the corresponding
+dynamic symbol.
+</dd></dl><p>
+</p><p></p><dl><dt>
+<code>ms_info</code>
+</dt><dd>
+Contains both the dynamic relocation index and the
+symbol flags field.  The macros
+<code>ELF32_MS_REL_INDEX</code>
+and
+<code>ELF32_MS_FLAGS</code>
+are used to acess the individual values.
+<p>
+The dynamic relocation index identifies the first
+entry in the
+<code>.rel.dyn</code>
+section that references the dynamic symbol corresponding to this
+msym entry.
+If the index is 0, no dynamic relocations are associated with
+the symbol.
+</p></dd></dl><p>
+The symbol flags field is reserved for future use.
+</p><p>
+The
+<code>DT_MIPS_MSYM</code>
+entry of the dynamic section contains the address of the
+<code>.msym</code>
+section.
+<a name="hash_table_section"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.7&nbsp;&nbsp;&nbsp;&nbsp;Hash Table Section (.hash)
+</h3>
+<p>
+<a name="nx_id_730"></a>
+A hash table of
+<code>Elf32_Word</code>
+entries provides fast access to symbol entries in the dynamic symbol
+section.
+<a href="https://www3.physnet.uni-hamburg.de/physnet/Tru64-Unix/HTML/APS31DTE/DOCU_002.HTM#hash_table_fig">Figure 9-3</a>
+shows the contents of a hash table.
+<a name="hash_table_fig"></a>
+</p><h3>Figure 9-3: Hash Table Section</h3>
+<p><img src="./Program Loading and Dynamic Linking_files/FIGU_023.GIF"></p><p>
+The entries in the hash table contain the following information:
+</p><ul>
+<p></p><li>
+The
+<code>nbucket</code>
+entry indicates the number of entries in the
+<code>bucket</code>
+array.
+<p></p></li><li>
+The
+<code>nchain</code>
+entry indicates the number of entries in the
+<code>chain</code>
+array.
+<p></p></li><li>
+The
+<code>bucket</code>
+and
+<code>chain</code>
+entries hold symbol table indexes; the entries in
+<code>chain</code>
+parallel the symbol table. The number of symbol table entries should be
+equal to
+<code>nchain</code>;
+symbol table indexes also select
+<code>chain</code>
+entries.
+</li></ul><p>
+The hashing function accepts a symbol name and returns a value that
+can be used to compute a
+<code>bucket</code>
+index. If the hashing function returns the value
+<code>X</code>
+for a name,
+<code>bucket[X % nbucket]</code>
+gives an index,
+<code>Y</code>,
+into the symbol table and
+<code>chain</code>
+array. If the symbol table entry indicated is not the correct one,
+<code>chain[Y]</code>
+indicates the next symbol table entry with the same hash value. The
+<code>chain</code>
+links can be followed until the correct symbol table entry
+is located or until the
+<code>chain</code>
+entry contains the value
+<code>STN_UNDEF</code>.
+</p><p>
+The
+<code>DT_HASH</code>
+entry of the dynamic section contains the address of the hash table
+section.
+<a name="dynstr_section"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.8&nbsp;&nbsp;&nbsp;&nbsp;Dynamic String Section (.dynstr)
+</h3>
+<p>
+<a name="nx_id_731"></a>
+The dynamic string section is the repository for all strings referenced
+by the dynamic linking sections. Strings are referenced by using a byte
+offset within the dynamic string section. The end of the string
+is denoted by a byte containing the value zero.
+</p><p>
+The
+<code>DT_STRTAB</code>
+and
+<code>DT_STRSZ</code>
+entries of the dynamic section describe the attributes of the dynamic
+string section.
+<a name="no_id_40"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.9&nbsp;&nbsp;&nbsp;&nbsp;Initialization and Termination Functions
+</h3>
+<p>
+After the dynamic loader has created the process image and performed
+relocations, each shared object file gets the opportunity to execute
+initialization code.
+The initialization functions are called in
+reverse-dependency order.
+Each shared object file's initialization functions are called
+<br>
+only after
+the initialization functions for its dependencies have been executed.
+All initialization of shared object files occurs
+before the executable file gains control.
+</p><p>
+Similarly, shared object files can have termination functions that are
+executed by the
+<code>atexit</code>
+mechanism when the process is terminating.
+Termination functions are called in dependency order - the exact
+opposite of the order in which initialization functions are called.
+</p><p>
+<a name="nx_id_732"></a>
+Shared object files designate initialization and termination functions
+through the
+<code>DT_INIT</code>
+and
+<code>DT_FINI</code>
+entries in the dynamic structure. Typically, the code for these
+functions resides in the
+<code>.init</code>
+and
+<code>.fini</code>
+sections.
+</p><blockquote><p align="center"><font size="+1"><strong>Note</strong></font></p><p>
+Although
+<code>atexit</code>
+termination processing normally is done, it is not guaranteed to have
+executed when the process terminates. In particular, the process does
+not execute the termination processing if it calls
+<code>_exit</code>
+or if the process terminates because it received a signal that it
+neither caught nor ignored.
+</p></blockquote><p>
+<a name="quickstart_section"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.10&nbsp;&nbsp;&nbsp;&nbsp;Quickstart
+</h3>
+<p>
+<a name="nx_id_733"></a>
+<a name="nx_id_734"></a>
+The quickstart capability provided by the assembler supports several
+sections that are useful for faster
+startup of programs that have been linked with shared library files.
+Some ordering constraints are imposed on these sections.
+The group of structures defined in these sections and the ordering
+constraints allow the dynamic loader to operate more efficiently.
+These additional sections are also used for more complete dynamic
+shared library file version control.
+<a name="liblist_section"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.10.1&nbsp;&nbsp;&nbsp;&nbsp;Shared Object List (.liblist)
+</h3>
+<p>
+<a name="nx_id_735"></a>
+A shared object list section is an array of
+<code>Elf32_Lib</code>
+structures that contains information about the various dynamic shared
+library files used to statically link the shared object file.
+Each shared library file
+used has an entry in the array. Each entry has the following format:
+</p><p>
+</p><pre>typedef struct {
+    Elf32_Word l_name;
+    Elf32_Word l_time_stamp;
+    Elf32_Word l_checksum;
+    Elf32_Word l_version;
+    Elf32_Word l_flags;
+} Elf32_Lib;
+</pre>
+<p>
+The structure members in the preceding structure definition provide
+the following information:
+<br>
+</p><p></p><dl><dt>
+<code>l_name</code>
+</dt><dd>
+Specifies the name of a shared library file.
+Its value is a string table index.
+This name can be a full pathname,
+relative pathname, or file name.
+</dd></dl><p>
+</p><p></p><dl><dt>
+<code>l_time_stamp</code>
+</dt><dd>
+Contains a 32-bit time stamp. The value can be combined with the
+<code>l_checksum</code>
+value and the
+<code>l_version</code>
+string to form a unique identifier for this shared library file.
+</dd></dl><p>
+</p><p></p><dl><dt>
+<code>l_checksum</code>
+</dt><dd>
+Contains the sum of all common sizes and all string names of externally
+visible symbols.
+</dd></dl><p>
+</p><p></p><dl><dt>
+<code>l_version</code>
+</dt><dd>
+Specifies the interface version. Its value is a string table index. The
+interface version is a string containing no colons. It is compared to
+a colon separated string of versions pointed to by a dynamic section
+entry of the shared library file. Shared library file with matching
+names may be considered incompatible if the interface version strings
+are deemed incompatible. An index value of zero means no version string
+is specified and is equivalent to the string
+<code>_null</code>.
+</dd></dl><p>
+</p><p></p><dl><dt>
+<code>l_flags</code>
+</dt><dd>
+Specifies a set of 1-bit flags.
+<p>
+The
+<code>l_flags</code>
+field can have one or both of the following flags set:
+<table border="4" cellpadding="4">
+<tbody><tr>
+<td valign="top" align="left">
+<code>
+LL_EXACT_MATCH
+</code>
+</td>
+<td valign="top" align="left">
+At run time, use a unique ID composed of the
+<code>l_time_stamp</code>,
+<code>l_checksum</code>,
+and
+<code>l_version</code>
+fields to demand that the run-time dynamic shared library file match
+exactly the shared library file used at static link time.
+</td>
+</tr>
+<tr>
+<td valign="top" align="left">
+<code>
+LL_IGNORE_INT_VER
+</code>
+</td>
+<td valign="top" align="left">
+At run time, ignore any version incompatibility between
+the dynamic shared library file and the shared library file used at
+static link time.
+<p>
+Normally, if neither
+<code>LL_EXACT_MATCH</code>
+nor
+<code>LL_IGNORE_INT_VER</code>
+bits are set, the dynamic loader requires that the version of the
+dynamic shared library match at least one of the colon separated
+version strings indexed by the
+<code>l_version</code>
+string table index.
+</p></td>
+</tr>
+</tbody></table></p><p>
+</p></dd></dl><p>
+The
+<code>DT_MIPS_LIBLIST</code>
+and
+<code>DT_MIPS_LIBLISTNO</code>
+entries of the dynamic section describe the attributes of the shared
+object list section.
+<a name="conflict_section"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.10.2&nbsp;&nbsp;&nbsp;&nbsp;Conflict Section (.conflict)
+</h3>
+<p>
+<a name="nx_id_736"></a>
+Each
+<code>.conflict</code>
+section is an array of indexes into the
+<code>.dynsym</code>
+section.
+Each index entry identifies a symbol that is multiply defined
+in either of the following ways:
+</p><ul>
+<p></p><li>
+The symbol is defined in the shared object file and one or more of
+the shared library files that the shared object file depends on.
+<p></p></li><li>
+The symbol is defined in two or more or the shared library
+files that the shared object file depends on.
+</li></ul><p>
+</p><p>
+The shared library files that the shared object file depends on are
+identified at static link time.
+</p><p>
+The symbols identified in this section must be resolved by the
+dynamic loader, even if the object is quickstarted. The dynamic
+loader resolves all references of a multiply-defined symbol
+to a single definition.
+</p><p>
+The
+<code>.conflict</code>
+section is an array of
+<code>Elf32_Conflict</code>
+elements:
+</p><p>
+</p><pre>typedef Elf32_Word Elf32_Conflict;
+</pre>
+<p>
+The
+<code>DT_MIPS_CONFLICT</code>
+and
+<code>DT_MIPS_CONFLICTNO</code>
+entries of the dynamic section describe the attributes of the conflict
+section.
+<a name="no_id_41"></a>
+</p><p></p><hr>
+
+<h3>
+9.3.10.3&nbsp;&nbsp;&nbsp;&nbsp;Ordering of Sections
+</h3>
+<p>
+<a name="nx_id_737"></a>
+<a name="nx_id_738"></a>
+<a name="nx_id_739"></a>
+In order to take advantage of the quickstart capability, ordering
+constraints are imposed on the
+<code>.rel.dyn</code>
+section.
+The
+<code>.rel.dyn</code>
+section must have all local entries first, followed by the external
+entries.  Within these subsections, the entries must be ordered
+by symbol index.  This groups each symbol's relocations together.
+
+
+</p></body></html>
