@@ -55,3 +55,4 @@
 
 - [x] [Coroutines in C](https://www.chiark.greenend.org.uk/~sgtatham/coroutines.html)
 - [x] [谈谈协程和C语言的协程](http://www.yeolar.com/note/2013/02/17/coroutines/)
+- [x] [Non-Local GOTO: setjmp() and longjmp()](http://www.csl.mtu.edu/cs4411.ck/www/NOTES/non-local-goto/)
