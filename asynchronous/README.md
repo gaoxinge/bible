@@ -58,3 +58,5 @@
 - [x] [Non-Local GOTO: setjmp() and longjmp()](http://www.csl.mtu.edu/cs4411.ck/www/NOTES/non-local-goto/)
 - [x] [Coroutines in less than 20 lines of standard C](https://fanf.livejournal.com/105413.html)
 - [x] [More coroutines](https://fanf.livejournal.com/105655.html)
+- [x] [CS360 Lecture notes -- Setjmp](http://web.eecs.utk.edu/~plank/plank/classes/cs360/360/notes/Setjmp/lecture.html)
+- [x] [freudent - Revision 451: /courses/osWeb/labs/tthreads](http://robust.cs.utep.edu/freudent/courses/osWeb/labs/tthreads/)
