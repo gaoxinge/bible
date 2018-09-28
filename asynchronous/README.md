@@ -28,7 +28,7 @@
 - [ ] [2016，我想跟协程谈谈](http://www.jianshu.com/p/9330e6d61f34)
 - [x] [最新Python异步编程详解](http://www.jianshu.com/p/b036e6e97c18)
 - [ ] [Python Async/Await入门指南](https://zhuanlan.zhihu.com/p/27258289)
-- [ ] [python异步爬虫](http://blog.csdn.net/whuhan2013/article/details/52529477)
+- [x] [python异步爬虫](http://blog.csdn.net/whuhan2013/article/details/52529477)
 - [x] [Generator Tricks for Systems Programmers](http://www.dabeaz.com/generators/)
 - [x] [Generator Tricks for Systems Programmers - Version 2.0](http://www.dabeaz.com/generators-uk/)
 - [ ] [A Curious Course on Coroutines and Concurrency](http://www.dabeaz.com/coroutines/)
@@ -60,3 +60,4 @@
 - [x] [More coroutines](https://fanf.livejournal.com/105655.html)
 - [x] [CS360 Lecture notes -- Setjmp](http://web.eecs.utk.edu/~plank/plank/classes/cs360/360/notes/Setjmp/lecture.html)
 - [x] [freudent - Revision 451: /courses/osWeb/labs/tthreads](http://robust.cs.utep.edu/freudent/courses/osWeb/labs/tthreads/)
+- [x] [Practical usage of setjmp and longjmp in C](https://stackoverflow.com/questions/14685406/practical-usage-of-setjmp-and-longjmp-in-c)
