@@ -37,6 +37,7 @@
 - [x] [Implementing "weightless threads" with Python generators](https://www.ibm.com/developerworks/library/l-pythrd/index.html)
 - [x] [A Web Crawler With asyncio Coroutines](http://aosabook.org/en/500L/a-web-crawler-with-asyncio-coroutines.html)
 - [ ] [Some thoughts on asynchronous API design in a post-async/await world](https://vorpus.org/blog/some-thoughts-on-asynchronous-api-design-in-a-post-asyncawait-world/)
+- [ ] [The State of Python Coroutines: asyncio - Callbacks vs. Coroutines](http://www.andy-pearce.com/blog/posts/2016/Jul/the-state-of-python-coroutines-asyncio-callbacks-vs-coroutines/)
 - [x] [A tale of event loops](https://github.com/AndreLouisCaron/a-tale-of-event-loops)
 
 ### library
