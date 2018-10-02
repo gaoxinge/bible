@@ -39,6 +39,11 @@
 - [ ] [Some thoughts on asynchronous API design in a post-async/await world](https://vorpus.org/blog/some-thoughts-on-asynchronous-api-design-in-a-post-asyncawait-world/)
 - [ ] [The State of Python Coroutines: asyncio - Callbacks vs. Coroutines](http://www.andy-pearce.com/blog/posts/2016/Jul/the-state-of-python-coroutines-asyncio-callbacks-vs-coroutines/)
 - [x] [A tale of event loops](https://github.com/AndreLouisCaron/a-tale-of-event-loops)
+- [ ] [深入python协程的实现，带你一层一层揭开协程的神秘面纱！](https://zhuanlan.zhihu.com/p/33739573)
+- [ ] [Python 异步 web 框架是如何工作的](https://zhuanlan.zhihu.com/p/42044997)
+- [ ] [手把手教你用 Python 协程实现异步服务](https://zhuanlan.zhihu.com/p/44881193)
+- [ ] [Asyncio 原理分析](https://zhuanlan.zhihu.com/p/28993491)
+- [ ] [一篇读懂从yield到aio](https://zhuanlan.zhihu.com/p/33564934)
 
 ### library
 
@@ -64,3 +69,9 @@
 - [x] [freudent - Revision 451: /courses/osWeb/labs/tthreads](http://robust.cs.utep.edu/freudent/courses/osWeb/labs/tthreads/)
 - [x] [Practical usage of setjmp and longjmp in C](https://stackoverflow.com/questions/14685406/practical-usage-of-setjmp-and-longjmp-in-c)
 - [x] [Multitasking using setjmp, longjmp](https://stackoverflow.com/questions/2560792/multitasking-using-setjmp-longjmp)
+
+### library
+
+- [libevent](https://github.com/libevent/libevent)
+- [libuv](https://github.com/libuv/libuv)
+- [libaco](https://github.com/hnes/libaco)
