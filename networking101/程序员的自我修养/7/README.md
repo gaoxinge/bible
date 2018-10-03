@@ -243,6 +243,7 @@ $ gcc -shared -fPIC -o pic.so pic.c global.c
 - [动态内存管理详解：malloc/free/new/delete/brk/mmap（介绍的很明白）](https://blog.csdn.net/g_brightboy/article/details/22793439)
 - [内存映射 转](https://blog.csdn.net/bbvs1/article/details/80717750)
 - [终于搞明白DLL为什么可以多进程共用了](https://bbs.csdn.net/topics/390355714)
+- [程序的装入和链接](https://blog.csdn.net/hguisu/article/details/5713099)
 - [Anatomy of Linux dynamic libraries](https://www.ibm.com/developerworks/linux/library/l-dynamic-libraries/)
 - [difference between dynamic loading and dynamic linking?](https://stackoverflow.com/questions/10052464/difference-between-dynamic-loading-and-dynamic-linking)
 - [Difference between load-time dynamic linking and run-time dynamic linking](https://stackoverflow.com/questions/2055840/difference-between-load-time-dynamic-linking-and-run-time-dynamic-linking)
