@@ -241,6 +241,7 @@ $ gcc -shared -fPIC -o pic.so pic.c global.c
 - [动态装入(Dynamic loading) 和动态链接 (dynamic linking)的区别是什么?](https://blog.csdn.net/giantpoplar/article/details/46485649)
 - [c语言中动态库的使用（启动时链接和运行时链接）](https://blog.csdn.net/guotianqing/article/details/79777273)
 - [动态内存管理详解：malloc/free/new/delete/brk/mmap（介绍的很明白）](https://blog.csdn.net/g_brightboy/article/details/22793439)
+- [内存映射 转](https://blog.csdn.net/bbvs1/article/details/80717750)
 - [终于搞明白DLL为什么可以多进程共用了](https://bbs.csdn.net/topics/390355714)
 - [Anatomy of Linux dynamic libraries](https://www.ibm.com/developerworks/linux/library/l-dynamic-libraries/)
 - [difference between dynamic loading and dynamic linking?](https://stackoverflow.com/questions/10052464/difference-between-dynamic-loading-and-dynamic-linking)
