@@ -22,7 +22,7 @@
 - [x] [Python异步网络爬虫（1）](http://python.jobbole.com/86727/)
 - [x] [Python异步网络爬虫（2）](http://python.jobbole.com/86795/)
 - [x] [Coroutine实现有感](https://www.douban.com/note/11552969/)
-- [ ] [Coroutine从入门到劝退](https://zhuanlan.zhihu.com/p/25513336)
+- [x] [Coroutine从入门到劝退](https://zhuanlan.zhihu.com/p/25513336)
 - [ ] [Python服务器编程](https://zhuanlan.zhihu.com/p/30056870)
 - [ ] [Python开源异步并发框架的未来](https://segmentfault.com/a/1190000000471602)
 - [x] [2016，我想跟协程谈谈](http://www.jianshu.com/p/9330e6d61f34)
