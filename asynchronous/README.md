@@ -75,4 +75,5 @@
 
 - [libevent](https://github.com/libevent/libevent)
 - [libuv](https://github.com/libuv/libuv)
+- [libev](https://github.com/kindy/libev)
 - [libaco](https://github.com/hnes/libaco)
