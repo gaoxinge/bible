@@ -7,3 +7,13 @@
 
 - stackfull：栈式协程可以在嵌套调用中挂起并恢复
 - stackless：非栈式协程只可以在同级调用中挂起并恢复
+
+## other
+
+- c
+- python：非对称，非栈式（asyncio，curio）
+- greenlet：对称，非栈式（evenlet，gevent）
+- java
+- go
+- lua：非对称，非栈式
+- c#：非对称，非栈式
