@@ -67,6 +67,7 @@
 - [x] [More coroutines](https://fanf.livejournal.com/105655.html)
 - [x] [CS360 Lecture notes -- Setjmp](http://web.eecs.utk.edu/~plank/plank/classes/cs360/360/notes/Setjmp/lecture.html)
 - [x] [freudent - Revision 451: /courses/osWeb/labs/tthreads](http://robust.cs.utep.edu/freudent/courses/osWeb/labs/tthreads/)
+- [x] [Coroutines in one page of C](https://www.embeddedrelated.com/showarticle/455.php)
 - [x] [Practical usage of setjmp and longjmp in C](https://stackoverflow.com/questions/14685406/practical-usage-of-setjmp-and-longjmp-in-c)
 - [x] [Multitasking using setjmp, longjmp](https://stackoverflow.com/questions/2560792/multitasking-using-setjmp-longjmp)
 
