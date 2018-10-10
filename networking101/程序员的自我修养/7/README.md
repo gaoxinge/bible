@@ -260,3 +260,8 @@ $ gcc -shared -fPIC -o pic.so pic.c global.c
 - [Linux动态链接之GOT与PLT](https://www.cnblogs.com/xingyun/archive/2011/12/10/2283149.html)
 - [ELF文件的加载和动态链接过程](http://jzhihui.iteye.com/blog/1447570)
 - [Linkers and Dynamic Linking](https://web.stanford.edu/~ouster/cgi-bin/cs140-spring14/lecture.php?topic=linkers)
+
+### 参考
+
+- [虚拟存储器之存储器映射](https://blog.csdn.net/whoamiyang/article/details/50860560)
+- [Linux写时拷贝技术(copy-on-write)](http://www.cnblogs.com/biyeymyhjob/archive/2012/07/20/2601655.html)
