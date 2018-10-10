@@ -70,6 +70,8 @@
 - [x] [Coroutines in one page of C](https://www.embeddedrelated.com/showarticle/455.php)
 - [x] [Practical usage of setjmp and longjmp in C](https://stackoverflow.com/questions/14685406/practical-usage-of-setjmp-and-longjmp-in-c)
 - [x] [Multitasking using setjmp, longjmp](https://stackoverflow.com/questions/2560792/multitasking-using-setjmp-longjmp)
+- [x] [Coroutines in C](https://codereview.stackexchange.com/questions/79415/coroutines-in-c)
+
 
 ### library
 
