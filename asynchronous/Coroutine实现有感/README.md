@@ -7,6 +7,8 @@
 
 - stackfull：栈式协程可以在嵌套调用中挂起并恢复
 - stackless：非栈式协程只可以在同级调用中挂起并恢复
+- stackfull：it means that the coroutines hanve own stack, so they map on native thread
+- stackless：it means that the coroutines don't have own stack, so they don't map on native thread
 
 ## other
 
