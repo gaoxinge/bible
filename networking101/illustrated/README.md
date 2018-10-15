@@ -29,7 +29,19 @@
 - ipconfig：查看网卡绑定的IP（使用无线路由器上网，对应的是无线网卡 ）
 - baidu：查看运营商提供的IP（NAT）
 
-### gethostbyname
+### get
+
+- `getaddrinfo`
+- `getnameinfo`
+- `gethostname`
+  - `socket.gethostname()` -> `'TR-XGGAO'`
+- `gethostbyaddr` 
+- `gethostbyname`
+  - `socket.gethostbyname('localhost')` -> `'127.0.0.1'`
+  - `socket.gethostbyname('baidu.com')` -> `'123.125.115.110'`
+- `gethostbyname_ex`
+  - `socket.gethostbyname_ex('localhost')` -> `('TR-XGGAO.tianrang-inc.com', [], ['127.0.0.1'])`
+  - `socket.gethostbyname_ex('baidu.com')` -> `('baidu.com', [], ['123.125.115.110', '220.181.57.216'])`
 
 ### dns
 
