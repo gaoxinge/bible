@@ -36,6 +36,8 @@
 - `gethostname`
   - `socket.gethostname()` -> `'TR-XGGAO'`
 - `gethostbyaddr` 
+  - `socket.gethostbyaddr('localhost')` -> `('TR-XGGAO.tianrang-inc.com', [], ['::1'])`
+  - `socket.gethostbyaddr('127.0.0.1')` -> `('TR-XGGAO.tianrang-inc.com', [], ['127.0.0.1'])`
 - `gethostbyname`
   - `socket.gethostbyname('localhost')` -> `'127.0.0.1'`
   - `socket.gethostbyname('baidu.com')` -> `'123.125.115.110'`
