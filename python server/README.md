@@ -8,6 +8,7 @@
 
 - [gunicorn](https://github.com/benoitc/gunicorn)
 - [uwsgi](https://github.com/unbit/uwsgi)
+- [mod_wsgi](https://github.com/GrahamDumpleton/mod_wsgi)
 
 ## python web framework
 
