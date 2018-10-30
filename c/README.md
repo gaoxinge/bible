@@ -9,12 +9,12 @@
 - [x] [现代C语言](http://icube-icps.unistra.fr/img_auth.php/d/db/ModernC.pdf)
 - [x] [风格的要素——C语言版](http://www.oualline.com/books.free/style/index.html)
 - [x] [使用标准C语言进行面向对象编程](https://www.cs.rit.edu/~ats/books/ooc.pdf)
-- [x] [C Interfaces and Implementations](https://book.douban.com/subject/1826292/)
+- [ ] [C Interfaces and Implementations](https://book.douban.com/subject/1826292/)
 - [x] [编写零缺陷的C语言代码](http://www.duckware.com/bugfreec/index.html)
 - [x] [Network Theory Ltd - publishing free software manuals](http://www.network-theory.co.uk/)
-- [x] [GCC简介](http://www.network-theory.co.uk/docs/gccintro/)
-- [x] [GCC, the GNU Compiler Collection](https://gcc.gnu.org/)
-- [x] [Using the GNU Compiler Collection (GCC)](https://gcc.gnu.org/onlinedocs/gcc/)
+- [ ] [GCC简介](http://www.network-theory.co.uk/docs/gccintro/)
+- [ ] [GCC, the GNU Compiler Collection](https://gcc.gnu.org/)
+- [ ] [Using the GNU Compiler Collection (GCC)](https://gcc.gnu.org/onlinedocs/gcc/)
 
 ### 奇技淫巧
 
