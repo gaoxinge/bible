@@ -6,6 +6,7 @@ This repository contains codes and exercises from the [c interfaces and implemen
 - [chapter02](https://github.com/gaoxinge/bible/tree/master/c/c%20interfaces%20and%20implementations/chapter02)
 - [chapter03](https://github.com/gaoxinge/bible/tree/master/c/c%20interfaces%20and%20implementations/chapter03)
 - [chapter04](https://github.com/gaoxinge/bible/tree/master/c/c%20interfaces%20and%20implementations/chapter04)
+- [chapter07](https://github.com/gaoxinge/bible/tree/master/c/c%20interfaces%20and%20implementations/chapter07)
 
 ## reference
 
