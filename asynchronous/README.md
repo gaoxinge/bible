@@ -27,7 +27,7 @@
 - [ ] [Python开源异步并发框架的未来](https://segmentfault.com/a/1190000000471602)
 - [x] [2016，我想跟协程谈谈](http://www.jianshu.com/p/9330e6d61f34)
 - [x] [最新Python异步编程详解](http://www.jianshu.com/p/b036e6e97c18)
-- [ ] [Python Async/Await入门指南](https://zhuanlan.zhihu.com/p/27258289)
+- [x] [Python Async/Await入门指南](https://zhuanlan.zhihu.com/p/27258289)
 - [x] [python异步爬虫](http://blog.csdn.net/whuhan2013/article/details/52529477)
 - [x] [Generator Tricks for Systems Programmers](http://www.dabeaz.com/generators/)
 - [x] [Generator Tricks for Systems Programmers - Version 2.0](http://www.dabeaz.com/generators-uk/)
