@@ -47,6 +47,22 @@
 
 ### dns
 
+- 主机名：host name
+- 域：domain
+- 全限定域名：FQDN，host name + domain
+- 域名：domain name
+- HOST文件：域名到IP的映射
+- 一个主机只有一个主机名
+- 一个域名对应一个IP
+- [What is the difference between a hostname and a domain name](https://support.suso.com/supki/What_is_the_difference_between_a_hostname_and_a_domain_name)
+- [Difference between host name and domain name](https://superuser.com/questions/59093/difference-between-host-name-and-domain-name/59094)
+- [What Is A Hostname?](https://dyn.com/blog/what-is-a-hostname/)
+- [IP、主机名和域名](https://blog.csdn.net/houjixin/article/details/52604941)
+- [厘清几个概念：互联网/WWW/Web 、URI/URL、主机名/域名](https://blog.csdn.net/SuperYuHuoFei/article/details/77159444)
+- [域名、主机名、网站名以及 URL 基础概念](http://www.cnblogs.com/yaolin1228/p/8590533.html)
+- [主机名和域名之间的区别——关于域名和主机名的…](http://www.west.cn/info/html/fuwuqijishu/Webfuwuqi/20180713/4323229.html)
+- [一个域名可以绑定多个主机吗？](https://zhidao.baidu.com/question/680379305436741852.html)
+
 ## windows
 
 ### ipconfig
