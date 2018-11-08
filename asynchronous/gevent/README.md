@@ -1,7 +1,7 @@
 - [official website](http://gevent.org)
 - [github](https://github.com/gevent)
 - [gevent: the Good, the Bad, the Ugly](https://code.mixpanel.com/2010/10/29/gevent-the-good-the-bad-the-ugly/)
-- [gevent程序员指南](http://xlambda.com/gevent-tutorial/#)
+- [gevent程序员指南](http://sdiehl.github.io/gevent-tutorial/)
 - [python模块介绍-gevent介绍：基于协程的网络库](https://my.oschina.net/u/1433482/blog/192562)
 - [深度分析gevent运行流程](http://blog.csdn.net/yueguanghaidao/article/details/24281751)
 - [gevent两架马车-libev和greenlet](http://blog.csdn.net/yueguanghaidao/article/details/39122867)
