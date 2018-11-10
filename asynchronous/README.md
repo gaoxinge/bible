@@ -13,7 +13,7 @@
 - [x] [Python黑魔法---异步IO（asyncio）协程](http://python.jobbole.com/87310/)
 - [ ] [初探Python3的异步IO编程](http://python.jobbole.com/84025/)
 - [ ] [用Python3的async/await做异步编程](http://python.jobbole.com/88427/)
-- [ ] [深入理解Python异步编程(上)](http://python.jobbole.com/88291/)
+- [x] [深入理解Python异步编程(上)](http://python.jobbole.com/88291/)
 - [x] [Python"黑魔法"之Generator Coroutines](http://python.jobbole.com/85117/)
 - [x] [Python中的异步编程：Asyncio](http://python.jobbole.com/87988/)
 - [x] [Python协程：从yield/send到async/await](http://python.jobbole.com/86069/)
