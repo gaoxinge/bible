@@ -31,7 +31,7 @@
 - [x] [python异步爬虫](http://blog.csdn.net/whuhan2013/article/details/52529477)
 - [x] [Generator Tricks for Systems Programmers](http://www.dabeaz.com/generators/)
 - [x] [Generator Tricks for Systems Programmers - Version 2.0](http://www.dabeaz.com/generators-uk/)
-- [ ] [A Curious Course on Coroutines and Concurrency](http://www.dabeaz.com/coroutines/)
+- [x] [A Curious Course on Coroutines and Concurrency](http://www.dabeaz.com/coroutines/)
 - [x] [Generators: The Final Frontier](http://www.dabeaz.com/finalgenerator/)
 - [x] [PYTHON COROUTINES](https://blog.thumbtack.net/python-coroutines/)
 - [x] [Implementing "weightless threads" with Python generators](https://www.ibm.com/developerworks/library/l-pythrd/index.html)
