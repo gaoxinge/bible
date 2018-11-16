@@ -26,3 +26,25 @@
 - lua|yield + no callback
 - c#|async/await + callback
 - c#|async/await + no callback
+
+## callback
+
+- reactor + future + yield/async/await
+- asyncio/tornado/twisted
+- asyncio
+  - AbstractEventLoop (events.py) 
+    - BaseEventLoop (base_events.py)
+      - BaseSelectorEventLoop (selector_events.py)
+        - UnixSelectorEventLoop (unix_events.py)
+        - WindowsSelectorEventLoop (windows_events.py)
+      - BaseProactorEvetnLoop (proactor_events.py)
+        - ProactorEventLoop (windows_events.py)
+  - AbstractEventLoopPolicy (events.py)
+    - BaseDefaultEventLoopPolicy (events.py)
+      - DefaultEventLoopPolicy (unix_events.py)
+      - DefaultEventLoopPolicy (winddows_events.py)
+  - uvloop
+  
+## no callbcak
+
+- round-robin schedule + yield
