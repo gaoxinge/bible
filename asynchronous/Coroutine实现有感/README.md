@@ -19,3 +19,10 @@
 - go
 - lua：非对称，非栈式
 - c#：非对称，非栈式
+
+## python
+
+- lua|yield + callback
+- lua|yield + no callback
+- c#|async/await + callback
+- c#|async/await + no callback
