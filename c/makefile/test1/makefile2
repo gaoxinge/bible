@@ -1,0 +1,12 @@
+CC = gcc
+objects = main.o print.o
+
+helloworld: $(objects)
+	gcc -o helloworld $(objects)
+
+$(objects): print.h
+maio.o: main.c
+print.o: print.c
+
+clean:
+	rm helloworld $(objects)

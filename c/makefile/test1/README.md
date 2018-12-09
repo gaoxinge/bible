@@ -9,3 +9,8 @@
 > mingw32-make -f makefile1
 > mingw32-make -f makefile1 clean
 ```
+
+```
+> mingw32-make -f makefile2
+> mingw32-make -f makefile2 clean
+```
