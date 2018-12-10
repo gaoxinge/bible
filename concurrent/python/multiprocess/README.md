@@ -27,6 +27,15 @@
 
 ### mmap
 
+- [mmap — Memory-mapped file support](https://docs.python.org/3.7/library/mmap.html)
+- [Python多进程（2）——mmap模块与mmap对象](https://www.cnblogs.com/Security-Darren/p/4733387.html)
+- [python使用mmap模块实现进程间通信与文件映射](https://blog.csdn.net/m0_37422289/article/details/79895526)
+- [源码分析multiprocessing的Value Array共享内存原理](http://xiaorui.cc/2016/05/10/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90multiprocessing%E7%9A%84value-array%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E5%8E%9F%E7%90%86/)
+- [Sharing Python data between processes using mmap](https://blog.schmichael.com/2011/05/15/sharing-python-data-between-processes-using-mmap/)
+- [mmap – Memory-map files](https://pymotw.com/2/mmap/)
+- [Memory-Mapped Files](http://archive.oreilly.com/oreillyschool/courses/Python4/Python4-15.html)
+- [How to read lines from a mmapped file?](https://stackoverflow.com/questions/8151684/how-to-read-lines-from-a-mmapped-file/8151752)
+
 ## multiprocessing.queue vs multiprocessing.manager.queue
 
 - [Python multiprocessing.Queue vs multiprocessing.manager().Queue()](https://stackoverflow.com/questions/43439194/python-multiprocessing-queue-vs-multiprocessing-manager-queue)
