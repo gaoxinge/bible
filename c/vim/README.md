@@ -23,3 +23,8 @@ normal mode --------> visual line mode
               <c-v>
 normal mode --------> visual block mode 
 ```
+
+## file
+
+- ~/.viminfo: history
+- ~/.vimrc: init
