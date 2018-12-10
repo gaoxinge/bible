@@ -6,6 +6,7 @@
 
 ## share memory
 
+- [Python 多进程及进程间通信](https://zhuanlan.zhihu.com/p/32513483)
 - [Shared memory in multiprocessing](https://stackoverflow.com/questions/14124588/shared-memory-in-multiprocessing)
 - [Shared-memory objects in multiprocessing](https://stackoverflow.com/questions/10721915/shared-memory-objects-in-multiprocessing)
 - [Shared memory between python processes](https://stackoverflow.com/questions/11302656/shared-memory-between-python-processes)
