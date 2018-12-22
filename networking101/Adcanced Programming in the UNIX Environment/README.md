@@ -1,3 +1,5 @@
+## command
+
 ```
 # cd lib
 # gcc -c *.c -I ../include
@@ -7,3 +9,7 @@
 ```
 # gcc -o main -I include prog/chapter1/prog1.c lib/apue.a
 ```
+
+## reference
+
+- [apue](http://www.apuebook.com/)
