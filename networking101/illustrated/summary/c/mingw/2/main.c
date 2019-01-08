@@ -1,54 +1,22 @@
 #include <stdio.h>
-#include <string.h>
 #include <winsock2.h>
 
-#define IP_ADDRESS "127.0.0.1"
-#define PORT 5154
-#define RCVBUFSIZE 1024
+// inet_addr：字符串ip转化为long
+// inet_ntoa: 结构体ip转化为字符串ip
+// inet_aton：字符串ip转化为结构体ip
+// htonl：    32位的主机字节序转换到网络字节序
+// htnos：    16位的主机字节序转换到网络字节序
+// ntohl：    32位的网络字节序转换到主机字节序
+// ntohs：    16位的网络字节序转换到主机字节序
 
-int main(int argc, char *argv[]) {
-    WSADATA Ws;
-    if (WSAStartup(MAKEWORD(2, 2), &Ws) != 0) {
-        printf("start up error");
-        return -1;
-    }
+int main() {
+    char *ip = "192.168.1.1";
+    int long_ip = inet_addr(ip);
+    int machine_ip = htonl(long_ip);
     
-    struct sockaddr_in ServerAddr;
-    ServerAddr.sin_family = AF_INET;
-    ServerAddr.sin_addr.s_addr = inet_addr(IP_ADDRESS);
-    ServerAddr.sin_port = htons(PORT);
+    struct in_addr struct_ip;
+    struct_ip.S_un.S_addr = ntohl(machine_ip + 2);
+    printf(inet_ntoa(struct_ip));
     
-    int ClientSocket;
-    if ((ClientSocket = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0) {
-        printf("socket() failed");
-        return -1;
-    }
-    
-    if ((connect(ClientSocket, (struct sockaddr *) &ServerAddr, sizeof(ServerAddr))) < 0) {
-        printf("connect() failed");
-        return -1;
-    }
-    
-    char *SendBuffers[] = {"Hello", "World", "Hello World"};
-    for (int i = 0; i < 3; i++) {
-        char *SendBuffer = SendBuffers[i];
-        int SendBufferLen = strlen(SendBuffer);
-        if (send(ClientSocket, SendBuffer, SendBufferLen, 0) != SendBufferLen) {
-            printf("send() failed");
-            return -1;
-        }
-        
-        int n;
-        char echoBuffer[RCVBUFSIZE];
-        if ((n = recv(ClientSocket, echoBuffer, RCVBUFSIZE, 0)) < 0) {
-            printf("recv() failed");
-            return -1;
-        }
-        echoBuffer[n] = '\0';
-        printf("%s\n", echoBuffer);
-    }
-    
-    closesocket(ClientSocket);
-    WSACleanup();
     return 0;
 }

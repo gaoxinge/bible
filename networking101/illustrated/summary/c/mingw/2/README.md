@@ -1,4 +1,4 @@
-- [MinGW WinSockets 编程](https://blog.csdn.net/zhangxiao93/article/details/47291783)
+- [CodeBlocks+MinGW编写实现IP地址的增量输出](https://www.cnblogs.com/qiangupc/p/3457553.html)
 
 ```
 > gcc -o main main.c -lws2_32
