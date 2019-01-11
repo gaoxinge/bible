@@ -1,1 +1,3 @@
 - [Introduction to Sockets Programming in C using TCP/IP](https://www.csd.uoc.gr/~hy556/material/tutorials/cs556-3rd-tutorial.pdf)
+- [waitpid(2) - Linux man page](https://linux.die.net/man/2/waitpid)
+- [Undefined reference to pthread_create in Linux](https://stackoverflow.com/questions/1662909/undefined-reference-to-pthread-create-in-linux)
