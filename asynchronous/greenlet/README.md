@@ -4,3 +4,4 @@
 - [使用Python中的greenlet包实现并发编程的入门教程](http://www.jb51.net/article/64215.htm)
 - [python greenlet背景介绍与实现机制](http://blog.jobbole.com/77240/)
 - [Greenlet详解](http://python.jobbole.com/88125/)
+- [python协程的实现（greenlet源码分析）](https://blog.csdn.net/fjslovejhl/article/details/38824963)
