@@ -53,7 +53,7 @@
 - [greenlet](https://github.com/gaoxinge/bible/tree/master/asynchronous/greenlet)
 - [eventlet](https://github.com/gaoxinge/bible/tree/master/asynchronous/eventlet)
 - [gevent](https://github.com/gaoxinge/bible/tree/master/asynchronous/gevent)
-- [tulipcore](https://github.com/gaoxinge/bible/tree/master/asynchronous/tulipore)
+- [tulipcore](https://github.com/gaoxinge/bible/tree/master/asynchronous/tulipcore)
 - [asyncio](https://github.com/gaoxinge/bible/tree/master/asynchronous/asyncio)
 - [twisted](https://github.com/gaoxinge/bible/tree/master/asynchronous/twisted)
 - [tornado](https://github.com/gaoxinge/bible/tree/master/asynchronous/tornado)
