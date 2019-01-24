@@ -13,8 +13,8 @@
 - [x] [编写零缺陷的C语言代码](http://www.duckware.com/bugfreec/index.html)
 - [x] [Network Theory Ltd - publishing free software manuals](http://www.network-theory.co.uk/)
 - [x] [GCC简介](http://www.network-theory.co.uk/docs/gccintro/)
-- [ ] [GCC, the GNU Compiler Collection](https://gcc.gnu.org/)
-- [ ] [Using the GNU Compiler Collection (GCC)](https://gcc.gnu.org/onlinedocs/gcc/)
+- [x] [GCC, the GNU Compiler Collection](https://gcc.gnu.org/)
+- [x] [Using the GNU Compiler Collection (GCC)](https://gcc.gnu.org/onlinedocs/gcc/)
 
 ### 奇技淫巧
 
