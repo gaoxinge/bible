@@ -1,4 +1,5 @@
 # c
 *.o
 *.a
+*.exe
 *main
