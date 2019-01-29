@@ -78,6 +78,7 @@
 - [x] [Multitasking using setjmp, longjmp](https://stackoverflow.com/questions/2560792/multitasking-using-setjmp-longjmp)
 - [x] [Coroutines in C](https://codereview.stackexchange.com/questions/79415/coroutines-in-c)
 - [x] [How can this simple coroutine implementation be improved?](https://codereview.stackexchange.com/questions/30214/how-can-this-simple-coroutine-implementation-be-improved)
+- [x] [Stack Clashing for Fun and Profit](https://nullprogram.com/blog/2017/06/21/)
 
 ### library
 
