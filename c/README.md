@@ -71,3 +71,4 @@
 ## reference
 
 - [http://port70.net/~nsz/c/](http://port70.net/~nsz/c/)
+- [The GNU C Library](https://www.gnu.org/software/libc/manual/)
