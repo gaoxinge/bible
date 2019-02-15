@@ -14,7 +14,10 @@
 
 - [inode](https://en.wikipedia.org/wiki/Inode)
 - [Class 9: The Unix FileSystem](https://www.usna.edu/Users/cs/wcbrown/courses/IC221/classes/L09/Class.html)
+- [File I/O](http://man7.org/training/download/lusp_fileio_slides.pdf)
 - [VFS文件系统结构分析](http://blog.jobbole.com/105537/)
+- [What exactly is the FILE keyword in C?](https://stackoverflow.com/questions/5672746/what-exactly-is-the-file-keyword-in-c)
+- [I Wanna know the Internal Members of struct FILE, the latest ones](https://stackoverflow.com/questions/17209087/i-wanna-know-the-internal-members-of-struct-file-the-latest-ones)
 
 ## reference
 
