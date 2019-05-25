@@ -4,6 +4,7 @@
 
 ### code
 
+- [x] [Coroutine](https://en.wikipedia.org/wiki/Coroutine)
 - [x] [Python中的进程、线程、协程、同步、异步、回调](http://python.jobbole.com/81692/)
 - [x] [python中协程](http://python.jobbole.com/87156/)
 - [x] [Python协程](http://python.jobbole.com/87767/)
@@ -79,10 +80,21 @@
 - [x] [Coroutines in C](https://codereview.stackexchange.com/questions/79415/coroutines-in-c)
 - [x] [How can this simple coroutine implementation be improved?](https://codereview.stackexchange.com/questions/30214/how-can-this-simple-coroutine-implementation-be-improved)
 - [x] [Stack Clashing for Fun and Profit](https://nullprogram.com/blog/2017/06/21/)
+- [x] [一种协程的C/C++实现](https://github.com/roxma/cpp_learn/blob/master/cpp/linux_programming/coroutine/README.zh_CN.md)
+- [x] [CERL++](https://zhuanlan.zhihu.com/p/19945225)
+- [x] [C的coroutine库](https://blog.codingnow.com/2012/07/c_coroutine.html)
+- [x] [C++协程库 tonbit::coroutine使用指南](https://my.oschina.net/attobit/blog/753962)
+- [x] [ucontext-人人都可以实现的简单协程库](https://blog.csdn.net/qq910894904/article/details/41911175)
+- [x] [实现一个简单的C++协程库](http://www.cnblogs.com/catch/p/3617962.html)
 
 ### library
 
+- [eventloop](https://github.com/robbie-cao/note/blob/master/eventloop.md)
 - [libevent](https://github.com/libevent/libevent)
 - [libuv](https://github.com/libuv/libuv)
 - [libev](https://github.com/kindy/libev)
 - [libaco](https://github.com/hnes/libaco)
+- [libco](https://github.com/Tencent/libco)
+  - [协程概念，原理（c++和node.js实现）](https://cnodejs.org/topic/58ddd7a303d476b42d34c911)
+- [libgo](https://github.com/yyzybb537/libgo)
+  - [如何评价c++的协程库libgo？](https://www.zhihu.com/question/51817323)
