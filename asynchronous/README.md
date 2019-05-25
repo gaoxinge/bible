@@ -80,12 +80,17 @@
 - [x] [Coroutines in C](https://codereview.stackexchange.com/questions/79415/coroutines-in-c)
 - [x] [How can this simple coroutine implementation be improved?](https://codereview.stackexchange.com/questions/30214/how-can-this-simple-coroutine-implementation-be-improved)
 - [x] [Stack Clashing for Fun and Profit](https://nullprogram.com/blog/2017/06/21/)
+- [x] [构建C协程之setjmp/long_jmp篇](https://blog.csdn.net/kobejayandy/article/details/41779821)
+- [x] [构建C协程之ucontext篇](https://blog.csdn.net/kobejayandy/article/details/41779837)
 - [x] [一种协程的C/C++实现](https://github.com/roxma/cpp_learn/blob/master/cpp/linux_programming/coroutine/README.zh_CN.md)
 - [x] [CERL++](https://zhuanlan.zhihu.com/p/19945225)
+- [x] [c语言实现的协程](https://www.cnblogs.com/adinosaur/p/5889014.html)
 - [x] [C的coroutine库](https://blog.codingnow.com/2012/07/c_coroutine.html)
 - [x] [C++协程库 tonbit::coroutine使用指南](https://my.oschina.net/attobit/blog/753962)
 - [x] [ucontext-人人都可以实现的简单协程库](https://blog.csdn.net/qq910894904/article/details/41911175)
 - [x] [实现一个简单的C++协程库](http://www.cnblogs.com/catch/p/3617962.html)
+- [x] [教你在C语言上编写自己的协程](https://segmentfault.com/a/1190000008209051)
+- [x] [C高级跨平台协程库](http://www.cnblogs.com/life2refuel/p/5888726.html)
 
 ### library
 
@@ -93,6 +98,8 @@
 - [libevent](https://github.com/libevent/libevent)
 - [libuv](https://github.com/libuv/libuv)
 - [libev](https://github.com/kindy/libev)
+- [call_in_stack](https://github.com/yuanzhubi/call_in_stack/wiki/Welcome-to-call_in_stack)
+  - [线程内上下文切换: 从函数到异常和协程](https://zhuanlan.zhihu.com/stack)
 - [libaco](https://github.com/hnes/libaco)
 - [libco](https://github.com/Tencent/libco)
   - [协程概念，原理（c++和node.js实现）](https://cnodejs.org/topic/58ddd7a303d476b42d34c911)
