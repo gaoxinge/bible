@@ -102,6 +102,8 @@
   - [线程内上下文切换: 从函数到异常和协程](https://zhuanlan.zhihu.com/stack)
 - [libaco](https://github.com/hnes/libaco)
 - [libco](https://github.com/Tencent/libco)
+  - [微信开源C++Libco介绍与应用（一）](https://zhuanlan.zhihu.com/p/51078499)
+  - [微信开源C++Libco介绍与应用（二）](https://zhuanlan.zhihu.com/p/51081816)
   - [协程概念，原理（c++和node.js实现）](https://cnodejs.org/topic/58ddd7a303d476b42d34c911)
 - [libgo](https://github.com/yyzybb537/libgo)
   - [如何评价c++的协程库libgo？](https://www.zhihu.com/question/51817323)
