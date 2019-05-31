@@ -36,7 +36,7 @@ int main() {
 Hello World
 ```
 
-### MSYS2
+### MSYS2 install
 
 - install
   - [MSYS2 installer](http://www.msys2.org/)
@@ -91,3 +91,14 @@ Now quitting.
   - fix in mingw32, however there may be still bugs in mingw64
 - [libuv之mingw64环境搭建及编译Libuv](https://blog.csdn.net/linuxandroidwince/article/details/72312708)
   - compile with -ladvapi32 -liphlpapi -lpsapi -luser32 -luserenv -lws2_32
+
+### use mingw-w64-libuv
+
+- [mingw-w64-libuv](https://github.com/msys2/MINGW-packages/tree/master/mingw-w64-libuv)
+
+```
+> pacman -S mingw-w64-x86_64-libuv
+> gcc -o main main.c /d/msys64/mingw64/lib/libuv.a -ladvapi32 -liphlpapi -lpsapi -luser32 -luserenv -lws2_32
+> ./main
+Now quitting.
+``` 
