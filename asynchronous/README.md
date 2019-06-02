@@ -51,6 +51,9 @@
 
 ### library
 
+- [pyuv](https://github.com/gaoxinge/bible/tree/master/asynchronous/pyuv)
+- [uvloop](https://github.com/gaoxinge/bible/tree/master/asynchronous/uvloop)
+- [python-fibers](https://github.com/gaoxinge/bible/tree/master/asynchronous/python-fibers)
 - [greenlet](https://github.com/gaoxinge/bible/tree/master/asynchronous/greenlet)
 - [eventlet](https://github.com/gaoxinge/bible/tree/master/asynchronous/eventlet)
 - [gevent](https://github.com/gaoxinge/bible/tree/master/asynchronous/gevent)
