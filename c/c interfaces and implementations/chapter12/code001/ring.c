@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
-#include <asser.h>
+#include <assert.h>
 #include "ring.h"
 
 #define T Ring_T
@@ -28,4 +28,200 @@ T Ring_ring(void *x, ...) {
         Ring_addhi(ring, x);
     va_end(ap);
     return ring;
+}
+
+void Ring_free(T *ring) {
+    struct node *p, *q;
+    
+    assert(ring && *ring);
+    if ((p = (*ring)->head) != NULL) {
+        int n = (*ring)->length;
+        for (; n-- > 0; p = q) {
+            q = p->rlink;
+            free(p);
+        }
+    }
+    free(*ring);
+}
+
+int Ring_length(T ring) {
+    assert(ring);
+    return ring->length;
+}
+
+void *Ring_get(T ring, int i) {
+    struct node *q;
+    
+    assert(ring);
+    assert(i >= 0 && i < ring->length);
+    
+    int n;
+    q = ring->head;
+    if (i < ring->length / 2)
+        for (n = i; n-- > 0; )
+            q = q->rlink;
+    else
+        for (n = ring->length - i; n-- > 0;)
+            q = q->llink;
+        
+    return q->value;
+}
+
+void *Ring_put(T ring, int i, void *x) {
+    struct node *q;
+    void *prev;
+    
+    assert(ring);
+    assert(i >= 0 && i < ring->length);
+    
+    int n;
+    q = ring->head;
+    if (i < ring->length / 2)
+        for (n = i; n-- > 0; )
+            q = q->rlink;
+    else
+        for (n = ring->length - i; n-- > 0;)
+            q = q->llink;
+    
+    prev = q->value;
+    q->value = x;
+    return prev;
+}
+
+void *Ring_addhi(T ring, void *x) {
+    struct node *p, *q;
+    
+    assert(ring);
+    p = malloc(sizeof(*p));
+    if ((q = ring->head) != NULL) {
+        p->llink = q->llink;
+        p->rlink = q;
+        q->llink->rlink = p;
+        q->llink = p;
+    } else {
+        ring->head = p;
+        p->llink = p;
+        p->rlink = p;
+    }        
+    p->value = x;
+    ring->length++;
+    return x;
+}
+
+void *Ring_addlo(T ring, void *x) {
+    assert(ring);
+    Ring_addhi(ring, x);
+    ring->head = ring->head->llink;
+    return x;
+}
+
+void *Ring_add(T ring, int pos, void *x) {
+    assert(ring);
+    assert(pos >= -ring->length && pos <= ring->length + 1);
+    if (pos == 1 || pos == -ring->length)
+        return Ring_addlo(ring, x);
+    else if (pos == 0 || pos == ring->length + 1)
+        return Ring_addhi(ring, x);
+    else {
+        struct node *p, *q;
+        int i = pos < 0 ? pos + ring->length : pos - 1;
+        
+        int n;
+        q = ring->head;
+        if (i <= ring->length / 2)
+            for (n = 0; n-- > 0; )
+                q = q->rlink;
+        else
+            for (n = ring->length - i; n-- > 0; )
+                q = q->llink;
+        
+        p = malloc(sizeof(*p));
+        
+        p->llink = q->llink;
+        p->rlink = q;
+        q->llink->rlink = p;
+        q->llink = p;
+        
+        p->value = x;
+        ring->length++;
+        return x;
+    }
+}
+
+void *Ring_remove(T ring, int i) {
+    void *x;
+    struct node *q;
+    
+    assert(ring);
+    assert(ring->length > 0);
+    assert(i >= 0 && i < ring->length);
+   
+    int n;
+    q = ring->head;
+    if (i <= ring->length / 2)
+        for (n = 0; n-- > 0; )
+            q = q->rlink;
+    else
+        for (n = ring->length - i; n-- > 0; )
+            q = q->llink;
+            
+    if (i == 0)
+        ring->head = ring->head->rlink;
+    
+    x = q->value;
+    q->llink->rlink = q->rlink;
+    q->rlink->llink = q->llink;
+    free(q);
+    if (--ring->length == 0)
+        ring->head = NULL;
+    
+   return x;
+}
+
+void *Ring_remhi(T ring) {
+    void *x;
+    struct node *q;
+    
+    assert(ring);
+    assert(ring->length > 0);
+    q = ring->head->llink;
+    
+    x = q->value;
+    q->llink->rlink = q->rlink;
+    q->rlink->llink = q->llink;
+    free(q);
+    if (--ring->length == 0)
+        ring->head = NULL;
+    
+    return x;
+}
+
+void *Ring_remlo(T ring) {
+    assert(ring);
+    assert(ring->length > 0);
+    ring->head = ring->head->rlink;
+    return Ring_remhi(ring);
+}
+
+void Ring_rotate(T ring, int m) {
+    struct node *q;
+    int i;
+    
+    assert(ring);
+    assert(m >= -ring->length && m <= ring->length);
+    if (m >= 0)
+        i = m % ring->length;
+    else
+        i = m + ring->length;
+    
+    int n;
+    q = ring->head;
+    if (i <= ring->length / 2)
+        for (n = 0; n-- > 0; )
+            q = q->rlink;
+    else
+        for (n = ring->length - i; n-- > 0; )
+            q = q->llink;
+        
+    ring->head = q;
 }
