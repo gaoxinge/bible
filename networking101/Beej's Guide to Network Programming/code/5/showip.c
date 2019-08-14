@@ -2,9 +2,7 @@
 #include <string.h>
 #include <netdb.h>
 #include <sys/socket.h>
-#include <netinet/in.h>
 #include <arpa/inet.h>
-
 
 int main(int argc, char **argv) {
     int status;
@@ -25,7 +23,7 @@ int main(int argc, char **argv) {
     }
 
     printf("IP addresses for %s:\n\n", argv[1]);
-    for(struct addrinfo *p = res; p != NULL; p = p->ai_next) {
+    for (struct addrinfo *p = res; p != NULL; p = p->ai_next) {
         void *addr;
         char *ipver;
 
