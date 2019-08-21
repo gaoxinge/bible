@@ -7,6 +7,13 @@
 - [multiprocessing — Process-based “threading” interface](https://docs.python.org/2/library/multiprocessing.html)
 - [mmap — Memory-mapped file suppor](https://docs.python.org/2/library/mmap.html)
 
+## rwlock
+
+- [Readers–writer lock](https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock)
+- [tylerneylon/rwlock.py](https://gist.github.com/tylerneylon/a7ff6017b7a1f9a506cf75aa23eacfd6)
+- [Allowing Multithreaded Read Access While Maintaining a Write Lock](https://www.oreilly.com/library/view/python-cookbook/0596001673/ch06s04.html)
+- [unhappydog/multiprocessing_read_write_lock](https://github.com/unhappydog/multiprocessing_read_write_lock)
+
 ## share memory
 
 - [Python 多进程及进程间通信](https://zhuanlan.zhihu.com/p/32513483)
