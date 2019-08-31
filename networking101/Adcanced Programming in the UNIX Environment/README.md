@@ -49,6 +49,15 @@ int main() {
 - [慢系统调用与信号](https://www.cnblogs.com/diegodu/p/3973080.html)
 - [8.Common Questions](http://beej.us/guide/bgnet/html/multi/faq.html)
 
+### kill
+
+- [kill与kill -9的区别](https://blog.csdn.net/u010486679/article/details/78415666)
+
+### system v
+
+- [10.4. Unreliable Signals](http://poincare.matf.bg.ac.rs/~ivana/courses/ps/sistemi_knjige/pomocno/apue/APUE/0201433079/ch10lev1sec4.html#ch10lev1sec4)
+- [10.7. SIGCLD Semantics](http://poincare.matf.bg.ac.rs/~ivana/courses/ps/sistemi_knjige/pomocno/apue/APUE/0201433079/ch10lev1sec7.html)
+
 ## reference
 
 - [apue](http://www.apuebook.com/)
