@@ -94,6 +94,10 @@
 - [x] [实现一个简单的C++协程库](http://www.cnblogs.com/catch/p/3617962.html)
 - [x] [教你在C语言上编写自己的协程](https://segmentfault.com/a/1190000008209051)
 - [x] [C高级跨平台协程库](http://www.cnblogs.com/life2refuel/p/5888726.html)
+- [x] [实现c协程](https://www.cnblogs.com/sniperHW/archive/2012/06/19/2554574.html)
+- [x] [C协程实现的效率对比](https://www.cnblogs.com/sniperHW/archive/2012/08/05/2624334.html)
+- [x] [Coroutine及其实现](https://www.cnblogs.com/foxmailed/p/3509359.html)
+- [x] [最近都流行实现Coroutine么？](https://zhuanlan.zhihu.com/p/32431200)
 
 ### library
 
