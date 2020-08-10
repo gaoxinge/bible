@@ -10,4 +10,4 @@
 
 ## c
 
-- [mmap](https://github.com/gaoxinge/bible/tree/master/concurrent/c/mmap)
+- [multiprocess](https://github.com/gaoxinge/bible/tree/master/concurrent/c/multiprocess)
