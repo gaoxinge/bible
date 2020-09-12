@@ -1,0 +1,4 @@
+- [official website](http://mesos.apache.org/)
+- [document](http://mesos.apache.org/documentation/latest/)
+- [replicated log](http://mesos.apache.org/documentation/latest/replicated-log-internals/)
+- [github](https://github.com/apache/mesos)

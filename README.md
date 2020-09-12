@@ -54,7 +54,7 @@
 
 - [singularity](https://github.com/gaoxinge/bible/tree/master/singularity)
 - yarn
-- mesos
+- [mesos](https://github.com/gaoxinge/bible/tree/master/mesos)
 - swarm
 - marathon (mesos)
 - kubernetess
