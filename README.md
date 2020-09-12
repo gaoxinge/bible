@@ -53,8 +53,10 @@
 ### scheduler
 
 - [singularity](https://github.com/gaoxinge/bible/tree/master/singularity)
-- swarm
+- yarn
 - mesos
+- swarm
+- marathon (mesos)
 - kubernetess
 
 ## cloud os
