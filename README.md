@@ -52,6 +52,7 @@
 
 ### scheduler
 
+- [scheduler](https://github.com/gaoxinge/bible/tree/master/scheduler)
 - [singularity](https://github.com/gaoxinge/bible/tree/master/singularity)
 - yarn
 - [mesos](https://github.com/gaoxinge/bible/tree/master/mesos)
