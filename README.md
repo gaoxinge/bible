@@ -58,7 +58,7 @@
 - [mesos](https://github.com/gaoxinge/bible/tree/master/mesos)
 - swarm
 - marathon (mesos)
-- kubernetess
+- [kubernetes](https://github.com/gaoxinge/bible/tree/master/kubernetes)
 
 ## cloud os
 
