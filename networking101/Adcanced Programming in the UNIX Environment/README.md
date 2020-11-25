@@ -40,6 +40,13 @@ int main() {
 # root      8222     0  8222  0    1 01:34 pts/1    00:00:00 bash
 ```
 
+### zombie process
+
+- 一个子进程exit会成为僵尸进程
+- 如果父进程调用wait或者waitpid，可以回收子进程
+- 如果父进程不调用wait或者waitpid，也不结束，子进程将一直处于僵尸进程。这种情况下需要调用kill -9杀死父进程，使得子进程过继给init进程。
+- 如果父进程结束，子进程将会过继给init进程
+
 ## signal
 
 ### interrupted system call
