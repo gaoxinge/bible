@@ -40,6 +40,11 @@ int main() {
 # root      8222     0  8222  0    1 01:34 pts/1    00:00:00 bash
 ```
 
+### init process
+
+- pid: 1
+- ppid: 0
+
 ### zombie process
 
 - 一个子进程exit会成为僵尸进程
