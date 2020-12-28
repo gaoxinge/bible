@@ -43,6 +43,7 @@
 - [x] [The Boost C++ Libraries](https://theboostcpplibraries.com/)
 - [x] [wuye9036/CppTemplateTutorial](https://github.com/wuye9036/CppTemplateTutorial)
 - [x] [C++ reference](https://en.cppreference.com/w/)
+- [x] [cplusplus.com](http://www.cplusplus.com/)
 
 ### operator overloading
 
