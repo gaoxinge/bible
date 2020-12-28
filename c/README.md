@@ -20,6 +20,12 @@
 - [x] [C reference](https://en.cppreference.com/w/c)
 - [x] [http://port70.net/~nsz/c/](http://port70.net/~nsz/c/)
 
+### 预处理 (宏)
+
+- [宏定义的黑魔法 - 宏菜鸟起飞手册](https://onevcat.com/2014/01/black-magic-in-macro/)
+- [造轮子手记](https://zhuanlan.zhihu.com/wheel-creatation)
+- [pfultz2/Cloak](https://github.com/pfultz2/Cloak)
+
 ### 奇技淫巧
 
 - [C语言有什么奇技淫巧？](https://www.zhihu.com/question/27417946)
