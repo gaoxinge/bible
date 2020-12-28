@@ -18,6 +18,7 @@
 - [x] [Using the GNU Compiler Collection (GCC)](https://gcc.gnu.org/onlinedocs/gcc/)
 - [x] [The GNU C Library](https://www.gnu.org/software/libc/manual/)
 - [x] [C reference](https://en.cppreference.com/w/c)
+- [x] [http://port70.net/~nsz/c/](http://port70.net/~nsz/c/)
 
 ### 奇技淫巧
 
@@ -74,7 +75,3 @@
 - [vim](https://github.com/gaoxinge/bible/tree/master/c/vim)
 - [给想学习VIM的超级小白的文章](https://zhuanlan.zhihu.com/p/22530297)
 - [Learn Vimscript the Hard Way](http://learnvimscriptthehardway.stevelosh.com/)
-
-## reference
-
-- [http://port70.net/~nsz/c/](http://port70.net/~nsz/c/)
