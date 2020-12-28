@@ -16,6 +16,8 @@
 - [x] [GCC简介](http://www.network-theory.co.uk/docs/gccintro/)
 - [x] [GCC, the GNU Compiler Collection](https://gcc.gnu.org/)
 - [x] [Using the GNU Compiler Collection (GCC)](https://gcc.gnu.org/onlinedocs/gcc/)
+- [x] [The GNU C Library](https://www.gnu.org/software/libc/manual/)
+- [x] [C reference](https://en.cppreference.com/w/c)
 
 ### 奇技淫巧
 
@@ -40,6 +42,7 @@
 - [x] [Modern C++ Design](https://book.douban.com/subject/1119904/)
 - [x] [The Boost C++ Libraries](https://theboostcpplibraries.com/)
 - [x] [wuye9036/CppTemplateTutorial](https://github.com/wuye9036/CppTemplateTutorial)
+- [x] [C++ reference](https://en.cppreference.com/w/)
 
 ### operator overloading
 
@@ -73,6 +76,4 @@
 
 ## reference
 
-- [C reference](https://en.cppreference.com/w/c)
 - [http://port70.net/~nsz/c/](http://port70.net/~nsz/c/)
-- [The GNU C Library](https://www.gnu.org/software/libc/manual/)
