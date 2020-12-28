@@ -28,16 +28,17 @@
 
 ## c++
 
+- [x] [C++ Primer](https://book.douban.com/subject/24089577/)
 - [x] [Effective C++](https://book.douban.com/subject/1842426/)
 - [x] [More Effective C++](https://book.douban.com/subject/5908727/)
 - [x] [Effective Modern C++](https://book.douban.com/subject/25923597/)
-- [ ] [Effective STL中文版](https://book.douban.com/subject/1792179/)
+- [x] [Effective STL中文版](https://book.douban.com/subject/1792179/)
 - [x] [The C++ Standard Library](https://book.douban.com/subject/1110941/)
 - [x] [STL源码剖析](https://book.douban.com/subject/1110934/)
 - [x] [C++ Templates](https://book.douban.com/subject/2378124/)
-- [ ] [C++ Template Metaprogramming](https://book.douban.com/subject/4136223/)
+- [x] [C++ Template Metaprogramming](https://book.douban.com/subject/4136223/)
 - [x] [Modern C++ Design](https://book.douban.com/subject/1119904/)
-- [ ] [The Boost C++ Libraries](https://theboostcpplibraries.com/)
+- [x] [The Boost C++ Libraries](https://theboostcpplibraries.com/)
 
 ### operator overloading
 
