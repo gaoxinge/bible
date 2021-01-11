@@ -70,14 +70,14 @@
 
 - [纯C语言的工作有前（钱）景吗？](https://www.zhihu.com/question/30292024)
 
-## makefile
-
-- [makefile](https://github.com/gaoxinge/bible/tree/master/c/makefile)
-- [跟我一起写Makefile](https://seisman.github.io/how-to-write-makefile)
-- [Makefile入门](https://zhuanlan.zhihu.com/p/149346441)
-
 ## vim
 
 - [vim](https://github.com/gaoxinge/bible/tree/master/c/vim)
 - [给想学习VIM的超级小白的文章](https://zhuanlan.zhihu.com/p/22530297)
 - [Learn Vimscript the Hard Way](http://learnvimscriptthehardway.stevelosh.com/)
+
+## makefile
+
+- [makefile](https://github.com/gaoxinge/bible/tree/master/c/makefile)
+- [跟我一起写Makefile](https://seisman.github.io/how-to-write-makefile)
+- [Makefile入门](https://zhuanlan.zhihu.com/p/149346441)
