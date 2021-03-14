@@ -26,6 +26,10 @@
 - [造轮子手记](https://zhuanlan.zhihu.com/wheel-creatation)
 - [pfultz2/Cloak](https://github.com/pfultz2/Cloak)
 
+### 数组
+
+- [note](c/array)
+
 ### 奇技淫巧
 
 - [C语言有什么奇技淫巧？](https://www.zhihu.com/question/27417946)
