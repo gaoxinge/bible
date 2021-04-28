@@ -21,6 +21,11 @@
 
 ## process
 
+- session: 会话/id/终端,shell
+- process group: 进程组/id/管道
+- parent process: 父进程/ppid
+- process: 进程/pid
+
 ### init process
 
 - pid: 1
@@ -60,6 +65,7 @@ int main() {
 
 ### reference
 
+- [linux进程组、会话以及任务管理](https://andrewpqc.github.io/2018/10/31/linux-process-group-and-session-and-jobs-manage/)
 - [How Linux Process Life Cycle Works – Parent, Child, and Init Process](https://www.thegeekstuff.com/2013/07/linux-process-life-cycle/)
 - [LINUX 的僵尸(ZOMBIE)进程](https://coolshell.cn/articles/656.html)
 
