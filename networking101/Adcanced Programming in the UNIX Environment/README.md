@@ -50,6 +50,14 @@ int main() {
 - 如果父进程不调用wait或者waitpid，也不结束，子进程将一直处于僵尸进程。这种情况下需要调用kill -9杀死父进程，使得子进程过继给init进程
 - 如果父进程结束，子进程将会过继给init进程
 
+### orphan process
+
+- 父进程退出，子进程过继给init进程
+
+### daemon process
+
+- 守护进程是一种特殊的孤儿进程
+
 ### reference
 
 - [How Linux Process Life Cycle Works – Parent, Child, and Init Process](https://www.thegeekstuff.com/2013/07/linux-process-life-cycle/)
