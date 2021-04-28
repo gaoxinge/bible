@@ -28,8 +28,6 @@
 
 ### parent process
 
-- [How Linux Process Life Cycle Works – Parent, Child, and Init Process](https://www.thegeekstuff.com/2013/07/linux-process-life-cycle/)
-
 ```c
 #include <stdio.h>
 #include <unistd.h>
@@ -54,6 +52,7 @@ int main() {
 
 ### reference
 
+- [How Linux Process Life Cycle Works – Parent, Child, and Init Process](https://www.thegeekstuff.com/2013/07/linux-process-life-cycle/)
 - [LINUX 的僵尸(ZOMBIE)进程](https://coolshell.cn/articles/656.html)
 
 ## signal
