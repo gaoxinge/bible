@@ -37,7 +37,9 @@
 - command &: background process
 - nohup command: foreground process, ignore SIGHUP signal
 - nohup command &: background process, ignore SIGHUP signal
-- ctrl-z: stop a foreground process
+- ctrl-c: cancel a foreground process, send SIGINT
+- ctrl-\: cancel a foreground process, send SIGQUIT
+- ctrl-z: stop a foreground process, send SIGTSTP
 - jobs: process in session with job id
 - fg %jobid: turn foreground process with jobid to background process
 - bg %jobid: turn background process with jobid to foreground process
