@@ -88,6 +88,9 @@ int main() {
 - [linux 在终端打开程序后关闭终端，程序也跟着关闭了怎么办？](https://www.zhihu.com/question/442188249)
 - [How Linux Process Life Cycle Works – Parent, Child, and Init Process](https://www.thegeekstuff.com/2013/07/linux-process-life-cycle/)
 - [LINUX 的僵尸(ZOMBIE)进程](https://coolshell.cn/articles/656.html)
+- [戏说守护、僵尸、孤儿进程](https://zhuanlan.zhihu.com/p/21250530)
+- [Python实现守护进程](https://zhuanlan.zhihu.com/p/25118420)
+- [计算机daemon和通过死循环构造的进程的区别是什么？](https://www.zhihu.com/question/385503175)
 
 ## signal
 
