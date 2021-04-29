@@ -105,13 +105,14 @@ int main() {
 
 ### kill
 
-- [kill与kill -9的区别](https://blog.csdn.net/u010486679/article/details/78415666)
 - [24.2.2 Termination Signals](https://www.gnu.org/software/libc/manual/html_node/Termination-Signals.html)
+- [kill与kill -9的区别](https://blog.csdn.net/u010486679/article/details/78415666)
+- [linux下kill -9 pid 强制不能杀掉进程原因](https://www.cnblogs.com/xubiao/p/6497390.html)
 - SIGHUP: kill -1
 - SIGINT: kill -2/ctrl-c
 - SIGQUIT: kill -3/ctrl-\\
 - SIGTERM: kill/kill -15
-- SIGKILL: kill -9
+- SIGKILL: kill -9 (杀不掉僵尸进程, 或者因为系统调用, 进入内核态的进程)
 
 ### system v
 
