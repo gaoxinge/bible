@@ -95,6 +95,50 @@ int main() {
 - [计算机daemon和通过死循环构造的进程的区别是什么？](https://www.zhihu.com/question/385503175)
 - [Chapter 20. I/O Redirection](https://tldp.org/LDP/abs/html/io-redirection.html)
 
+## thread
+
+### daemon thread
+
+- python/java
+- example
+
+```python
+"""
+non daemon thread
+main thread will wait sub thread
+"""
+import time
+import threading
+
+
+def f():
+    time.sleep(1000)
+
+
+if __name__ == "__main__":
+    t = threading.Thread(target=f)
+    t.start()
+```
+
+```python
+"""
+daemon thread
+main thread will not wait sub thread
+"""
+import time
+import threading
+
+
+def f():
+    time.sleep(1000)
+
+
+if __name__ == "__main__":
+    t = threading.Thread(target=f)
+    t.setDaemon(True)
+    t.start()
+```
+
 ## signal
 
 ### interrupted system call
