@@ -26,6 +26,23 @@
 - parent process: 父进程/ppid
 - process: 进程/pid
 
+### session
+
+- exit/ctrl-d: EOF, not signal. But send SIGHUP signal to jobs
+
+### foreground process and background process
+
+- session: one foreground process and many background process
+- command: foreground process
+- command &: background process
+- nohup command: foreground process, ignore SIGHUP signal
+- nohup command &: background process, ignore SIGHUP signal
+- ctrl-z: stop a foreground process
+- jobs: process in session with job id
+- fg %jobid: turn foreground process with jobid to background process
+- bg %jobid: turn background process with jobid to foreground process
+- disown: move jobs from session to outside
+
 ### init process
 
 - pid: 1
@@ -66,6 +83,9 @@ int main() {
 ### reference
 
 - [linux进程组、会话以及任务管理](https://andrewpqc.github.io/2018/10/31/linux-process-group-and-session-and-jobs-manage/)
+- [linux后台执行命令：&与nohup的用法](https://zhuanlan.zhihu.com/p/59297350)
+- [Linux - 请允许我静静地后台运行](https://zhuanlan.zhihu.com/p/32254479)
+- [linux 在终端打开程序后关闭终端，程序也跟着关闭了怎么办？](https://www.zhihu.com/question/442188249)
 - [How Linux Process Life Cycle Works – Parent, Child, and Init Process](https://www.thegeekstuff.com/2013/07/linux-process-life-cycle/)
 - [LINUX 的僵尸(ZOMBIE)进程](https://coolshell.cn/articles/656.html)
 
