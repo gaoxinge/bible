@@ -93,6 +93,7 @@ int main() {
 - [戏说守护、僵尸、孤儿进程](https://zhuanlan.zhihu.com/p/21250530)
 - [Python实现守护进程](https://zhuanlan.zhihu.com/p/25118420)
 - [计算机daemon和通过死循环构造的进程的区别是什么？](https://www.zhihu.com/question/385503175)
+- [Chapter 20. I/O Redirection](https://tldp.org/LDP/abs/html/io-redirection.html)
 
 ## signal
 
