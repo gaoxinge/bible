@@ -21,7 +21,7 @@
 
 ## process
 
-- session: 会话/id/终端,shell
+- session: 会话/id/终端(tty, terminal), 伪终端(pty, pseudo terminal), console, shell
 - process group: 进程组/id/管道
 - parent process: 父进程/ppid
 - process: 进程/pid
