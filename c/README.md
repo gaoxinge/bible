@@ -38,6 +38,7 @@
 - [c++中的类到底是怎么实现信息隐蔽的？](https://www.zhihu.com/question/263672254)
 - [砖头的制造工艺](https://zhuanlan.zhihu.com/c_148841715)
 - [C语言黑魔法](https://zhuanlan.zhihu.com/c_83697357)
+- [纯C语言的工作有前（钱）景吗？](https://www.zhihu.com/question/30292024)
 
 ## c++
 
@@ -69,10 +70,6 @@
 - [Skill's LXX](https://zhuanlan.zhihu.com/skillxx)
 - [神奇魔法咸鱼堂](https://zhuanlan.zhihu.com/magicsaltyfish)
 - [less is more](https://zhuanlan.zhihu.com/lessmore)
-
-## c vs c++
-
-- [纯C语言的工作有前（钱）景吗？](https://www.zhihu.com/question/30292024)
 
 ## vim
 
