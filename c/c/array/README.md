@@ -9,7 +9,7 @@ int main() {
     int a[] = {1, 2, 3, 4};
     a = {5, 6, 7, 8};  // error: expected expression before '{' token 
     
-    int *b = {1, 2, 3, 4};
+    int *b = {1, 2, 3, 4};  // compile: warning; runtime: segmentation fault
     b = {5, 6, 7, 8};  // error: expected expression before '{' token
 
     char c[5] = "1234";
