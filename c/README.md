@@ -57,6 +57,10 @@
 - [x] [cplusplus.com](http://www.cplusplus.com/)
 - [x] [The Boost C++ Libraries](https://theboostcpplibraries.com/)
 
+### 引用
+
+- [note](cpp/reference)
+
 ### 奇技淫巧
 
 - [在C++中，为什么通常使用复合赋值来实现算术运算符？](https://www.zhihu.com/question/35178911)
