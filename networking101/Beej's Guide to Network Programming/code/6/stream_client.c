@@ -37,7 +37,6 @@ void HandleTCPServer(int clientSock) {
     buf[n] = '\0';
     printf("%s\n", buf);
     close(clientSock);
-  
 }
 
 int main() {
