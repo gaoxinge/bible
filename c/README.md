@@ -85,3 +85,9 @@
 - [makefile](https://github.com/gaoxinge/bible/tree/master/c/makefile)
 - [跟我一起写Makefile](https://seisman.github.io/how-to-write-makefile)
 - [Makefile入门](https://zhuanlan.zhihu.com/p/149346441)
+
+## wsl
+
+- [copy and paste](https://www.reddit.com/r/bashonubuntuonwindows/comments/ceeu8p/comment/eu253fe/?utm_source=share&utm_medium=web2x&context=3)
+- [access by network](https://stackoverflow.com/questions/49835559/how-to-access-to-the-web-server-which-running-on-wslwindows-subsystem-for-linux/64159675#64159675)
+- [access by network](https://www.nextofwindows.com/allow-server-running-inside-wsl-to-be-accessible-outside-windows-10-host)
