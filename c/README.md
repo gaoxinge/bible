@@ -92,6 +92,10 @@
 - [CMake Reference Documentation](https://cmake.org/cmake/help/v3.22/)
 - [Kitware/CMake](https://github.com/Kitware/CMake)
 
+## package
+
+- [Neargye/magic_num](https://github.com/gaoxinge/bible/tree/master/c/package/magic_enum)
+
 ## wsl
 
 - [copy and paste](https://www.reddit.com/r/bashonubuntuonwindows/comments/ceeu8p/comment/eu253fe/?utm_source=share&utm_medium=web2x&context=3)
