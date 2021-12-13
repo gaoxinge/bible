@@ -95,6 +95,7 @@
 ## package
 
 - [Neargye/magic_num](https://github.com/gaoxinge/bible/tree/master/c/package/magic_enum_test)
+- [Tencent/rapidjson](https://github.com/gaoxinge/bible/tree/master/c/package/rapidjson_test)
 
 ## wsl
 
