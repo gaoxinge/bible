@@ -97,6 +97,7 @@
 - [Neargye/magic_num](https://github.com/gaoxinge/bible/tree/master/c/package/magic_enum_test)
 - [g-truc/glm](https://github.com/gaoxinge/bible/tree/master/c/package/glm_test)
 - [Tencent/rapidjson](https://github.com/gaoxinge/bible/tree/master/c/package/rapidjson_test)
+- [ericniebler/range-v3](https://github.com/gaoxinge/bible/tree/master/c/package/range_v3_test)
 
 ## wsl
 
