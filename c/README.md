@@ -101,6 +101,7 @@
 - [ericniebler/range-v3](https://github.com/gaoxinge/bible/tree/master/c/package/range_v3_test)
 - [fmtlib/fmt](https://github.com/gaoxinge/bible/tree/master/c/package/fmt_test)
 - [gabime/spdlog](https://github.com/gaoxinge/bible/tree/master/c/package/spdlog_test)
+- [abseil/abseil-cpp](https://github.com/gaoxinge/bible/tree/master/c/package/abseil_cpp_test)
 
 ## wsl
 
