@@ -99,6 +99,7 @@
 - [Tencent/rapidjson](https://github.com/gaoxinge/bible/tree/master/c/package/rapidjson_test)
 - [ericniebler/range-v3](https://github.com/gaoxinge/bible/tree/master/c/package/range_v3_test)
 - [fmtlib/fmt](https://github.com/gaoxinge/bible/tree/master/c/package/fmt_test)
+- [gabime/spdlog](https://github.com/gaoxinge/bible/tree/master/c/package/spdlog_test)
 
 ## wsl
 
