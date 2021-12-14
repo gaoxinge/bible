@@ -94,6 +94,7 @@
 
 ## package
 
+- [nothings/stb](https://github.com/gaoxinge/bible/tree/master/c/package/stb_test)
 - [Neargye/magic_num](https://github.com/gaoxinge/bible/tree/master/c/package/magic_enum_test)
 - [g-truc/glm](https://github.com/gaoxinge/bible/tree/master/c/package/glm_test)
 - [Tencent/rapidjson](https://github.com/gaoxinge/bible/tree/master/c/package/rapidjson_test)
