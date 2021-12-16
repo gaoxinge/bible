@@ -13,4 +13,6 @@ $ git clone git@github.com:google/googletest.git --depth=1
 $ cmake -B build/ -Dgtest_force_shared_crt=ON
 $ cmake --build build/
 $ ctest --test-dir build/ -C DEBUG -VV
+$ ./build/Debug/hello_test
+$ ./build/Debug/main
 ```
