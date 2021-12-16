@@ -103,6 +103,7 @@
 - [gabime/spdlog](https://github.com/gaoxinge/bible/tree/master/c/package/spdlog_test)
 - [abseil/abseil-cpp](https://github.com/gaoxinge/bible/tree/master/c/package/abseil_cpp_test)
 - [bombela/backward-cpp](https://github.com/gaoxinge/bible/tree/master/c/package/backward_cpp_test)
+- [google/googletest](https://github.com/gaoxinge/bible/tree/master/c/package/google_test_test)
 - [google/glog](https://github.com/gaoxinge/bible/tree/master/c/package/glog_test)
 
 ## wsl
