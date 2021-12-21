@@ -3,10 +3,33 @@
 ## command
 
 ```
-$ cd Step1_build
-$ cmake ../Step1
-$ cmake --build .
-$ cmake --build . --config Release
-$ cmake --install .
-$ cmake --install . --prefix "../installdir"
+$ cmake -B build/
+$ cmake --build build/
+$ cmake --install build/
+$ ./build/Debug/main.exe
+Hello, world!
+```
+
+```
+$ cmake -B build/
+$ cmake --build build/ --config Release
+$ cmake --install build/ --prefix install/
+$ ./install/bin/main.exe
+Hello, world!
+```
+
+```
+$ cmake -B build/ -DCMAKE_INSTALL_PREFIX=install
+$ cmake --build build/ --config Release
+$ cmake --install build/
+$ ./install/bin/main.exe
+Hello, world!
+```
+
+```
+$ cmake -B build/ -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install
+$ cmake --build build/ --config Release
+$ cmake --install build/
+$ ./install/bin/main.exe
+Hello, world!
 ```
