@@ -67,6 +67,10 @@
 
 - [note](cpp/cast)
 
+### 函数
+
+- [note](cpp/function)
+
 ### string
 
 - [note](cpp/string)
