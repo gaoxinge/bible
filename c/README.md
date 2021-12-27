@@ -122,6 +122,7 @@
 - [google/googletest](https://github.com/gaoxinge/bible/tree/master/c/package/google_test_test)
 - [google/benchmark](https://github.com/gaoxinge/bible/tree/master/c/package/benchmark_test)
 - [google/glog](https://github.com/gaoxinge/bible/tree/master/c/package/glog_test)
+- [oneapi-src/oneTBB](https://github.com/gaoxinge/bible/tree/master/c/package/tbb_test)
 
 ## wsl
 
