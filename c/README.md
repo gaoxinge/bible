@@ -126,6 +126,7 @@
 - [boost](https://github.com/gaoxinge/bible/tree/master/c/package/boost_test)
 - [libeigen/eigen](https://github.com/gaoxinge/bible/tree/master/c/package/eigen_test)
 - [openmp](https://github.com/gaoxinge/bible/tree/master/c/package/openmp_test)
+- [mpi](https://github.com/gaoxinge/bible/tree/master/c/package/mpi_test)
 
 ## wsl
 
