@@ -5,6 +5,9 @@
 - [Part 2: tbb::parallel_for](https://chryswoods.com/parallel_c%2b%2b/parallel_for.html)
 
 ```
+$ cd external
+$ git clone git@github.com:oneapi-src/oneTBB.git --depth=1
+
 $ cmake -B build -DTBB_TEST=OFF -DBUILD_SHARED_LIBS=OFF
 $ cmake --build build/
 $ ./build/Debug/main.exe
