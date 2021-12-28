@@ -1,3 +1,5 @@
+- [cmake](https://cmake.org/cmake/help/latest/module/FindMPI.html)
+
 ```
 $ cmake -B build/
 $ cmake --build build/
