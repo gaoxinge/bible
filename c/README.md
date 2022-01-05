@@ -75,6 +75,10 @@
 
 - [note](cpp/function)
 
+### 构造器
+
+- [note](cpp/constructor)
+
 ### string
 
 - [note](cpp/string)
