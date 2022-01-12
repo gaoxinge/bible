@@ -131,8 +131,8 @@
 - [libeigen/eigen](https://github.com/gaoxinge/bible/tree/master/c/package/eigen_test)
 - [openmp](https://github.com/gaoxinge/bible/tree/master/c/package/openmp_test)
 - [mpi](https://github.com/gaoxinge/bible/tree/master/c/package/mpi_test)
-- [opencv](https://github.com/gaoxinge/bible/tree/master/c/package/opencv_test)
-- [grpc](https://github.com/gaoxinge/bible/tree/master/c/package/grpc_test)
+- [opencv/opencv](https://github.com/gaoxinge/bible/tree/master/c/package/opencv_test)
+- [grpc/grpc](https://github.com/gaoxinge/bible/tree/master/c/package/grpc_test)
 
 ## wsl
 
