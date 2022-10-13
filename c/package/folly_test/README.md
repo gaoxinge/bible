@@ -1,0 +1,5 @@
+- [facebook/folly](https://github.com/facebook/folly)
+- steps
+  - git clone
+  - getdeps.py (many packages, too slow)
+  - cmake
