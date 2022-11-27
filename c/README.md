@@ -136,6 +136,7 @@
 - [grpc/grpc](https://github.com/gaoxinge/bible/tree/master/c/package/grpc_test)
 - [apache/incubator-brpc](https://github.com/gaoxinge/bible/tree/master/c/package/brpc_test)
 - [taskflow/taskflow](https://github.com/gaoxinge/bible/tree/master/c/package/taskflow_test)
+- [sogou/workflow](https://github.com/gaoxinge/bible/tree/master/c/package/workflow_test)
 
 ## wsl
 
