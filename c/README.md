@@ -52,6 +52,7 @@
 - [x] [C++ Template Metaprogramming](https://book.douban.com/subject/4136223/)
 - [x] [Modern C++ Design](https://book.douban.com/subject/1119904/)
 - [x] [wuye9036/CppTemplateTutorial](https://github.com/wuye9036/CppTemplateTutorial)
+- [x]  [downdemo/Cpp-Templates-2ed](https://github.com/downdemo/Cpp-Templates-2ed)
 - [x] [Effective C++](https://book.douban.com/subject/1842426/)
 - [x] [More Effective C++](https://book.douban.com/subject/5908727/)
 - [x] [Effective Modern C++](https://book.douban.com/subject/25923597/)
