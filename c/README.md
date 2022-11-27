@@ -134,6 +134,7 @@
 - [mpi](https://github.com/gaoxinge/bible/tree/master/c/package/mpi_test)
 - [opencv/opencv](https://github.com/gaoxinge/bible/tree/master/c/package/opencv_test)
 - [grpc/grpc](https://github.com/gaoxinge/bible/tree/master/c/package/grpc_test)
+- [apache/incubator-brpc](https://github.com/gaoxinge/bible/tree/master/c/package/brpc_test)
 - [taskflow/taskflow](https://github.com/gaoxinge/bible/tree/master/c/package/taskflow_test)
 
 ## wsl
